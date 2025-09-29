@@ -1,0 +1,29 @@
+# Django Web Framework
+Django==5.2.6
+
+# Database
+# SQLite is included with Django by default, but you can add PostgreSQL or MySQL drivers if needed
+# psycopg2-binary==2.9.9  # For PostgreSQL
+# mysqlclient==2.2.4      # For MySQL
+
+# Static files and media handling
+Pillow==10.4.0             # For image processing
+whitenoise==6.8.2          # For serving static files in production
+
+# Development and debugging
+django-debug-toolbar==4.4.6  # Debug toolbar for development
+django-extensions==3.2.3     # Useful Django extensions
+
+# Forms and UI enhancements
+django-crispy-forms==2.3     # Better form rendering
+crispy-bootstrap5==2024.10   # Bootstrap 5 support for crispy forms
+
+# Security and deployment
+python-decouple==3.8        # Environment variables management
+gunicorn==23.0.0            # WSGI HTTP Server for production
+
+# API development (if needed)
+djangorestframework==3.15.2  # REST API framework
+
+# Testing
+coverage==7.6.9             # Code coverage testing

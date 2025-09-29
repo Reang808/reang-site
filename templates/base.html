@@ -1,0 +1,239 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- ページタイトル -->
+    <title>{% block title %}【個人開発】広島での予約システム・ECサイト構築｜Reang{% endblock %}</title>
+    
+    <!-- SEO メタタグ -->
+    <meta name="description" content="{% block description %}広島市を拠点に、個人でWebアプリケーション開発を行っています。オーダーメイドの予約サイト構築、ECサイト、業務効率化ツールなど、柔軟な対応と適正価格でご提案。事業の課題解決を直接サポートします。{% endblock %}">
+    <meta name="keywords" content="{% block keywords %}広島,Web開発,予約システム,ECサイト,個人開発,アプリ開発,業務効率化,Reang{% endblock %}">
+    <meta name="author" content="Reang">
+    <meta name="robots" content="index, follow">
+    
+    <!-- OGP（Facebook・SNS共有用） -->
+    <meta property="og:title" content="{% block og_title %}【個人開発】広島での予約システム・ECサイト構築｜Reang{% endblock %}">
+    <meta property="og:description" content="{% block og_description %}広島を拠点に個人でWebアプリを開発。予約サイト構築やECサイト、業務効率化ツールなど、柔軟な対応で事業の課題解決をサポートします。{% endblock %}">
+    <meta property="og:image" content="{% block og_image %}{% if request.is_secure %}https{% else %}http{% endif %}://{{ request.get_host }}{% static 'images/reang_ogp.png' %}{% endblock %}">
+    <meta property="og:url" content="{% block og_url %}{% if request.is_secure %}https{% else %}http{% endif %}://{{ request.get_host }}{{ request.get_full_path }}{% endblock %}">
+    <meta property="og:type" content="{% block og_type %}website{% endblock %}">
+    <meta property="og:site_name" content="Reang">
+    <meta property="og:locale" content="ja_JP">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{% block twitter_title %}【個人開発】広島での予約システム・ECサイト構築｜Reang{% endblock %}">
+    <meta name="twitter:description" content="{% block twitter_description %}広島でのWebアプリ開発をサポートします。予約サイト構築、ECサイト、業務効率化ツールなど、柔軟な対応で事業の課題解決を支援。{% endblock %}">
+    <meta name="twitter:image" content="{% block twitter_image %}{% if request.is_secure %}https{% else %}http{% endif %}://{{ request.get_host }}{% static 'images/reang_ogp.png' %}{% endblock %}">
+    <meta name="twitter:site" content="@reang_dev">
+    
+    <!-- ファビコン -->
+    <link href="{% static 'images/reangicon.jpg' %}" rel="shortcut icon" type="image/x-icon">
+    <link href="{% static 'images/reangicon.jpg' %}" rel="apple-touch-icon">
+    
+    <!-- 正規URL -->
+    <link rel="canonical" href="{% block canonical_url %}{% if request.is_secure %}https{% else %}http{% endif %}://{{ request.get_host }}{{ request.get_full_path }}{% endblock %}">
+    <style data-tag="reset-style-sheet">
+      html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;  -webkit-font-smoothing: antialiased;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6,figure,blockquote,figcaption {  margin: 0;  padding: 0;}button {  background-color: transparent;}button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="submit"] {  -webkit-appearance: button;  color: inherit;}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}pre {  white-space: normal;}input {  padding: 2px 4px;}img {  display: block;}details {  display: block;  margin: 0;  padding: 0;}summary::-webkit-details-marker {  display: none;}[data-thq="accordion"] [data-thq="accordion-content"] {  max-height: 0;  overflow: hidden;  transition: max-height 0.3s ease-in-out;  padding: 0;}[data-thq="accordion"] details[data-thq="accordion-trigger"][open] + [data-thq="accordion-content"] {  max-height: 1000vh;}details[data-thq="accordion-trigger"][open] summary [data-thq="accordion-icon"] {  transform: rotate(180deg);}html { scroll-behavior: smooth  }
+    </style>
+    <style data-tag="default-style-sheet">
+      html {
+        font-family: "-apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen","Ubuntu", "Cantarell", "Fira Sans","Droid Sans", "Helvetica Neue", sans-serif";
+        font-size: 1.12rem;
+      }
+
+      body {
+        font-weight: 300;
+        font-style:normal;
+        text-decoration: none;
+        text-transform: none;
+        letter-spacing: normal;
+        line-height: 1.75;
+        color: var(--dl-color-gray-900);
+        background: var(--dl-color-gray-white);
+        fill: var(--dl-color-gray-900);
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/animate.css@4.1.1/animate.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@teleporthq/teleport-custom-scripts/dist/style.css"
+    />
+    <!-- Base CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+    {% block page_css %}{% endblock %}
+    <div>
+        {% block page_specific_css %}{% endblock %}
+
+        <div class="{% block container_class %}{% endblock %}">
+            <!-- ヘッダー -->
+            <header-wrapper class="header-wrapper">
+                <!--Header component-->
+                <div data-role="Header" class="header-header header">
+                    <div class="header-container1">
+                        <a href="{% url 'homepage:home' %}" class="header-navlink1">
+                            <img src="{% static 'images/reang.jpg' %}" alt="Reang" class="header-logo" />
+                        </a>
+                        <a href="{% url 'homepage:about' %}" class="header-navlink2">
+                            <div class="header-container2">
+                                <svg viewBox="0 0 1024 1024" class="header-icon10">
+                                    <path
+                                        d="M576 706.612v-52.78c70.498-39.728 128-138.772 128-237.832 0-159.058 0-288-192-288s-192 128.942-192 288c0 99.060 57.502 198.104 128 237.832v52.78c-217.102 17.748-384 124.42-384 253.388h896c0-128.968-166.898-235.64-384-253.388z"
+                                    ></path>
+                                </svg>
+                                <span class="header-text1 TextSM">About</span>
+                            </div>
+                        </a>
+                        
+                    </div>
+                    <div data-role="BurgerMenu" class="header-burger-menu">
+                        <svg viewBox="0 0 1024 1024" class="header-icon17">
+                            <path
+                                d="M128 256h768v86h-768v-86zM128 554v-84h768v84h-768zM128 768v-86h768v86h-768z"
+                            ></path>
+                        </svg>
+                    </div>
+                    <div class="header-container4">
+                        <a href="https://www.facebook.com/780813908451391?ref=pl_edit_xav_ig_profile_page_web" target="_blank" rel="noopener noreferrer">
+                            <img src="{% static 'images/Facebook.png' %}" alt="Facebook" class="header-social-icon" />
+                        </a>
+                        <a href="https://www.instagram.com/syetemreang/" target="_blank" rel="noopener noreferrer">
+                            <img src="{% static 'images/Instagram.png' %}" alt="Instagram" class="header-social-icon" />
+                        </a>
+                        <a href="https://linevoom.line.me/user/_dUXiZG-QzYilD8hygKJSa1HU5xfLbnqvpln54bA" target="_blank" rel="noopener noreferrer">
+                            <img src="{% static 'images/LINE_APP_iOS.png' %}" alt="LINE" class="header-social-icon" />
+                        </a>
+                        <a href="https://github.com/Reang808" target="_blank" rel="noopener noreferrer">
+                            <img src="{% static 'images/github.png' %}" alt="GitHub" class="header-social-icon" />
+                        </a>
+                    </div>
+                    <div data-role="MobileMenu" class="header-mobile-menu">
+                        <div class="header-top">
+                            <a href="{% url 'homepage:home' %}" class="header-navlink4">
+                                <img src="{% static 'images/reang.jpg' %}" alt="Reang" class="header-logo-mobile" />
+                            </a>
+                            <div data-role="CloseMobileMenu" class="header-close-menu">
+                                <svg viewBox="0 0 1024 1024" class="header-icon25">
+                                    <path
+                                        d="M810 274l-238 238 238 238-60 60-238-238-238 238-60-60 238-238-238-238 60-60 238 238 238-238z"
+                                    ></path>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="header-mid">
+                            <a href="{% url 'homepage:about' %}" class="header-navlink5">
+                                <div class="header-container5">
+                                    <svg viewBox="0 0 1024 1024" class="header-icon27">
+                                        <path
+                                            d="M576 706.612v-52.78c70.498-39.728 128-138.772 128-237.832 0-159.058 0-288-192-288s-192 128.942-192 288c0 99.060 57.502 198.104 128 237.832v52.78c-217.102 17.748-384 124.42-384 253.388h896c0-128.968-166.898-235.64-384-253.388z"
+                                        ></path>
+                                    </svg>
+                                    <span class="header-text3 TextSM">About</span>
+                                </div>
+                            </a>
+                            
+                        </div>
+                        <div class="header-bot">
+                            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+                                <img src="{% static 'images/Facebook.png' %}" alt="Facebook" class="header-social-icon-mobile" />
+                            </a>
+                            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+                                <img src="{% static 'images/Instagram.png' %}" alt="Instagram" class="header-social-icon-mobile" />
+                            </a>
+                            <a href="https://line.me" target="_blank" rel="noopener noreferrer">
+                                <img src="{% static 'images/LINE_APP_iOS.png' %}" alt="LINE" class="header-social-icon-mobile" />
+                            </a>
+                            <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+                                <img src="{% static 'images/github.png' %}" alt="GitHub" class="header-social-icon-mobile" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </header-wrapper>
+
+            <!-- メインコンテンツ -->
+            {% block content %}
+            {% endblock %}
+
+            <!-- フッター -->
+            <footer-wrapper class="footer-wrapper">
+                <!--Footer component-->
+                <div class="footer-container10">
+                    <div class="footer-container11">
+                        <div class="footer-container12">
+                            <h1 class="footer-text10 TextXL">
+                                <span>Reang</span>
+                            </h1>
+                            <span class="footer-text12">
+                                <span></span>
+                            </span>
+                            <div class="footer-container13">
+                                <div class="footer-container14">
+                                    <a href="https://www.facebook.com/780813908451391?ref=pl_edit_xav_ig_profile_page_web" target="_blank" rel="noopener noreferrer">
+                                        <img src="{% static 'images/Facebook.png' %}" alt="Facebook" class="footer-social-icon" />
+                                    </a>
+                                </div>
+                                <div class="footer-container15">
+                                    <a href="https://www.instagram.com/syetemreang/" target="_blank" rel="noopener noreferrer">
+                                        <img src="{% static 'images/Instagram.png' %}" alt="Instagram" class="footer-social-icon" />
+                                    </a>
+                                </div>
+                                <div class="footer-container16">
+                                    <a href="https://line.me/R/ti/p/%40reang" target="_blank" rel="noopener noreferrer">
+                                        <img src="{% static 'images/LINE_APP_iOS.png' %}" alt="LINE" class="footer-social-icon" />
+                                    </a>
+                                </div>
+                                <div class="footer-container17">
+                                    <a href="https://github.com/Reang808" target="_blank" rel="noopener noreferrer">
+                                        <img src="{% static 'images/github.png' %}" alt="GitHub" class="footer-social-icon" />
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="footer-container18">
+                            <div class="footer-container19">
+                                <span class="footer-text13 TextXS">Site Map</span>
+                                
+                                <a href="{% url 'homepage:about' %}" class="footer-text16 TextSM">About</a>
+                                <a href="https://reang-reserve.jp/tenant/reservation/" class="footer-text14 TextSM">Contact Us</a>
+                                <span class="footer-text22 TextSM">Privacy Policy</span>
+                            </div>
+                            <div class="footer-container20">
+                                <span class="footer-text18 TextXS">Contact info</span>
+                                <span class="footer-text21 TextSM">所在地：〒730-0051<br></span>
+                                <span class="footer-text19 TextSM">広島県広島市中区大手町<br>1丁目26番大手町1番ビル305<br></span>
+                                <span class="footer-text20 TextSM">電話番号：080-8636-3296</span>
+                                <span class="footer-text22 TextSM">メール：info@reang.jp</span>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer-container21"></div>
+                    <span class="footer-text23 TextSM">
+                        Copyright © 2025 Reang Inc. All rights reserved.
+                    </span>
+                </div>
+            </footer-wrapper>
+        </div>
+    </div>
+    <script
+      defer=""
+      src="https://unpkg.com/@teleporthq/teleport-custom-scripts"
+    ></script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

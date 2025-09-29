@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}About Us - Reang{% endblock %}
+{% block og_title %}About Us - Reang{% endblock %}
+
+{% block page_css %}
+<link rel="stylesheet" href="{% static 'css/about.css' %}" />
+<link rel="stylesheet" href="{% static 'css/index.css' %}" />
+{% endblock %}
+
+{% block container_class %}profile-container{% endblock %}
+
+{% block content %}
+
+
+
+        <div class="profile-hero">
+          <video class="profile-hero-video" autoplay loop muted playsinline>
+            <source src="{% static 'videos/coverr-coding-sequences-9906-1080p-transcode.mp4' %}" type="video/mp4">
+          </video>
+          <div class="profile-hero-overlay"></div>
+          <div class="profile-hero-content">
+            <h1 class="profile-hero-title">あなたの情熱を、<br>成功という名のシステムに。</h1>
+            <p class="profile-hero-subtitle">広島の小さな会社の可能性を、ITの力で最大化する。</p>
+          </div>
+          
+        </div>
+
+        <section class="profile-section profile-intro">
+            <div class="profile-intro-flex">
+              <div class="profile-intro-image">
+                    <img src="{% static 'images/ABOUT.JPEG' %}" alt="代表者: 後藤田烈志" class="profile-image-main"/>
+                </div>
+                <div class="profile-intro-text">
+                    <h2 class="profile-section-title">ご挨拶</h2>
+                    <p>
+                        はじめまして。Reang代表の後藤田 烈志です。<br>
+                        大手SIerにて多数のプロジェクトを経験後、小規模事業者様や個人事業主様の可能性をITの力で最大化したいという想いから「Reang」を設立しました。
+                    </p>
+                    <p>
+                        私が大切にしているのは、お客様のビジネスに深く寄り添い、顔の見えるパートナーとして共に汗をかくこと。単にシステムを作るのではなく、お客様の事業を「成功」させるための武器をお届けします。
+                    </p>
+                    <p>
+                        どんな些細なことでも構いません。まずはお客様の情熱や課題をお聞かせください。
+                    </p>
+                </div>
+                
+            </div>
+        </section>
+        
+        <section class="profile-section profile-strengths-bg">
+            <h2 class="profile-section-title text-center">Reangが選ばれる3つの理由</h2>
+            <div class="profile-strengths-container">
+                <div class="profile-strength-card">
+                    <div class="profile-strength-icon">✓</div>
+                    <h3>徹底した対面主義</h3>
+                    <p>お客様との対話を重視し、ニーズを的確に把握。顔の見える関係を築くことで、信頼性の高いサービスを提供します。</p>
+                </div>
+                <div class="profile-strength-card">
+                    <div class="profile-strength-icon">✓</div>
+                    <h3>個人開発の柔軟性</h3>
+                    <p>お客様のニーズに応じた柔軟な対応が可能です。個別の要望に対しても迅速に対応し、最適なソリューションを提供します。</p>
+                </div>
+                <div class="profile-strength-card">
+                    <div class="profile-strength-icon">✓</div>
+                    <h3>小規模事業者様専門</h3>
+                    <p>小規模事業者様に特化しているからこそ、小回りの利く柔軟な対応と、無駄を削ぎ落とした最適なコストでのご提案が可能です。</p>
+                </div>
+                
+            </div>
+          
+        </section>
+        
+        <section class="profile-section profile-details-bg">
+            <h2 class="profile-section-title text-center">事業概要・プロフィール</h2>
+            <div class="profile-details-container">
+                <div class="profile-details-card">
+                    <h3>会社情報</h3>
+                    <p><strong>屋号:</strong> Reang (リアング)</p>
+                    <p><strong>代表者:</strong> 後藤田 烈志</p>
+                    <p><strong>所在地:</strong> 広島県広島市中区大手町1丁目26番 大手町1番ビル305</p>
+                    <p><strong>事業内容:</strong> システム開発、ITコンサルティング</p>
+                </div>
+                <div class="profile-details-card">
+                    <h3>代表者プロフィール</h3>
+                    <p>
+                        大手IT企業で様々なシステムの企画・開発に携わった後、独立。
+                        「テクノロジーの恩恵を、もっと身近に届けたい」という想いから、広島を拠点に小規模・個人事業主様のサポートを開始。
+                    </p>
+                    <p><strong>趣味:</strong> Beetmake</p>
+                    <p><strong>座右の銘:</strong> 百聞は一見に如かず、百見は一触に如かず</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="profile-section profile-cta">
+            <h2 class="profile-cta-title">あなたのビジネスについて<br>お聞かせください。</h2>
+            <p class="profile-cta-text">
+                ITでできることをご提案します。無理な営業は一切いたしません。
+            </p>
+            <a href="https://reang-reserve.jp/tenant/reservation/" class="profile-cta-button">無料相談を予約する</a>
+        </section>
+
+{% endblock %}
