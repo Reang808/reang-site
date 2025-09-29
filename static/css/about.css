@@ -1,0 +1,316 @@
+/* General Styles */
+.profile-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+}
+
+.profile-section {
+  padding: 4rem 2rem;
+}
+
+.profile-section-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--dl-color-secondary-400);
+  margin-bottom: 2.5rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* Hero Section */
+.profile-hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 50vh;
+  overflow: hidden;
+  color: white;
+}
+
+.profile-hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.profile-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+  z-index: 0;
+}
+
+.profile-hero-content {
+  max-width: 800px;
+  position: relative;
+  z-index: 0;
+}
+
+.profile-hero-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 1rem;
+}
+
+.profile-hero-subtitle {
+  font-size: 1.25rem;
+  font-weight: 300;
+}
+
+/* Introduction Section */
+.profile-intro {
+  max-width: 1320px;
+  margin: 0 auto;
+}
+.profile-intro-flex {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+.profile-intro-text {
+  flex: 2;
+  color: #000000;
+}
+
+.profile-intro-text .profile-section-title {
+  color: #000000;
+}
+
+.profile-intro-text p {
+  margin-bottom: 1.5rem;
+  line-height: 1.8;
+}
+
+.profile-intro-image {
+  flex: 1;
+  text-align: center;
+}
+
+.profile-image-main {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  border-radius: 50%;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  border: 5px solid white;
+}
+
+/* Strengths Section */
+.profile-strengths-bg {
+  background-color: #ffffff;
+}
+
+.profile-strengths-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+.profile-strength-card {
+  background-color: #f8f9fa;
+  padding: 2rem;
+  border-radius: 8px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-strength-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.profile-strength-icon {
+  font-size: 2rem;
+  color: var(--dl-color-pimary-500);
+  margin-bottom: 1rem;
+}
+
+.profile-strength-card h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--dl-color-secondary-400);
+  margin-bottom: 1rem;
+}
+
+.profile-strength-card p {
+  color: var(--dl-color-gray-700);
+  line-height: 1.6;
+}
+
+/* Testimonials Section */
+.profile-testimonials-container {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+.profile-testimonial-card {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 8px;
+  text-align: center;
+  width: 45%;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.profile-testimonial-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 1.5rem auto;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+}
+
+.profile-testimonial-text {
+  font-style: italic;
+  color: var(--dl-color-gray-700);
+  margin-bottom: 1.5rem;
+}
+
+.profile-testimonial-author {
+  font-weight: 600;
+  color: var(--dl-color-secondary-400);
+}
+
+/* Profile Details Section */
+.profile-details-bg {
+    background-color: var(--dl-color-pimary-900);
+}
+
+.profile-details-bg .profile-section-title {
+    color: var(--dl-color-secondary-100);
+}
+
+.profile-details-container {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+.profile-details-card {
+  background-color: #ffffff;
+  padding: 2.5rem;
+  border-radius: 8px;
+  width: 50%;
+}
+
+.profile-details-card h3 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--dl-color-secondary-400);
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid var(--dl-color-pimary-500);
+  padding-bottom: 0.5rem;
+}
+
+.profile-details-card p {
+  margin-bottom: 1rem;
+  line-height: 1.7;
+  color: var(--dl-color-gray-700);
+}
+
+/* Call to Action Section */
+.profile-cta {
+  text-align: center;
+  background-color: var(--dl-color-secondary-100);
+}
+
+.profile-cta-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.profile-cta-text {
+  color: #e0e0e0;
+  font-size: 1.125rem;
+  margin-bottom: 2rem;
+}
+
+.profile-cta-button {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  background-color: var(--dl-color-pimary-500);
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.profile-cta-button:hover {
+  background-color: var(--dl-color-pimary-300);
+  transform: translateY(-3px);
+}
+
+/* Responsive Styles */
+@media(max-width: 991px) {
+  .profile-section {
+    padding: 3rem 1.5rem;
+  }
+  .profile-intro-flex {
+    flex-direction: column;
+  }
+  .profile-intro-image {
+      margin-top: 2rem;
+  }
+  .profile-strengths-container {
+    grid-template-columns: 1fr;
+  }
+  .profile-testimonials-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .profile-testimonial-card {
+      width: 100%;
+      max-width: 500px;
+  }
+  .profile-details-container {
+      flex-direction: column;
+      align-items: center;
+  }
+  .profile-details-card {
+      width: 100%;
+      max-width: 600px;
+  }
+}
+
+@media(max-width: 767px) {
+    .profile-hero {
+        height: 40vh;
+    }
+    .profile-hero-title {
+        font-size: 2.2rem;
+    }
+    .profile-hero-subtitle {
+        font-size: 1.1rem;
+    }
+    .profile-section-title {
+        font-size: 1.8rem;
+    }
+}
