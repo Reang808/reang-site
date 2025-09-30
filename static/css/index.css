@@ -3530,3 +3530,292 @@
   background-color: var(--dl-color-pimary-300);
   transform: translateY(-3px);
 }
+
+/* ===== JavaScript アニメーション用スタイル ===== */
+
+/* スクロール進捗バー */
+.scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--dl-color-pimary-500), var(--dl-color-secondary-400));
+  z-index: 1000;
+  transition: width 0.3s ease;
+}
+
+/* フェードインアニメーション */
+.animate-fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.animate-fade-in.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* カードの3D効果 */
+.home-service-card,
+.home-pricing-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.home-service-card:hover,
+.home-pricing-card:hover {
+  transform: translateY(-10px) rotateX(5deg);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* カード画像のパララックス効果 */
+.home-service-image,
+.home-pricing-image {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 動的パーティクル */
+.dynamic-particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: floatParticle linear infinite;
+}
+
+@keyframes floatParticle {
+  0% {
+    transform: translateY(100vh) scale(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100px) scale(1);
+    opacity: 0;
+  }
+}
+
+/* マウス追従パーティクル */
+.mouse-particle {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background: radial-gradient(circle, var(--dl-color-pimary-500) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1000;
+  animation: mouseParticleFloat 1s ease-out forwards;
+}
+
+@keyframes mouseParticleFloat {
+  0% {
+    transform: scale(0) translate(-50%, -50%);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.5) translate(-50%, -50%);
+    opacity: 0;
+  }
+}
+
+/* ボタンのリップル効果 */
+.home-contact-button,
+.home-consultation-button,
+.profile-cta-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(0);
+  animation: rippleEffect 0.6s ease-out;
+  pointer-events: none;
+}
+
+@keyframes rippleEffect {
+  to {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+/* パルスアニメーション */
+.pulse-animation {
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(var(--dl-color-pimary-500-rgb), 0.7);
+  }
+  50% {
+    transform: scale(1.02);
+    box-shadow: 0 0 0 10px rgba(var(--dl-color-pimary-500-rgb), 0);
+  }
+}
+
+/* ヒーローセクションのローディングアニメーション */
+.home-hero {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.home-hero.hero-loaded {
+  opacity: 1;
+}
+
+/* ページ全体のローディング状態 */
+body:not(.loaded) {
+  overflow: hidden;
+}
+
+body.loaded {
+  overflow: visible;
+}
+
+/* タイピングアニメーション用のカーソル */
+.home-text10 {
+  position: relative;
+}
+
+.home-text10::after {
+  content: '|';
+  animation: blink 1s infinite;
+  color: var(--dl-color-pimary-500);
+}
+
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
+/* パララックス要素 */
+.parallax-element {
+  will-change: transform;
+}
+
+/* スムーズなスクロール */
+html {
+  scroll-behavior: smooth;
+}
+
+/* カード内容のアニメーション遅延 */
+.home-service-card:nth-child(1) .animate-fade-in {
+  animation-delay: 0.1s;
+}
+
+.home-service-card:nth-child(2) .animate-fade-in {
+  animation-delay: 0.2s;
+}
+
+.home-service-card:nth-child(3) .animate-fade-in {
+  animation-delay: 0.3s;
+}
+
+.home-service-card:nth-child(4) .animate-fade-in {
+  animation-delay: 0.4s;
+}
+
+.home-service-card:nth-child(5) .animate-fade-in {
+  animation-delay: 0.5s;
+}
+
+/* アプローチセクションの追加アニメーション */
+.home-container25,
+.home-container26,
+.home-container28,
+.home-container30 {
+  transition: all 0.3s ease;
+}
+
+.home-container25:hover,
+.home-container26:hover,
+.home-container28:hover,
+.home-container30:hover {
+  transform: translateX(10px);
+}
+
+/* モバイル最適化 */
+.mobile-device .dynamic-particle {
+  animation-duration: 20s;
+}
+
+.mobile-device .mouse-particle {
+  display: none;
+}
+
+.mobile-device .home-service-card:hover,
+.mobile-device .home-pricing-card:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  .scroll-progress-bar {
+    height: 2px;
+  }
+  
+  .animate-fade-in {
+    transform: translateY(20px);
+  }
+  
+  .profile-cta-title {
+    font-size: 1.5rem;
+  }
+  
+  /* モバイルでのパーティクル数を削減 */
+  .dynamic-particle:nth-child(n+6) {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .pulse-animation {
+    animation: none;
+  }
+  
+  .home-text10::after {
+    display: none;
+  }
+}
+
+/* パフォーマンス最適化 */
+.home-service-card,
+.home-pricing-card,
+.dynamic-particle,
+.mouse-particle {
+  will-change: transform;
+}
+
+/* 高コントラストモード対応 */
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in,
+  .dynamic-particle,
+  .mouse-particle,
+  .pulse-animation,
+  .home-text10::after {
+    animation: none;
+  }
+  
+  .home-service-card,
+  .home-pricing-card {
+    transition: none;
+  }
+}
