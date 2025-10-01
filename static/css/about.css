@@ -1,14 +1,49 @@
+/* スクロール修正と基本レイアウト */
+html, body {
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  height: auto !important;
+  max-height: none !important;
+  scroll-behavior: smooth;
+  width: 100% !important;
+  max-width: 100vw !important;
+}
+
+/* 全体的な幅制御 */
+* {
+  box-sizing: border-box !important;
+}
+
+/* 小さな画面での基本設定 */
+@media(max-width: 450px) {
+  html {
+    font-size: 0.9rem !important;
+  }
+  
+  body {
+    word-break: keep-all !important;
+    overflow-wrap: break-word !important;
+  }
+}
+
 /* General Styles */
 .profile-container {
   width: 100%;
+  max-width: 100vw;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   background-color: #f8f9fa;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  height: auto !important;
 }
 
 .profile-section {
   padding: 4rem 2rem;
+  width: 100%;
+  max-width: 100vw;
+  box-sizing: border-box;
 }
 
 .profile-section-title {
@@ -30,6 +65,8 @@
   justify-content: center;
   text-align: center;
   height: 50vh;
+  width: 100%;
+  max-width: 100vw;
   overflow: hidden;
   color: white;
 }
@@ -151,7 +188,7 @@
 }
 
 .profile-strength-card p {
-  color: var(--dl-color-gray-700);
+  color: #000000;
   line-height: 1.6;
 }
 
@@ -229,7 +266,7 @@
 .profile-details-card p {
   margin-bottom: 1rem;
   line-height: 1.7;
-  color: var(--dl-color-gray-700);
+  color: #000000;
 }
 
 /* Call to Action Section */
@@ -266,6 +303,34 @@
 .profile-cta-button:hover {
   background-color: var(--dl-color-pimary-300);
   transform: translateY(-3px);
+}
+/* about.css に以下のコードを追記 */
+
+/* スクロールアニメーションの基本設定 */
+.fade-in-up {
+  opacity: 0;
+  /* 最初は20px下に配置 */
+  transform: translateY(20px);
+  /* 0.6秒かけてアニメーション */
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* is-visibleクラスが付与されたら表示 */
+.fade-in-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* カードが順番に表示されるように遅延を設定 */
+.profile-strengths-container .profile-strength-card:nth-child(2) {
+  transition-delay: 0.2s;
+}
+.profile-strengths-container .profile-strength-card:nth-child(3) {
+  transition-delay: 0.4s;
+}
+
+.profile-details-container .profile-details-card:nth-child(2) {
+  transition-delay: 0.2s;
 }
 
 /* Responsive Styles */
@@ -313,4 +378,296 @@
     .profile-section-title {
         font-size: 1.8rem;
     }
+}
+
+/* ヘッダーの幅制御（全画面サイズ対応） */
+@media(max-width: 450px) {
+  .header-header {
+    max-width: 100% !important;
+    width: 100% !important;
+    padding: 0.75rem 1rem !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    box-sizing: border-box !important;
+  }
+  
+  .header-container1,
+  .header-container4 {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+  }
+}
+
+/* 450px以下の小さなスマートフォン対応 */
+@media(max-width: 450px) {
+  .profile-container {
+    width: 100% !important;
+    max-width: 100vw !important;
+    overflow-x: hidden !important;
+  }
+  
+  .profile-section {
+    padding: 2rem 1rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  
+  .profile-hero {
+    height: 35vh !important;
+    min-height: 250px !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+  }
+  
+  .profile-hero-content {
+    padding: 0 1rem !important;
+    max-width: calc(100vw - 2rem) !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  
+  .profile-hero-title {
+    font-size: 1.8rem !important;
+    line-height: 1.2 !important;
+    margin-bottom: 0.8rem !important;
+    word-break: keep-all !important;
+    overflow-wrap: break-word !important;
+  }
+  
+  .profile-hero-subtitle {
+    font-size: 1rem !important;
+    line-height: 1.4 !important;
+    word-break: keep-all !important;
+    overflow-wrap: break-word !important;
+  }
+  
+  .profile-section-title {
+    font-size: 1.5rem !important;
+    margin-bottom: 1.5rem !important;
+    word-break: keep-all !important;
+    overflow-wrap: break-word !important;
+  }
+  
+  .profile-intro-flex {
+    gap: 1.5rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  
+  .profile-intro-text {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  
+  .profile-intro-text p {
+    font-size: 0.9rem !important;
+    line-height: 1.6 !important;
+    margin-bottom: 1rem !important;
+    word-break: keep-all !important;
+    overflow-wrap: break-word !important;
+  }
+  
+  .profile-image-main {
+    max-width: 200px !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+  
+  .profile-strengths-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+  }
+  
+  .profile-strength-card {
+    padding: 1.5rem 1rem !important;
+    margin-bottom: 1rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  
+  .profile-strength-card h3 {
+    font-size: 1.2rem !important;
+    margin-bottom: 0.8rem !important;
+    word-break: keep-all !important;
+    overflow-wrap: break-word !important;
+  }
+  
+  .profile-strength-card p {
+    font-size: 0.9rem !important;
+    line-height: 1.5 !important;
+    word-break: keep-all !important;
+    overflow-wrap: break-word !important;
+  }
+  
+  .profile-details-card {
+    padding: 1.5rem 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .profile-details-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+  
+  .profile-details-card p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+  
+  .profile-cta-title {
+    font-size: 1.5rem;
+    line-height: 1.3;
+    margin-bottom: 1rem;
+  }
+  
+  .profile-cta-text {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .profile-cta-button {
+    padding: 0.8rem 1.8rem;
+    font-size: 0.9rem;
+    width: auto;
+    max-width: 280px;
+  }
+}
+
+/* 370px以下の極小スマートフォン対応 */
+@media(max-width: 375px) {
+  .header-header {
+    padding: 0.5rem 0.8rem !important;
+  }
+  
+  .profile-container {
+    overflow-x: hidden !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+  }
+  
+  .profile-section {
+    padding: 1.5rem 0.8rem !important;
+    overflow-x: hidden !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  
+  .profile-hero {
+    height: 30vh;
+    min-height: 220px;
+  }
+  
+  .profile-hero-content {
+    padding: 0 0.8rem;
+    max-width: calc(100vw - 1.6rem);
+  }
+  
+  .profile-hero-title {
+    font-size: 1.6rem;
+    line-height: 1.2;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+  
+  .profile-hero-subtitle {
+    font-size: 0.9rem;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+  
+  .profile-section-title {
+    font-size: 1.3rem;
+    margin-bottom: 1.2rem;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+  
+  .profile-intro-flex {
+    width: 100%;
+    overflow-x: hidden;
+  }
+  
+  .profile-intro-text {
+    width: 100%;
+  }
+  
+  .profile-intro-text p {
+    font-size: 0.85rem;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+  
+  .profile-image-main {
+    max-width: 180px;
+  }
+  
+  .profile-strengths-container {
+    width: 100%;
+    overflow-x: hidden;
+  }
+  
+  .profile-strength-card {
+    padding: 1.2rem 0.8rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .profile-strength-card h3 {
+    font-size: 1.1rem;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+  
+  .profile-strength-card p {
+    font-size: 0.85rem;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+  
+  .profile-details-container {
+    width: 100%;
+    overflow-x: hidden;
+  }
+  
+  .profile-details-card {
+    padding: 1.2rem 0.8rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .profile-details-card h3 {
+    font-size: 1.2rem;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+  
+  .profile-details-card p {
+    font-size: 0.85rem;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+  
+  .profile-cta-title {
+    font-size: 1.3rem;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+  
+  .profile-cta-text {
+    font-size: 0.9rem;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+  
+  .profile-cta-button {
+    padding: 0.7rem 1.5rem;
+    font-size: 0.85rem;
+    max-width: 250px;
+    width: auto;
+    display: inline-block;
+  }
 }

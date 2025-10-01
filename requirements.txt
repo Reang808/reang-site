@@ -3,7 +3,7 @@ Django==5.2.6
 
 # Database
 # SQLite is included with Django by default, but you can add PostgreSQL or MySQL drivers if needed
-# psycopg2-binary==2.9.9  # For PostgreSQL
+psycopg2-binary==2.9.9  # For PostgreSQL
 # mysqlclient==2.2.4      # For MySQL
 
 # Static files and media handling

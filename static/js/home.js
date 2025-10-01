@@ -1,5 +1,58 @@
 // DOM読み込み完了時の初期化
 document.addEventListener('DOMContentLoaded', function() {
+
+  // --- カードが横から出現するアニメーション ---
+  
+  // 1. アニメーションさせたいカード要素をすべて取得
+  const animatedCards = document.querySelectorAll('.home-service-card, .home-pricing-card');
+
+  // 2. Intersection Observer のオプション設定
+  const observerOptions = {
+    root: null, // ビューポートを基準
+    rootMargin: '0px 0px -100px 0px', // 画面の下から100pxの位置で見え始めたら
+    threshold: 0 // 少しでも見えたらトリガー
+  };
+
+  // 3. 要素が画面内に入ったときの処理を定義
+  const observerCallback = (entries, observer) => {
+    entries.forEach(entry => {
+      // 画面内に入ったら
+      if (entry.isIntersecting) {
+        // is-visibleクラスを追加してアニメーションを開始
+        entry.target.classList.add('is-visible');
+        // 一度アニメーションしたら、その要素の監視を解除
+        observer.unobserve(entry.target);
+      }
+    });
+  };
+
+  // 4. オブザーバーのインスタンスを作成
+  const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+  // 5. 各カードに初期クラスを付与し、監視を開始
+  animatedCards.forEach(card => {
+    card.classList.add('slide-in');
+    observer.observe(card);
+  });
+
+
+  // --- (追加提案) パララックス効果 ---
+  
+  // 6. data-speed属性を持つ要素をすべて取得
+  const parallaxElements = document.querySelectorAll('[data-speed]');
+  
+  window.addEventListener('scroll', () => {
+    const yOffset = window.pageYOffset; // 垂直方向のスクロール量を取得
+
+    parallaxElements.forEach(el => {
+      const speed = el.dataset.speed; // data-speedの値を取得
+      // スクロール量とspeedを掛け合わせて、Y方向の位置をずらす
+      el.style.transform = `translateY(${yOffset * speed}px)`;
+    });
+  });
+
+});
+document.addEventListener('DOMContentLoaded', function() {
     // 初期化関数群の実行
     initScrollAnimations();
     initParticleAnimations();
@@ -340,3 +393,4 @@ if (/Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.us
         particle.style.animationDuration = '20s'; // アニメーション速度を下げる
     });
 }
+
