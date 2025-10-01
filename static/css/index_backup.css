@@ -890,6 +890,7 @@
   width: 100%;
   height: auto;
   display: flex;
+  min-height: 100vh;
   align-items: flex-start;
   flex-direction: column;
 }
@@ -1214,17 +1215,16 @@
 }
  
 .home-text18 {
-  color: #000000;
+  color: var(--dl-color-secondary-700);
   text-align: center;
   margin-bottom: 0.25rem;
 }
  
-.home-text18 .home-text19 {
+.home-text19 {
   display: inline;
   font-weight: 400;
   white-space: normal;
   background-color: rgb(241, 245, 249);
-  color: #000000 !important;
 }
  
 .home-cards-container {
@@ -1338,7 +1338,7 @@
 }
 
 .home-service-description {
-  color: black;
+  color: var(--dl-color-secondary-700);
   font-size: 0.95rem;
   line-height: 1.6;
   text-align: left;
@@ -1784,7 +1784,7 @@
 }
 
 .home-feature-text {
-  color: black;
+  color: var(--dl-color-secondary-700);
   font-size: 0.95rem;
   font-family: 'Open Sans', sans-serif;
 }
@@ -2017,7 +2017,7 @@
 }
  
 .home-text39 {
-  color: black;
+  color: var(--dl-color-secondary-700);
   text-align: center;
   margin-bottom: var(--dl-layout-space-unitandhalf);
 }
@@ -2837,47 +2837,7 @@
 }
  
 .home-link {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.75rem 1.5rem;
-  margin-top: 1rem;
-  background: rgb(219, 219, 219);
-  color: #000000;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 0.95rem;
-  border-radius: 25px;
-  border: 2px solid transparent;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 4px 15px rgba(202, 222, 255, 0.3);
-  position: relative;
-  overflow: hidden;
-}
-
-.home-link::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-  transition: left 0.5s;
-}
-
-.home-link:hover::before {
-  left: 100%;
-}
-
-.home-link:hover {
-  transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.4);
-  background: linear-gradient(135deg, #dbdbdb, #dedede);
-}
-
-.home-link:active {
-  transform: translateY(-1px) scale(1.02);
-  box-shadow: 0 4px 15px rgba(158, 158, 158, 0.5);
+  display: contents;
 }
  
 .home-container60 {
@@ -3318,9 +3278,155 @@
   .home-container17 {
     height: 140px;
   }
+  
+  /* 相談ボタンのレスポンシブ調整 */
+  .home-consultation-button {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+  
+  .home-pricing-cards-container {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    max-width: 100%;
+  }
+  
+  .home-pricing-card {
+    margin: 0 auto;
+    max-width: 100%;
+  }
+  
+  .home-pricing-image-container {
+    height: 160px;
+  }
+  
+  .home-pricing-content {
+    padding: 1.25rem;
+  }
+  
+  .home-pricing-title {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .home-pricing-description {
+    font-size: 0.85rem;
+    margin-bottom: 1.25rem;
+  }
+  
+  .home-pricing-features {
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .home-feature-text {
+    font-size: 0.9rem;
+  }
+  
+  .home-pricing-highlight {
+    font-size: 1rem;
+  }
+  
+  .home-pricing-card:hover {
+    transform: translateY(-8px) scale(1.02);
+  }
+  
+  .home-pricing-card1,
+  .home-pricing-card2 {
+    width: 98%;
+    margin-bottom: 0;
+    min-height: 340px;
+  }
+  
+  .home-pricing-container1,
+  .home-pricing-container2 {
+    height: 140px;
+  }
+  .home-container24 {
+    align-items: flex-start;
+  }
+  .home-container33 {
+    align-items: center;
+    flex-direction: column;
+  }
+  .home-text52 {
+    text-align: center;
+  }
+  .home-text59 {
+    text-align: center;
+  }
+  .home-text61 {
+    text-align: left;
+  }
 }
 
-/* 相談ボタンの基本スタイル */
+/* 日本語文章の改行制御とスマホ最適化 */
+.home-text10,
+.home-text11,
+.home-text17,
+.home-text18,
+.home-text19 {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  line-break: strict;
+  -webkit-line-break: after-white-space;
+}
+
+/* 370px〜450pxでの文章最適化 */
+@media screen and (max-width: 450px) and (min-width: 370px) {
+  .home-text10 {
+    font-size: clamp(1.5rem, 4vw, 2rem) !important;
+    line-height: 1.2 !important;
+    word-spacing: -0.05em;
+    letter-spacing: -0.01em;
+    padding: 0 0.75rem;
+    white-space: normal;
+  }
+  
+  .home-text11 {
+    font-size: clamp(0.85rem, 2.5vw, 1rem) !important;
+    line-height: 1.4 !important;
+    padding: 0 0.75rem;
+    margin-top: 0.5rem;
+  }
+  
+  .home-text17 {
+    font-size: clamp(1.75rem, 5vw, 2.25rem) !important;
+    line-height: 1.2;
+  }
+  
+  .home-text18 {
+    font-size: clamp(0.9rem, 2.5vw, 1.1rem) !important;
+    line-height: 1.5;
+    padding: 0 1rem;
+  }
+  
+  /* サービスカード内のテキスト */
+  .home-service-title {
+    font-size: clamp(0.95rem, 3vw, 1.1rem) !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .home-service-description {
+    font-size: clamp(0.8rem, 2.2vw, 0.9rem) !important;
+    line-height: 1.4;
+  }
+}
+
+/* サービス画像のスタイル */
+.home-service-image {
+  width: 100%;
+  height: 100%;
+  border-radius: var(--dl-layout-radius-radius50) var(--dl-layout-radius-radius50) 0 0;
+  object-fit: cover;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 0;
+}
+
+/* 無料相談ボタンのスタイル */
 .home-consultation-button-container {
   display: flex;
   justify-content: center;
@@ -3356,38 +3462,196 @@
   font-weight: 600;
 }
 
-/* profile-cta-button用のスタイル（home-consultation-buttonと同じ見た目） */
-.profile-cta-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 12px 24px;
-  background: linear-gradient(135deg, #0ea5e9, #0284c7);
-  border: none;
-  border-radius: 8px;
-  color: white;
-  font-weight: 600;
-  font-size: 1rem;
-  text-decoration: none;
-  box-shadow: 0 4px 12px rgba(14, 165, 233, 0.3);
-  transition: all 0.3s ease;
-  cursor: pointer;
+/* カードのテキスト部分にパディングを追加 */
+.home-text20,
+.home-text22,
+.home-text24 {
+  padding: 0 var(--dl-layout-space-unit);
+  margin-top: var(--dl-layout-space-unit);
+  margin-bottom: var(--dl-layout-space-halfunit);
+  text-align: center;
+  word-wrap: break-word;
+  flex-shrink: 0;
 }
 
-.profile-cta-button:hover {
-  background: linear-gradient(135deg, #0284c7, #0369a1);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(14, 165, 233, 0.4);
-  color: white;
-  text-decoration: none;
+.home-text21,
+.home-text23,
+.home-text25 {
+  padding: 0 var(--dl-layout-space-unit) var(--dl-layout-space-unit) var(--dl-layout-space-unit);
+  margin-bottom: 0;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  flex-grow: 1;
+  display: flex;
+  align-items: flex-start;
 }
 
-/* profile-section（お問い合わせセクション用）のスタイル */
+.home-service-image:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* コンテナのスタイル調整は上記の個別スタイルで対応済み */
+
+/* レスポンシブ対応 - 画像は既に上記で調整済み */
+
+/* 極小画面（320px〜369px）対応 */
+@media (max-width: 369px) {
+  .home-text10 {
+    font-size: 1.5rem;
+    line-height: 1.2;
+    padding: 0 0.5rem;
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+  }
+  
+  .home-text11 {
+    font-size: 0.85rem;
+    line-height: 1.4;
+    padding: 0 0.5rem;
+  }
+  
+  .home-container12 {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+  
+  .home-service-card {
+    margin: 0 auto 1rem auto;
+    max-width: 95%;
+  }
+  
+  .home-service-image-container {
+    height: 140px;
+  }
+  
+  .home-service-content {
+    padding: 0.75rem;
+  }
+  
+  .home-service-title {
+    font-size: 0.9rem;
+    margin-bottom: 0.375rem;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+  }
+  
+  .home-service-description {
+    font-size: 0.75rem;
+    line-height: 1.3;
+  }
+}
+
+/* 320px以下の極小画面 */
+@media (max-width: 320px) {
+  .home-text10 {
+    font-size: 1.3rem;
+    line-height: 1.1;
+    padding: 0 0.25rem;
+  }
+  
+  .home-text11 {
+    font-size: 0.8rem;
+    padding: 0 0.25rem;
+  }
+}
+  
+  .home-card1,
+  .home-card2,
+  .home-card3 {
+    width: 98%;
+    margin: 0 auto var(--dl-layout-space-doubleunit) auto;
+    min-height: 320px;
+  }
+  
+  .home-container15,
+  .home-container16,
+  .home-container17 {
+    height: 120px;
+  }
+  
+  .home-text20,
+  .home-text22,
+  .home-text24 {
+    font-size: 1rem;
+    padding: 0 var(--dl-layout-space-halfunit);
+  }
+  
+  .home-text21,
+  .home-text23,
+  .home-text25 {
+    font-size: 0.85rem;
+    padding: 0 var(--dl-layout-space-halfunit) var(--dl-layout-space-unit) var(--dl-layout-space-halfunit);
+    line-height: 1.4;
+  }
+  
+  /* 極小画面での相談ボタン調整 */
+  .home-consultation-button {
+    width: 90%;
+    max-width: 280px;
+    padding: 12px 16px;
+    font-size: 0.85rem;
+  }
+  
+  .home-pricing-cards-container {
+    gap: 0.75rem;
+    margin-top: var(--dl-layout-space-halfunit);
+  }
+  
+  .home-pricing-card {
+    max-width: 95%;
+    margin: 0 auto;
+  }
+  
+  .home-pricing-image-container {
+    height: 140px;
+  }
+  
+  .home-pricing-content {
+    padding: 1rem;
+  }
+  
+  .home-pricing-title {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .home-pricing-description {
+    font-size: 0.8rem;
+    line-height: 1.4;
+    margin-bottom: 1rem;
+  }
+  
+  .home-pricing-features {
+    gap: 0.375rem;
+    margin-bottom: 1.25rem;
+  }
+  
+  .home-feature-text {
+    font-size: 0.8rem;
+  }
+  
+  .home-pricing-highlight {
+    font-size: 0.9rem;
+  }
+  
+  .home-pricing-card1,
+  .home-pricing-card2 {
+    width: 98%;
+    margin: 0 auto var(--dl-layout-space-doubleunit) auto;
+    min-height: 320px;
+  }
+  
+  .home-pricing-container1,
+  .home-pricing-container2 {
+    height: 120px;
+  }
+}
+
+/* Call to Action Section */
 .profile-section {
-  padding: 2rem 2rem;
-  width: 100%;
-  max-width: 100vw;
-  box-sizing: border-box;
+  padding: 4rem 2rem;
 }
 
 .profile-cta {
@@ -3408,61 +3672,321 @@
   margin-bottom: 2rem;
 }
 
+.profile-cta-button {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  background-color: var(--dl-color-pimary-500);
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.profile-cta-button:hover {
+  background-color: var(--dl-color-pimary-300);
+  transform: translateY(-3px);
+}
+
+/* ===== JavaScript アニメーション用スタイル ===== */
+
+/* スクロール進捗バー */
+.scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--dl-color-pimary-500), var(--dl-color-secondary-400));
+  z-index: 1000;
+  transition: width 0.3s ease;
+}
+
+/* フェードインアニメーション */
+.animate-fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.animate-fade-in.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* カードの3D効果 */
+.home-service-card,
+.home-pricing-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.home-service-card:hover,
+.home-pricing-card:hover {
+  transform: translateY(-10px) rotateX(5deg);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* カード画像のパララックス効果 */
+.home-service-image,
+.home-pricing-image {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 動的パーティクル */
+.dynamic-particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: floatParticle linear infinite;
+}
+
+@keyframes floatParticle {
+  0% {
+    transform: translateY(100vh) scale(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100px) scale(1);
+    opacity: 0;
+  }
+}
+
+/* マウス追従パーティクル */
+.mouse-particle {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background: radial-gradient(circle, var(--dl-color-pimary-500) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1000;
+  animation: mouseParticleFloat 1s ease-out forwards;
+}
+
+@keyframes mouseParticleFloat {
+  0% {
+    transform: scale(0) translate(-50%, -50%);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.5) translate(-50%, -50%);
+    opacity: 0;
+  }
+}
+
+/* ボタンのリップル効果 */
+.home-contact-button,
+.home-consultation-button,
+.profile-cta-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(0);
+  animation: rippleEffect 0.6s ease-out;
+  pointer-events: none;
+}
+
+@keyframes rippleEffect {
+  to {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+/* パルスアニメーション */
+.pulse-animation {
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(var(--dl-color-pimary-500-rgb), 0.7);
+  }
+  50% {
+    transform: scale(1.02);
+    box-shadow: 0 0 0 10px rgba(var(--dl-color-pimary-500-rgb), 0);
+  }
+}
+
+/* ヒーローセクションのローディングアニメーション */
+.home-hero {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.home-hero.hero-loaded {
+  opacity: 1;
+}
+
+
+
+
+/* タイピングアニメーション用のカーソル（削除または無効化） */
+/* 
+.home-text10 {
+  position: relative;
+}
+
+.home-text10::after {
+  content: '|';
+  animation: blink 1s infinite;
+  color: var(--dl-color-pimary-500);
+}
+
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+*/
+
+/* パララックス要素 */
+.parallax-element {
+  will-change: transform;
+}
+
+/* スムーズなスクロール */
+html {
+  scroll-behavior: smooth;
+}
+
+/* カード内容のアニメーション遅延 */
+.home-service-card:nth-child(1) .animate-fade-in {
+  animation-delay: 0.1s;
+}
+
+.home-service-card:nth-child(2) .animate-fade-in {
+  animation-delay: 0.2s;
+}
+
+.home-service-card:nth-child(3) .animate-fade-in {
+  animation-delay: 0.3s;
+}
+
+.home-service-card:nth-child(4) .animate-fade-in {
+  animation-delay: 0.4s;
+}
+
+.home-service-card:nth-child(5) .animate-fade-in {
+  animation-delay: 0.5s;
+}
+
+/* アプローチセクションの追加アニメーション */
+.home-container25,
+.home-container26,
+.home-container28,
+.home-container30 {
+  transition: all 0.3s ease;
+}
+
+.home-container25:hover,
+.home-container26:hover,
+.home-container28:hover,
+.home-container30:hover {
+  transform: translateX(10px);
+}
+
+
+/* モバイル最適化 */
+.mobile-device .dynamic-particle {
+  animation-duration: 20s;
+}
+
+.mobile-device .mouse-particle {
+  display: none;
+}
+
+.mobile-device .home-service-card:hover,
+.mobile-device .home-pricing-card:hover {
+  transform: none;
+  box-shadow: none;
+}
+
 /* レスポンシブ対応 */
-@media(max-width: 450px) {
-  /* profile-section のレスポンシブ調整 */
-  .profile-section {
-    padding: 1rem 1rem;
+@media (max-width: 768px) {
+  .scroll-progress-bar {
+    height: 2px;
+  }
+  
+  .animate-fade-in {
+    transform: translateY(20px);
   }
   
   .profile-cta-title {
     font-size: 1.5rem;
-    line-height: 1.3;
-    margin-bottom: 1rem;
   }
   
-  .profile-cta-text {
-    font-size: 1rem;
-    margin-bottom: 1.5rem;
+  /* モバイルでのパーティクル数を削減 */
+  .dynamic-particle:nth-child(n+6) {
+    display: none;
   }
-  
-  /* 相談ボタンのレスポンシブ調整 */
-  .home-consultation-button,
-  .profile-cta-button {
-    padding: 10px 20px;
-    font-size: 0.9rem;
-  }
-  
-  .home-pricing-cards-container {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-    max-width: 100%;
-  }
-  
-  .home-pricing-card {
-    margin: 0 auto;
-    max-width: 100%;
-  }
-  
-  .home-pricing-image-container {
-    height: 160px;
-
-/* ===========================================
-   スマートフォン対応レスポンシブスタイル (370px-450px)
-   =========================================== */
-
-/* 基本の日本語テキスト制御 */
-.home-text10, .home-text11, .home-text17, .home-text18 {
-  word-break: keep-all;
-  overflow-wrap: break-word;
 }
 
-/* 370px〜450px: ターゲット範囲の最適化 */
+@media (max-width: 480px) {
+  .pulse-animation {
+    animation: none;
+  }
+  
+  .home-text10::after {
+    display: none;
+  }
+}
+
+/* パフォーマンス最適化 */
+.home-service-card,
+.home-pricing-card,
+.dynamic-particle,
+.mouse-particle {
+  will-change: transform;
+}
+
+/* 高コントラストモード対応 */
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in,
+  .dynamic-particle,
+  .mouse-particle,
+  .pulse-animation,
+  .home-text10::after {
+    animation: none;
+  }
+  
+  .home-service-card,
+  .home-pricing-card {
+    transition: none;
+  }
+}
+
+/* =================================
+   スマホ専用レスポンシブ改善 (370px-450px)
+   ================================= */
+
+/* 370px〜450px: メイン改善範囲 */
 @media screen and (min-width: 370px) and (max-width: 450px) {
   .home-text10 {
     font-size: 1.75rem !important;
     line-height: 1.2 !important;
     padding: 0 1rem !important;
+    word-break: keep-all !important;
+    overflow-wrap: break-word !important;
     white-space: normal !important;
   }
   
@@ -3471,6 +3995,8 @@
     line-height: 1.4 !important;
     padding: 0 1rem !important;
     margin-top: 0.75rem !important;
+    word-break: keep-all !important;
+    overflow-wrap: break-word !important;
   }
   
   .home-container12 {
@@ -3486,7 +4012,8 @@
     max-width: 280px !important;
   }
   
-  .home-service-button, .home-contact-button {
+  .home-service-button,
+  .home-contact-button {
     width: 100% !important;
     padding: 0.75rem 1rem !important;
     justify-content: center !important;
@@ -3498,6 +4025,7 @@
     white-space: nowrap !important;
   }
   
+  /* サービスセクション */
   .home-text17 {
     font-size: 2rem !important;
     line-height: 1.2 !important;
@@ -3514,24 +4042,32 @@
     gap: 1.25rem !important;
   }
   
+  .home-service-card {
+    max-width: 100% !important;
+    margin: 0 auto !important;
+  }
+  
   .home-service-title {
     font-size: 1rem !important;
     line-height: 1.3 !important;
     white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
   }
   
   .home-service-description {
     font-size: 0.85rem !important;
     line-height: 1.4 !important;
   }
-  .home-text37 {
-        text-align: center;
-        font-size: 1.5rem !important;
-    }
-
+  
+  /* 料金カード */
+  .home-pricing-cards-container {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
 }
 
-/* 320px〜369px: 極小画面 */
+/* 320px〜369px: 極小画面対応 */
 @media screen and (min-width: 320px) and (max-width: 369px) {
   .home-text10 {
     font-size: 1.5rem !important;
@@ -3541,20 +4077,32 @@
   
   .home-text11 {
     font-size: 0.85rem !important;
+    line-height: 1.3 !important;
     padding: 0 0.75rem !important;
+  }
+  
+  .home-container12 {
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
   }
 }
 
-/* 319px以下: 超極小画面 */
+/* 320px以下: 超極小画面対応 */
 @media screen and (max-width: 319px) {
   .home-text10 {
     font-size: 1.3rem !important;
+    line-height: 1.1 !important;
     padding: 0 0.5rem !important;
   }
   
   .home-text11 {
     font-size: 0.8rem !important;
+    line-height: 1.25 !important;
     padding: 0 0.5rem !important;
   }
-}
   
+  .home-container12 {
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+  }
+}
