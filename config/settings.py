@@ -30,7 +30,7 @@ SECRET_KEY = 'django-insecure-+1x+(9#81qvr=bux8=bh705*l0@pm2z4_$nlm)zy1t3o3a3cw!
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['reang.jp', 'www.reang.jp', '163.44.96.248',]
+ALLOWED_HOSTS = ['reang.jp', 'www.reang.jp',]
 
 # NOTE: For production deployment, use config/production_settings.py
 # This file contains development settings only
