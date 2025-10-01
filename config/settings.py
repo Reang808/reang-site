@@ -30,7 +30,7 @@ SECRET_KEY = 'django-insecure-+1x+(9#81qvr=bux8=bh705*l0@pm2z4_$nlm)zy1t3o3a3cw!
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['reang.jp', 'www.reang.jp',]
+ALLOWED_HOSTS = ['reang.jp', 'www.reang.jp', '163.44.96.248']
 
 # NOTE: For production deployment, use config/production_settings.py
 # This file contains development settings only
@@ -103,7 +103,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': os.getenv('DATABASE_NAME', 'reang_reservation'),
         'USER': os.getenv('DATABASE_USER', 'reang_user'),
-        'PASSWORD': os.getenv('DATABASE_PASSWORD', 'reang_password123'),
+        'PASSWORD': os.getenv('DATABASE_PASSWORD', 'Retsushi.0718'),
         'HOST': os.getenv('DATABASE_HOST', 'localhost'),
         'PORT': os.getenv('DATABASE_PORT', '5432'),
         'OPTIONS': {
