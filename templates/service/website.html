@@ -1,0 +1,311 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Webサイト・LP制作サービス - Reang{% endblock %}
+{% block og_title %}Webサイト・LP制作サービス - Reang{% endblock %}
+
+{% block page_css %}
+<link rel="stylesheet" href="{% static 'css/index.css' %}" />
+<link rel="stylesheet" href="{% static 'css/service.css' %}" />
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/service.js' %}" defer></script>
+{% endblock %}
+
+{% block container_class %}service-container{% endblock %}
+
+{% block content %}
+
+    <!-- 1. 商品画像・ヒーローセクション -->
+    <div class="service-hero reserve-hero">
+      <div class="service-hero-content">
+        
+        <div class="hero-image-container">
+          <img src="https://images.pexels.com/photos/326514/pexels-photo-326514.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" 
+               alt="Webサイト・LP制作サービス" class="hero-main-image">
+        </div>
+        <h1 class="service-hero-lp-title">🌐 Webサイト・LP制作サービス</h1>
+        <p class="service-hero-lp-subtitle">魅力的なWebサイトで集客力を向上させ、ビジネスの成長を加速させます</p>
+        <div class="hero-cta">
+          <a href="#pricing" class="cta-button primary">料金を見る</a>
+          <a href="https://reang-reserve.jp/tenant/reservation/" class="cta-button secondary">お問い合わせ</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. 提供内容 -->
+    <section class="service-section" id="features">
+      <div class="section-header">
+        <h2 class="service-section-title">このサービスでできること</h2>
+        <p class="service-section-description">
+          ReangのWebサイト・LP制作サービスは、小規模・個人事業主様の集客力向上とブランド価値の向上を実現する、プロフェッショナルなWebサイトを制作します。
+        </p>
+      </div>
+
+      <div class="features-container">
+        
+        <div class="features-image-wrapper">
+          <img src="https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
+               alt="Webサイト・LP制作でビジネスを成長させるイメージ" 
+               class="features-image">
+        </div>
+
+        <div class="features-grid">
+          
+          <div class="feature-card-new">
+            <div class="feature-icon-wrapper">
+              <span class="feature-icon">🏢</span>
+            </div>
+            <h3 class="feature-title">コーポレートサイト制作</h3>
+            <p class="feature-description">
+              企業の信頼性を高める本格的なコーポレートサイト。会社概要、サービス紹介、実績など、ビジネスに必要な要素を効果的に配置します。
+            </p>
+          </div>
+
+          <div class="feature-card-new">
+            <div class="feature-icon-wrapper">
+              <span class="feature-icon">📄</span>
+            </div>
+            <h3 class="feature-title">ランディングページ制作</h3>
+            <p class="feature-description">
+              コンバージョン率を最大化するLP制作。商品・サービスの魅力を伝え、お客様のアクションを促進する設計を行います。
+            </p>
+          </div>
+
+          <div class="feature-card-new">
+            <div class="feature-icon-wrapper">
+              <span class="feature-icon">🔍</span>
+            </div>
+            <h3 class="feature-title">SEO対策（基本）</h3>
+            <p class="feature-description">
+              検索エンジンで上位表示されやすい構造とコンテンツで制作。より多くの潜在顧客にアクセスしてもらえます。
+            </p>
+          </div>
+
+          <div class="feature-card-new">
+            <div class="feature-icon-wrapper">
+              <span class="feature-icon">📝</span>
+            </div>
+            <h3 class="feature-title">お問い合わせフォーム</h3>
+            <p class="feature-description">
+              使いやすく効果的なお問い合わせフォームを設計。顧客からの連絡を確実に受け取り、ビジネスチャンスを逃しません。
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. 導入フロー -->
+    <section class="service-section flow-section" id="flow">
+      <h2 class="service-section-title">制作フロー</h2>
+      <p class="service-section-description">
+        ヒアリングからデザイン、制作、公開まで、お客様と密に連携しながら理想のWebサイトを制作します。
+      </p>
+      
+      <div class="flow-container">
+        <div class="flow-step">
+          <div class="flow-step-number">1</div>
+          <h3 class="flow-step-title">ヒアリング</h3>
+          <p class="flow-step-description">
+            ビジネス内容、ターゲット層、デザインのご要望、競合サイトなどを詳しくお聞かせください。最適なサイト設計を提案いたします。
+          </p>
+          <div class="flow-duration">所要時間：2-3日</div>
+        </div>
+        
+        <div class="flow-arrow">→</div>
+        
+        <div class="flow-step">
+          <div class="flow-step-number">2</div>
+          <h3 class="flow-step-title">企画・設計</h3>
+          <p class="flow-step-description">
+            サイトマップやワイヤーフレームを作成し、コンテンツ構成とページ設計を行います。SEO対策も考慮した設計を提案します。
+          </p>
+          <div class="flow-duration">所要時間：1週間</div>
+        </div>
+        
+        <div class="flow-arrow">→</div>
+        
+        <div class="flow-step">
+          <div class="flow-step-number">3</div>
+          <h3 class="flow-step-title">デザイン制作</h3>
+          <p class="flow-step-description">
+            ブランドイメージに合わせたデザインを制作。PC・スマホ両対応のレスポンシブデザインでご提案します。
+          </p>
+          <div class="flow-duration">所要時間：1-2週間</div>
+        </div>
+        
+        <div class="flow-arrow">→</div>
+        
+        <div class="flow-step">
+          <div class="flow-step-number">4</div>
+          <h3 class="flow-step-title">コーディング・実装</h3>
+          <p class="flow-step-description">
+            承認いただいたデザインを基にコーディングを実施。お問い合わせフォームや必要な機能も実装します。
+          </p>
+          <div class="flow-duration">所要時間：1-2週間</div>
+        </div>
+        
+        <div class="flow-arrow">→</div>
+        
+        <div class="flow-step">
+          <div class="flow-step-number">5</div>
+          <h3 class="flow-step-title">公開・納品</h3>
+          <p class="flow-step-description">
+            テスト確認後、サイトを公開。操作方法の説明と今後の運用サポートについてご案内いたします。
+          </p>
+          <div class="flow-duration">継続サポート</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. 料金 -->
+    <section class="service-section pricing-section" id="pricing">
+      <h2 class="service-section-title">料金プラン</h2>
+      <p class="service-section-description">
+        ページ数に応じた明確な料金体系。小規模サイトから本格的なコーポレートサイトまで対応します。
+      </p>
+      
+      <div class="pricing-container">
+        <div class="pricing-card featured">
+          <div class="pricing-badge">おすすめ</div>
+          <h3 class="pricing-title">Webサイト・LP制作パッケージ</h3>
+          <div class="pricing-image">
+            <img src="https://images.pexels.com/photos/326514/pexels-photo-326514.jpeg?auto=compress&cs=tinysrgb&h=400&w=600" 
+                 alt="Webサイト・LP制作" class="pricing-img">
+          </div>
+          <div class="pricing-content">
+            <div class="pricing-price">
+              <span class="price-label">制作費</span>
+              <span class="price-amount">10,000円〜</span>
+              <span class="price-note">（1ページあたり・税込11,000円〜）</span>
+            </div>
+            <div class="pricing-price monthly">
+              <span class="price-label">月額保守費</span>
+              <span class="price-amount">10,000円〜</span>
+              <span class="price-note">（税込11,000円〜）</span>
+            </div>
+            
+            <div class="pricing-features">
+              <h4>含まれる機能・サービス</h4>
+              <ul>
+                <li>✅ レスポンシブデザイン</li>
+                <li>✅ SEO対策（基本）</li>
+                <li>✅ お問い合わせフォーム</li>
+                <li>✅ SSL証明書設定</li>
+                <li>✅ Google Analytics設定</li>
+                <li>✅ ファビコン・OGP設定</li>
+                <li>✅ スマホ最適化</li>
+                <li>✅ ドメイン・サーバー代</li>
+                <li>✅ 定期バックアップ</li>
+                <li>✅ コンテンツ更新サポート</li>
+                <li>✅ 電話・メールサポート</li>
+                <li>✅ セキュリティ対策</li>
+              </ul>
+            </div>
+            
+            <div class="pricing-note">
+              <small>※ページ数や機能により料金が変動します。詳しくはお見積もりをご依頼ください</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. 決済へ進む -->
+    <section class="service-section cta-section" id="payment">
+      <div class="cta-container">
+        <h2 class="cta-title">今すぐWebサイト制作を始めませんか？</h2>
+        <p class="cta-description">
+          魅力的なWebサイトで集客力を向上させ、ビジネスの成長を加速させましょう。<br>
+          まずはお気軽にご相談ください。
+        </p>
+        <div class="contact-benefits">
+            <h4>無料相談で分かること</h4>
+            <ul>
+              <li>✅ 最適なサイト構成のご提案</li>
+              <li>✅ デザインの方向性確認</li>
+              <li>✅ 詳細な制作費用</li>
+              <li>✅ 制作スケジュール</li>
+              <li>✅ SEO対策の内容</li>
+              <li>✅ 継続サポート内容</li>
+            </ul>
+          </div>
+        <p class="payment-note">
+            ※お支払い前にデザイン案とお見積もりをご提示いたします。<br>
+            追加機能やカスタマイズのご要望に応じて柔軟に対応いたします。<br>
+        </p>
+        <div class="cta-buttons">
+          <a href="#" class="cta-button primary large payment-btn">
+            💳 お支払い手続きへ進む
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. お問い合わせ -->
+    {% comment %} <section class="service-section contact-section" id="contact">
+      <h2 class="service-section-title">お問い合わせ</h2>
+      <p class="service-section-description">
+        Webサイト・LP制作に関するご質問・ご相談は、お気軽にお問い合わせください。
+      </p>
+      
+      <div class="contact-container">
+        <div class="contact-info">
+          <h3>お問い合わせ方法</h3>
+          <div class="contact-methods">
+            <div class="contact-method">
+              <div class="contact-icon">📧</div>
+              <div class="contact-details">
+                <h4>メールでのお問い合わせ</h4>
+                <p>info@reang.jp</p>
+                <small>24時間受付・1営業日以内に返信</small>
+              </div>
+            </div>
+            
+            <div class="contact-method">
+              <div class="contact-icon">📱</div>
+              <div class="contact-details">
+                <h4>お電話でのお問い合わせ</h4>
+                <p>082-XXX-XXXX</p>
+                <small>平日 9:00-18:00</small>
+              </div>
+            </div>
+            
+            <div class="contact-method">
+              <div class="contact-icon">💬</div>
+              <div class="contact-details">
+                <h4>LINE公式アカウント</h4>
+                <p>@reang-it</p>
+                <small>お気軽にメッセージください</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="contact-form-area">
+          <h3>お問い合わせフォーム</h3>
+          <div class="contact-buttons">
+            <a href="#" class="cta-button primary">
+              📝 お問い合わせフォーム
+            </a>
+            <a href="#" class="cta-button secondary">
+              📅 無料相談予約
+            </a>
+          </div>
+          
+          <div class="contact-benefits">
+            <h4>制作実績・成果例</h4>
+            <ul>
+              <li>✅ 問い合わせ数300%向上</li>
+              <li>✅ 検索順位1位獲得実績</li>
+              <li>✅ コンバージョン率2倍達成</li>
+              <li>✅ アクセス数5倍向上</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section> {% endcomment %}
+
+{% endblock %}

@@ -1,0 +1,292 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Reang Services - 商品一覧{% endblock %}
+{% block og_title %}Reang Services - 商品一覧{% endblock %}
+
+{% block page_css %}
+<link rel="stylesheet" href="{% static 'css/index.css' %}" />
+<link rel="stylesheet" href="{% static 'css/service.css' %}" />
+{% endblock %}
+
+{% block container_class %}service-container{% endblock %}
+
+{% block content %}
+    <div class="page-header">
+      <h1 class="page-title">商品一覧</h1>
+      <p class="page-description">ビジネスを加速させるためのITソリューションをご提供します</p>
+      <p class="page-subtitle">詳細は各商品をクリックしてご確認ください。</p>
+    </div>
+
+    <div class="product-grid">
+      <a href="{% url 'service:reserve' %}" class="product-card">
+        <div class="product-image-container">
+          <img alt="予約システム導入"
+            src="https://images.pexels.com/photos/887751/pexels-photo-887751.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+            class="product-image"/>
+        </div>
+        <div class="product-content">
+          <h3 class="product-title">予約システム導入</h3>
+          <div class="product-details">
+            <div class="product-price">¥50,000 <span class="shipping-tag">ドメイン・サーバー代込み</span></div>
+            <div class="product-meta">
+              <span class="likes">❤️ 12</span>
+              <span class="comments">💬 3</span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="{% url 'service:ecsite' %}" class="product-card">
+        <div class="product-image-container">
+          <img alt="ECサイト構築"
+            src="https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+            class="product-image"/>
+        </div>
+        <div class="product-content">
+          <h3 class="product-title">ECサイト構築</h3>
+          <div class="product-details">
+            <div class="product-price">¥100,000 <span class="shipping-tag">ドメイン・サーバー代込み</span></div>
+            <div class="product-meta">
+              <span class="likes">❤️ 35</span>
+              <span class="comments">💬 8</span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="{% url 'service:dx' %}" class="product-card">
+        <div class="product-image-container">
+          <img alt="業務効率化・DX支援"
+            src="https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+            class="product-image"/>
+        </div>
+        <div class="product-content">
+          <h3 class="product-title">業務効率化・DX支援</h3>
+           <div class="product-details">
+            <div class="product-price">¥100,000 <span class="shipping-tag">ドメイン・サーバー代込み</span></div>
+            <div class="product-meta">
+              <span class="likes">❤️ 28</span>
+              <span class="comments">💬 5</span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="{% url 'service:website' %}" class="product-card">
+        <div class="product-image-container">
+          <img alt="Webサイト・LP制作"
+            src="https://images.pexels.com/photos/326514/pexels-photo-326514.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+            class="product-image"/>
+        </div>
+        <div class="product-content">
+          <h3 class="product-title">Webサイト・LP制作 (1P〜)</h3>
+           <div class="product-details">
+            <div class="product-price">¥10,000 <span class="shipping-tag">ドメイン・サーバー代込み</span></div>
+            <div class="product-meta">
+              <span class="likes">❤️ 18</span>
+              <span class="comments">💬 1</span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="{% url 'service:it_support' %}" class="product-card">
+        <div class="product-image-container">
+          <img alt="IT伴走サポート"
+            src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+            class="product-image"/>
+        </div>
+        <div class="product-content">
+          <h3 class="product-title">IT伴走サポート (月額)</h3>
+          <div class="product-details">
+            <div class="product-price">¥100,000 <span class="shipping-tag">ドメイン・サーバー代込み</span></div>
+            <div class="product-meta">
+              <span class="likes">❤️ 42</span>
+              <span class="comments">💬 11</span>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <!-- 実績・ポートフォリオセクション -->
+    <section class="portfolio-section">
+      <div class="section-header">
+        <h2 class="section-title">制作実績・ポートフォリオ</h2>
+        <p class="section-description">これまでに手がけた様々なプロジェクトをご紹介します</p>
+      </div>
+
+      <div class="portfolio-categories">
+        <button class="category-btn active" data-category="all">すべて</button>
+        <button class="category-btn" data-category="website">Webサイト</button>
+        <button class="category-btn" data-category="ecommerce">ECサイト</button>
+        <button class="category-btn" data-category="system">システム開発</button>
+        <button class="category-btn" data-category="dx">DX支援</button>
+      </div>
+
+      <div class="portfolio-grid">
+        <!-- Webサイト制作実績 -->
+        <div class="portfolio-item" data-category="website">
+          <div class="portfolio-image-container">
+            <img src="{% static 'images/city-1-1400w.jpg' %}" alt="レストランWebサイト" class="portfolio-image">
+            <div class="portfolio-overlay">
+              <div class="portfolio-info">
+                <h4>高級レストランWebサイト</h4>
+                <p>予約機能付きコーポレートサイト</p>
+                <span class="portfolio-tech">HTML/CSS/JavaScript/Django</span>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-details">
+            <h4 class="portfolio-title">高級レストランWebサイト</h4>
+            <p class="portfolio-client">飲食業界 / A社様</p>
+            <div class="portfolio-tags">
+              <span class="tag">レスポンシブ</span>
+              <span class="tag">予約システム</span>
+              <span class="tag">多言語対応</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ECサイト実績 -->
+        <div class="portfolio-item" data-category="ecommerce">
+          <div class="portfolio-image-container">
+            <img src="{% static 'images/service.jpeg' %}" alt="ファッションECサイト" class="portfolio-image">
+            <div class="portfolio-overlay">
+              <div class="portfolio-info">
+                <h4>ファッションECサイト</h4>
+                <p>決済・在庫管理機能搭載</p>
+                <span class="portfolio-tech">Django/PostgreSQL/Stripe</span>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-details">
+            <h4 class="portfolio-title">ファッションECサイト</h4>
+            <p class="portfolio-client">アパレル業界 / B社様</p>
+            <div class="portfolio-tags">
+              <span class="tag">決済システム</span>
+              <span class="tag">在庫管理</span>
+              <span class="tag">SEO対策</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- システム開発実績 -->
+        <div class="portfolio-item" data-category="system">
+          <div class="portfolio-image-container">
+            <img src="{% static 'images/coding.jpg' %}" alt="CRMシステム" class="portfolio-image">
+            <div class="portfolio-overlay">
+              <div class="portfolio-info">
+                <h4>顧客管理システム</h4>
+                <p>営業効率を300%向上</p>
+                <span class="portfolio-tech">Django/React/PostgreSQL</span>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-details">
+            <h4 class="portfolio-title">顧客管理システム</h4>
+            <p class="portfolio-client">製造業界 / C社様</p>
+            <div class="portfolio-tags">
+              <span class="tag">CRM</span>
+              <span class="tag">API連携</span>
+              <span class="tag">データ分析</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- DX支援実績 -->
+        <div class="portfolio-item" data-category="dx">
+          <div class="portfolio-image-container">
+            <img src="{% static 'images/new-york-city-1400w.jpg' %}" alt="業務効率化システム" class="portfolio-image">
+            <div class="portfolio-overlay">
+              <div class="portfolio-info">
+                <h4>業務効率化システム</h4>
+                <p>手作業を80%削減</p>
+                <span class="portfolio-tech">Python/Django/AI</span>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-details">
+            <h4 class="portfolio-title">業務効率化システム</h4>
+            <p class="portfolio-client">サービス業界 / D社様</p>
+            <div class="portfolio-tags">
+              <span class="tag">自動化</span>
+              <span class="tag">AI活用</span>
+              <span class="tag">ワークフロー</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 追加実績 -->
+        <div class="portfolio-item" data-category="website">
+          <div class="portfolio-image-container">
+            <img src="{% static 'images/photo-1-1500h.jpg' %}" alt="クリニックWebサイト" class="portfolio-image">
+            <div class="portfolio-overlay">
+              <div class="portfolio-info">
+                <h4>クリニックWebサイト</h4>
+                <p>オンライン診療予約対応</p>
+                <span class="portfolio-tech">Django/Bootstrap/jQuery</span>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-details">
+            <h4 class="portfolio-title">クリニックWebサイト</h4>
+            <p class="portfolio-client">医療業界 / E医院様</p>
+            <div class="portfolio-tags">
+              <span class="tag">予約システム</span>
+              <span class="tag">カルテ連携</span>
+              <span class="tag">セキュリティ強化</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="portfolio-item" data-category="ecommerce">
+          <div class="portfolio-image-container">
+            <img src="{% static 'images/sofia-kuniakina-1100w.jpg' %}" alt="食品ECサイト" class="portfolio-image">
+            <div class="portfolio-overlay">
+              <div class="portfolio-info">
+                <h4>食品ECサイト</h4>
+                <p>定期購入・配送管理機能</p>
+                <span class="portfolio-tech">Django/Celery/Redis</span>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-details">
+            <h4 class="portfolio-title">食品ECサイト</h4>
+            <p class="portfolio-client">食品業界 / F社様</p>
+            <div class="portfolio-tags">
+              <span class="tag">定期購入</span>
+              <span class="tag">配送管理</span>
+              <span class="tag">冷蔵配送対応</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio-stats">
+        <div class="stat-item">
+          <div class="stat-number">50+</div>
+          <div class="stat-label">プロジェクト完了</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">30+</div>
+          <div class="stat-label">満足いただいたクライアント</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">5年</div>
+          <div class="stat-label">平均サポート継続期間</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">98%</div>
+          <div class="stat-label">クライアント満足度</div>
+        </div>
+      </div>
+
+      <div class="portfolio-cta">
+        <h3>あなたのビジネスも次のレベルへ</h3>
+        <p>無料相談で、あなたのプロジェクトについて詳しくお聞かせください</p>
+        <a href="#contact" class="cta-button">無料相談を申し込む</a>
+      </div>
+    </section>
+{% endblock %}
