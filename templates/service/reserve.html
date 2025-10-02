@@ -1,0 +1,249 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}予約システム導入サービス - Reang{% endblock %}
+{% block og_title %}予約システム導入サービス - Reang{% endblock %}
+
+{% block page_css %}
+<link rel="stylesheet" href="{% static 'css/index.css' %}" />
+<link rel="stylesheet" href="{% static 'css/service.css' %}" />
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/service.js' %}" defer></script>
+{% endblock %}
+
+{% block container_class %}service-container{% endblock %}
+
+{% block content %}
+
+    <!-- 1. 商品画像・ヒーローセクション -->
+    <div class="service-hero reserve-hero">
+      <div class="service-hero-content">
+        
+        <div class="hero-image-container">
+          <img src="https://images.pexels.com/photos/887751/pexels-photo-887751.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" 
+               alt="予約システム導入サービス" class="hero-main-image">
+        </div>
+        <h1 class="service-hero-lp-title"> 予約システム導入サービス</h1>
+        <p class="service-hero-lp-subtitle">お客様の予約管理を効率化し、売上向上を実現します</p>
+        <div class="hero-cta">
+          <a href="#pricing" class="cta-button primary">料金を見る</a>
+          <a href="https://reang-reserve.jp/tenant/reservation/" class="cta-button secondary">お問い合わせ</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. 提供内容 -->
+    <section class="service-section" id="features">
+      <div class="section-header">
+        <h2 class="service-section-title">このシステムでできること</h2>
+        <p class="service-section-description">
+          Reangの予約システムは、美容院・サロン・士業・コンサルタントなど、様々な業種の予約管理を自動化し、あなたのビジネスをサポートします。
+        </p>
+      </div>
+
+      <div class="features-container">
+        
+        <div class="features-image-wrapper">
+          <img src="https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
+               alt="予約システムの導入でビジネスを効率化するイメージ" 
+               class="features-image">
+        </div>
+
+        <div class="features-grid">
+          
+          <div class="feature-card-new">
+            <div class="feature-icon-wrapper">
+              <span class="feature-icon">📝</span>
+            </div>
+            <h3 class="feature-title">かんたん予約管理</h3>
+            <p class="feature-description">
+              オンライン予約、予約状況の一覧表示、キャンセル対応まで、予約に関する全ての業務を効率化します。
+            </p>
+           
+          </div>
+
+          <div class="feature-card-new">
+            <div class="feature-icon-wrapper">
+              <span class="feature-icon">👥</span>
+            </div>
+            <h3 class="feature-title">自動で顧客管理</h3>
+            <p class="feature-description">
+              顧客情報や予約履歴も自動で蓄積。リピート率向上に繋がるパーソナルなサービス提供を実現します。
+            </p>
+            
+          </div>
+
+          <div class="feature-card-new">
+            <div class="feature-icon-wrapper">
+              <span class="feature-icon">🔔</span>
+            </div>
+            <h3 class="feature-title">リマインダー通知</h3>
+            <p class="feature-description">
+              予約前日・当日の自動リマインダーで、お客様のうっかり忘れやドタキャンを大幅に削減します。
+            </p>
+           
+          </div>
+
+          <div class="feature-card-new">
+            <div class="feature-icon-wrapper">
+              <span class="feature-icon">📱</span>
+            </div>
+            <h3 class="feature-title">スマホ完全対応</h3>
+            <p class="feature-description">
+              どのデバイスからでもお客様が快適に予約できるデザイン。機会損失を防ぎ、予約数を最大化します。
+            </p>
+           
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. 導入フロー -->
+    <section class="service-section flow-section" id="flow">
+      <h2 class="service-section-title">導入フロー</h2>
+      <p class="service-section-description">
+        導入から運用開始まで、お客様をしっかりサポートします。最短2週間でシステム運用を開始できます。
+      </p>
+      
+      <div class="flow-container">
+        <div class="flow-step">
+          <div class="flow-step-number">1</div>
+          <h3 class="flow-step-title">ヒアリング</h3>
+          <p class="flow-step-description">
+            お客様の業種、現在の予約管理方法、課題や要望を詳しくお聞かせください。最適なシステム設計を提案いたします。
+          </p>
+          <div class="flow-duration">所要時間：1-2日</div>
+        </div>
+        
+        <div class="flow-arrow">→</div>
+        
+        <div class="flow-step">
+          <div class="flow-step-number">2</div>
+          <h3 class="flow-step-title">設計・見積もり</h3>
+          <p class="flow-step-description">
+            ヒアリング内容を基に、システム設計書と詳細見積もりを作成。お客様のご要望に合わせてカスタマイズいたします。
+          </p>
+          <div class="flow-duration">所要時間：3-5日</div>
+        </div>
+        
+        <div class="flow-arrow">→</div>
+        
+        <div class="flow-step">
+          <div class="flow-step-number">3</div>
+          <h3 class="flow-step-title">開発・構築</h3>
+          <p class="flow-step-description">
+            承認いただいた設計に基づき、予約システムの開発・構築を行います。開発中も随時進捗をご報告いたします。
+          </p>
+          <div class="flow-duration">所要時間：1-2週間</div>
+        </div>
+        
+        <div class="flow-arrow">→</div>
+        
+        <div class="flow-step">
+          <div class="flow-step-number">4</div>
+          <h3 class="flow-step-title">テスト・研修</h3>
+          <p class="flow-step-description">
+            システムのテスト運用と操作研修を実施。安心してご利用いただけるよう、しっかりとサポートいたします。
+          </p>
+          <div class="flow-duration">所要時間：2-3日</div>
+        </div>
+        
+        <div class="flow-arrow">→</div>
+        
+        <div class="flow-step">
+          <div class="flow-step-number">5</div>
+          <h3 class="flow-step-title">運用開始</h3>
+          <p class="flow-step-description">
+            本格運用スタート！運用後もサポートを継続し、システムの改善・機能追加のご相談も承ります。
+          </p>
+          <div class="flow-duration">継続サポート</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. 料金 -->
+    <section class="service-section pricing-section" id="pricing">
+      <h2 class="service-section-title">料金プラン</h2>
+      <p class="service-section-description">
+        明確で分かりやすい料金体系。初期費用とサーバー・ドメイン代込みの月額保守費用のみです。
+      </p>
+      
+      <div class="pricing-container">
+        <div class="pricing-card featured">
+          <div class="pricing-badge">おすすめ</div>
+          <h3 class="pricing-title">予約システム導入パッケージ</h3>
+          <div class="pricing-image">
+            <img src="https://images.pexels.com/photos/887751/pexels-photo-887751.jpeg?auto=compress&cs=tinysrgb&h=400&w=600" 
+                 alt="予約システム" class="pricing-img">
+          </div>
+          <div class="pricing-content">
+            <div class="pricing-price">
+              <span class="price-label">初期導入費</span>
+              <span class="price-amount">50,000円</span>
+              <span class="price-note">（税込55,000円）</span>
+            </div>
+            <div class="pricing-price monthly">
+              <span class="price-label">月額保守費</span>
+              <span class="price-amount">10,000円</span>
+              <span class="price-note">（税込11,000円）</span>
+            </div>
+            
+            <div class="pricing-features">
+              <h4>含まれる機能・サービス</h4>
+              <ul>
+                <li>✅ 予約管理システム</li>
+                <li>✅ 顧客管理機能</li>
+                <li>✅ リマインダー通知</li>
+                <li>✅ スマホ対応</li>
+                <li>✅ ドメイン・サーバー代</li>
+                <li>✅ SSL証明書</li>
+                <li>✅ 定期バックアップ</li>
+                <li>✅ 電話・メールサポート</li>
+                <li>✅ システムアップデート</li>
+              </ul>
+            </div>
+            
+            <div class="pricing-note">
+              <small>※カスタマイズや追加機能は別途お見積もりいたします</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. 決済へ進む -->
+    <section class="service-section cta-section" id="payment">
+      <div class="cta-container">
+        <h2 class="cta-title">今すぐ予約システム導入を始めませんか？</h2>
+        <p class="cta-description">
+          お客様の予約管理を効率化し、売上向上を実現します。<br>
+          まずはお気軽にお問い合わせください。
+        </p>
+        <div class="contact-benefits">
+            <h4>無料相談で分かること</h4>
+            <ul>
+              <li>✅ 現在の課題分析</li>
+              <li>✅ 最適なシステム提案</li>
+              <li>✅ 詳細な導入費用</li>
+              <li>✅ 導入スケジュール</li>
+              <li>✅ その後のサポート内容</li>
+            </ul>
+          </div>
+        <p class="payment-note">
+            ※お支払い前にご相談を行い、アカウントを発行いたします。<br>
+            追加機能やカスタマイズのご要望がない場合上記のパッケージ内容で進めさせていただきます。<br>
+        
+          </p>
+        <div class="cta-buttons">
+          <a href="#" class="cta-button primary large payment-btn">
+            💳 お支払い手続きへ進む
+          </a>
+          
+        </div>
+      </div>
+    </section>
+
+{% endblock %}

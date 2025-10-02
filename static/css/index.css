@@ -544,18 +544,146 @@
   transition: all 0.3s ease;
 }
 .home-contact-button:hover {
-  background-color: var(--dl-color-gray-white);
-  transform: translateY(-2px);
+  background-color: var(--dl-color-gray-white) !important;
+  transform: translateY(-2px) scale(1.0) !important; /* スケールを1.0で固定 */
+  border-color: var(--dl-color-gray-white) !important;
+  text-decoration: none !important;
 }
-.home-service-button .home-button-text,
+.home-service-button .home-button-text {
+  color: var(--dl-color-gray-white) !important;
+  font-weight: 600 !important;
+  font-size: 1rem !important;
+  text-decoration: none !important;
+}
+
+/* home-contact-buttonのテキストは上記で既に定義済み */
+
+/* ボタンエフェクト制御 - 完全リセット（Bootstrap, Animate.css, style.css対応） */
+.home-contact-button {
+  /* 基本リセット */
+  all: unset !important;
+  
+  /* 必要なスタイルを再定義 */
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  
+  /* サイズとスペーシング */
+  padding: 0.75rem 1.5rem !important;
+  border: 2px solid var(--dl-color-gray-white) !important;
+  border-radius: 0.5rem !important;
+  
+  /* 背景とテキスト */
+  background-color: transparent !important;
+  color: var(--dl-color-gray-white) !important;
+  text-decoration: none !important;
+  font-family: inherit !important;
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+  
+  /* 動作制御 */
+  cursor: pointer !important;
+  user-select: none !important;
+  overflow: hidden !important;
+  
+  /* アニメーション制御 */
+  transition: all 0.3s ease !important;
+  transform: translateY(-2px) scale(1) !important;
+  animation: none !important;
+  
+  /* 外部ライブラリ無効化 */
+  box-shadow: none !important;
+  outline: none !important;
+  border-style: solid !important;
+  text-transform: none !important;
+  letter-spacing: normal !important;
+  word-spacing: normal !important;
+}
+
+.home-contact-button:hover {
+  transform: translateY(-2px) scale(1) !important;
+  background-color: var(--dl-color-gray-white) !important;
+  color: var(--dl-color-secondary-400) !important;
+  border-color: var(--dl-color-gray-white) !important;
+  text-decoration: none !important;
+  animation: none !important;
+  box-shadow: none !important;
+}
+
+.home-contact-button:active {
+  transform: translateY(-1px) scale(0.98) !important;
+  background-color: transparent !important;
+  color: var(--dl-color-gray-white) !important;
+  border-color: var(--dl-color-gray-white) !important;
+  animation: none !important;
+  box-shadow: none !important;
+}
+
+.home-contact-button:focus,
+.home-contact-button:focus-visible,
+.home-contact-button:focus-within {
+  outline: none !important;
+  transform: translateY(-2px) scale(1) !important;
+  background-color: transparent !important;
+  color: var(--dl-color-gray-white) !important;
+  border-color: var(--dl-color-gray-white) !important;
+  box-shadow: none !important;
+  animation: none !important;
+}
+
+.home-contact-button:visited,
+.home-contact-button:link {
+  color: var(--dl-color-gray-white) !important;
+  text-decoration: none !important;
+  transform: translateY(-2px) scale(1) !important;
+}
+
+/* 子要素（テキスト）のリセット */
 .home-contact-button .home-button-text {
-  color: var(--dl-color-gray-white);
-  font-weight: 600;
-  font-size: 1rem;
+  all: unset !important;
+  color: inherit !important;
+  font-family: inherit !important;
+  font-size: inherit !important;
+  font-weight: inherit !important;
+  text-decoration: none !important;
+  pointer-events: none !important;
 }
-.home-contact-button:hover .home-button-text {
-  color: var(--dl-color-secondary-400);
+
+/* リップル効果 */
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.6);
+  transform: scale(0);
+  animation: ripple-animation 0.6s linear;
+  pointer-events: none;
 }
+
+@keyframes ripple-animation {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* パルス効果 - サイズを大きくしすぎないように制御 */
+.pulse-animation {
+  animation: pulse-effect 1s ease-in-out infinite;
+}
+
+@keyframes pulse-effect {
+  0% {
+    transform: translateY(-2px) scale(1);
+  }
+  50% {
+    transform: translateY(-2px) scale(1.02); /* 2%だけ拡大 */
+  }
+  100% {
+    transform: translateY(-2px) scale(1);
+  }
+}
+
 .home-image1,
 .home-image2 {
   left: auto;
@@ -713,7 +841,98 @@
   text-align: left;
   font-family: 'Open Sans', sans-serif;
   flex-grow: 1;
+  margin-bottom: 1rem;
 }
+
+/* サービスカードのCTA */
+.home-service-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  margin-top: auto;
+}
+
+.home-cta-text {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.home-arrow-icon {
+  transition: transform 0.3s ease;
+}
+
+.home-service-card:hover .home-service-cta {
+  background: linear-gradient(135deg, #5a6fd8, #6a4190);
+  transform: translateY(-2px);
+}
+
+.home-service-card:hover .home-arrow-icon {
+  transform: translateX(4px);
+}
+
+/* リンクとしてのスタイルをリセット */
+.home-service-card {
+  text-decoration: none;
+  color: inherit;
+}
+
+.home-service-card:visited {
+  color: inherit;
+}
+
+/* 全サービスを見るボタン */
+.home-services-all-button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+}
+
+.home-services-all-button {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  text-decoration: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  font-family: 'Open Sans', sans-serif;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+}
+
+.home-services-all-button:hover {
+  background: linear-gradient(135deg, #5a6fd8, #6a4190);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4);
+}
+
+.home-services-all-button:visited {
+  color: white;
+}
+
+.home-all-services-text {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.home-all-arrow-icon {
+  transition: transform 0.3s ease;
+}
+
+.home-services-all-button:hover .home-all-arrow-icon {
+  transform: translateX(6px);
+}
+
 .home-service-description br {
   margin-bottom: 0.5rem;
 }
@@ -866,6 +1085,7 @@
   box-shadow: 0 4px 12px rgba(14, 165, 233, 0.3);
   transition: all 0.3s ease;
   cursor: pointer;
+  text-align: center;
 }
 .home-consultation-button:hover {
   background: linear-gradient(135deg, #0284c7, #0369a1);

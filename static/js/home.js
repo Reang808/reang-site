@@ -223,6 +223,11 @@ function initButtonAnimations() {
     ].join(','));
 
     buttons.forEach(button => {
+        // home-contact-buttonは除外（サイズ変更問題回避）
+        if (button.classList.contains('home-contact-button')) {
+            return;
+        }
+        
         // リップル効果の追加
         button.addEventListener('click', function(e) {
             const ripple = document.createElement('span');
@@ -241,14 +246,16 @@ function initButtonAnimations() {
             }, 600);
         });
 
-        // ホバー時のパルス効果
-        button.addEventListener('mouseenter', () => {
-            button.classList.add('pulse-animation');
-        });
+        // ホバー時のパルス効果（home-contact-button以外）
+        if (!button.classList.contains('home-contact-button')) {
+            button.addEventListener('mouseenter', () => {
+                button.classList.add('pulse-animation');
+            });
 
-        button.addEventListener('mouseleave', () => {
-            button.classList.remove('pulse-animation');
-        });
+            button.addEventListener('mouseleave', () => {
+                button.classList.remove('pulse-animation');
+            });
+        }
     });
 }
 
