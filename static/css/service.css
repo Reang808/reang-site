@@ -17,6 +17,12 @@
   /* おすすめバッジ（そのまま使用） */
   --dl-color-accent-red: #ff6b6b;
   --dl-color-accent-red-light: #ff8e8e;
+  
+  /* キャンペーン用カラー */
+  --campaign-primary: #e74c3c;
+  --campaign-secondary: #f39c12;
+  --campaign-bg: #fff3cd;
+  --campaign-border: #ffc107;
 }
 
 /* 全体設定 */
@@ -150,11 +156,21 @@
 
 @media (max-width: 768px) {
   .product-grid {
-    grid-template-columns: repeat(2, 1fr); /* 小タブレットでは2列 */
+    grid-template-columns: repeat(2, 1fr); /* 小タブレット・スマホでは2列 */
     gap: 14px;
   }
   .page-title {
     font-size: 1.8rem;
+  }
+  .product-title {
+    font-size: 0.9rem;
+    line-height: 1.3;
+  }
+  .product-price {
+    font-size: 1.2rem;
+  }
+  .shipping-tag {
+    font-size: 0.65rem;
   }
 }
 
@@ -170,10 +186,20 @@
     padding: 12px;
   }
   .product-title {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
+    line-height: 1.3;
+    white-space: normal; /* 長いタイトルは改行する */
+    text-overflow: initial;
+    overflow: visible;
   }
   .product-price {
-    font-size: 1.1rem;
+    font-size: 1rem;
+  }
+  .shipping-tag {
+    font-size: 0.6rem;
+    display: block; /* 改行して表示 */
+    margin-left: 0;
+    margin-top: 2px;
   }
   .product-meta {
     display: none; /* スマホでは非表示にしてスッキリさせる */
@@ -828,7 +854,7 @@ body {
   }
   
   .product-grid {
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+
     gap: 15px;
   }
   
@@ -1165,6 +1191,34 @@ body {
 @media (max-width: 320px) {
   .service-container {
     padding: 5px;
+  }
+  
+  /* 商品グリッドの調整 */
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr); /* 超小型でも2列維持 */
+    gap: 8px;
+  }
+  
+  .product-card {
+    border-radius: 8px;
+  }
+  
+  .product-content {
+    padding: 10px 8px;
+  }
+  
+  .product-title {
+    font-size: 0.8rem;
+    line-height: 1.2;
+  }
+  
+  .product-price {
+    font-size: 0.9rem;
+  }
+  
+  .shipping-tag {
+    font-size: 0.55rem;
+    margin-top: 1px;
   }
   
   .service-hero {
@@ -1656,5 +1710,101 @@ body {
   
   .portfolio-cta p {
     font-size: 0.9rem;
+  }
+}
+/* Google Fontsなど、お好みのフォントを読み込むとよりデザイン性が高まります */
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700;800&display=swap');
+
+/* --- キャンペーンバナー全体のスタイル --- */
+.campaign-banner {
+  font-family: 'M PLUS Rounded 1c', sans-serif; /* 親しみやすい丸ゴシック体フォント */
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 2.5rem;
+  background: linear-gradient(135deg, #f6d365 0%, #fda085 100%); /* 暖色系のグラデーション */
+  border-radius: 20px; /* 角を丸く */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* 浮き上がって見える影 */
+  text-align: center;
+  border: 3px solid #fff; /* 白い枠線でアクセント */
+  color: #333;
+}
+
+/* --- タイトルのスタイル --- */
+.campaign-banner .campaign-title {
+  font-size: 2.2rem; /* 大きめのフォントサイズ */
+  font-weight: 800; /* 最も太い文字 */
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+/* --- サブタイトルのスタイル --- */
+.campaign-banner .campaign-subtitle {
+  font-size: 1.5rem;
+  margin: 0.5rem 0;
+  color: #4A4A4A;
+  font-weight: 700;
+}
+
+/* --- 「完全無料」のハイライト部分 --- */
+.campaign-banner .campaign-highlight {
+  color: #e53935; /* 強調する赤色 */
+  font-size: 1.6em; /* さらに大きくして目立たせる */
+  vertical-align: middle; /* 文字の縦位置を中央に揃える */
+}
+
+/* --- キャンペーン期間のスタイル --- */
+.campaign-banner .campaign-period {
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.6); /* 半透明の背景 */
+  padding: 0.6rem 1.2rem;
+  margin-top: 1rem;
+  border-radius: 50px; /* 楕円形にする */
+  font-weight: 700;
+}
+
+/* --- お問い合わせボタンのスタイル --- */
+.campaign-banner .campaign-cta {
+  margin-top: 2rem; /* 上の要素との余白 */
+}
+
+.campaign-banner .campaign-button {
+  display: inline-block; /* インラインブロック要素に */
+  padding: 1rem 3rem;
+  background-color: #4CAF50; /* 目を引く緑色 */
+  color: white;
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-decoration: none; /* リンクの下線を消す */
+  border-radius: 50px; /* 角を丸く */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* なめらかな変化のアニメーション */
+}
+
+/* --- ボタンにマウスカーソルを乗せた時のスタイル --- */
+.campaign-banner .campaign-button:hover {
+  background-color: #45a049; /* 少し濃い緑色に */
+  transform: translateY(-4px); /* 少し上に移動 */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25); /* 影を濃く */
+}
+
+/* --- スマートフォン用の調整 (レスポンシブ対応) --- */
+@media (max-width: 600px) {
+  .campaign-banner {
+    padding: 1.5rem;
+  }
+  .campaign-banner .campaign-title {
+    font-size: 1.8rem;
+  }
+  .campaign-banner .campaign-subtitle {
+    font-size: 1.2rem;
+  }
+  .campaign-banner .campaign-highlight {
+    font-size: 1.4em;
+  }
+   .campaign-banner .campaign-button {
+    padding: 0.8rem 2rem;
+    font-size: 1.1rem;
   }
 }
