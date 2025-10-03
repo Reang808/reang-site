@@ -28,7 +28,7 @@ load_dotenv(BASE_DIR / '.env')
 SECRET_KEY = 'django-insecure-+1x+(9#81qvr=bux8=bh705*l0@pm2z4_$nlm)zy1t3o3a3cw!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = False  # 開発時はTrueに設定
 
 ALLOWED_HOSTS = ['reang.jp', 'www.reang.jp', '163.44.96.248',]
 
@@ -86,6 +86,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media',  # メディアファイル用
+                'config.context_processors.css_cache_buster',  # CSSキャッシュバスティング
             ],
         },
     },
@@ -159,6 +160,15 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'  # 本番環境用の静的ファイル�
 STATICFILES_DIRS = [
     BASE_DIR / 'static',  # 開発時の静的ファイルディレクトリ
 ]
+
+# 開発時の静的ファイルキャッシュ無効化
+if DEBUG:
+    # 開発時はWhiteNoiseのキャッシュを無効化
+    WHITENOISE_USE_FINDERS = True
+    WHITENOISE_AUTOREFRESH = True
+    
+    # 静的ファイルのキャッシュヘッダーを無効化
+    STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 
 # Media files (user uploaded files)
 MEDIA_URL = '/media/'
