@@ -234,6 +234,13 @@
   background-image: none; /* グラデーションを削除 */
 }
 
+.service-hero-content {
+  width: 100%;
+  max-width: none !important;
+  padding: 0;
+  margin: 0 auto;
+}
+
 .service-hero-lp-title {
   font-size: 2.5rem;
   font-weight: 700;
@@ -252,14 +259,36 @@
 .hero-image-container {
   margin: 40px 0;
   text-align: center;
+  width: 100%;
+  max-width: none !important;
 }
 
 .hero-main-image {
-  max-width: 600px;
-  width: 100%;
-  height: auto;
-
+  width: 100% !important;
+  max-width: none !important;
+  min-width: 800px; /* デスクトップでの最小幅を設定 */
+  height: 500px;
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* デスクトップサイズでの画像調整 */
+@media (min-width: 1200px) {
+  .hero-main-image {
+    min-width: 1000px;
+    max-width: 1400px;
+  }
+  
+  /* 大画面でのフローステップ調整 */
+  .flow-container {
+    justify-content: space-between; /* 要素を均等に配置 */
+    max-width: 1200px;
+  }
+  
+  .flow-step {
+    flex: 1;
+    max-width: 220px;
+    min-width: 200px;
+  }
 }
 
 /* CTA (Call To Action) ボタン */
@@ -502,12 +531,14 @@ body {
 
 .flow-container {
   display: flex;
-  align-items: flex-start; /* 上揃えに */
+  align-items: center; /* 中央揃えに変更 */
   justify-content: center;
   flex-wrap: wrap;
   gap: 20px;
   max-width: 1400px;
   margin: 0 auto;
+  padding: 0 20px; /* 両端にパディングを追加 */
+  box-sizing: border-box;
 }
 
 .flow-step {
@@ -517,9 +548,10 @@ body {
   border: 1px solid var(--c-border);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05); /* 影を柔らかく */
   text-align: center;
-  max-width: 220px;
   flex: 1;
-  min-width: 180px;
+  max-width: 280px; /* 幅を少し大きく */
+  min-width: 200px; /* 最小幅も調整 */
+  margin: 0; /* マージンをリセット */
 }
 
 .flow-step-number {
@@ -559,8 +591,14 @@ body {
 
 .flow-arrow {
   font-size: 2rem;
-  color: black; /* 矢印の色を薄く */
-  margin: 60px 10px 0; /* 上部の余白を調整 */
+  color: var(--c-text-light); /* 矢印の色を調整 */
+  margin: 0 10px; /* 上下の余白を削除して水平のみ */
+  flex-shrink: 0; /* 矢印が縮まないようにする */
+  align-self: center; /* 中央揃えに変更 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%; /* 親の高さに合わせる */
 }
 
 /* --- 5. 料金セクション --- */
@@ -891,7 +929,7 @@ body {
   
   /* ヒーローセクション */
   .service-hero {
-    padding: 30px 15px;
+    
     margin: 0 -10px;
   }
   
@@ -907,7 +945,9 @@ body {
   }
   
   .hero-main-image {
-    max-width: 100%;
+    max-width: 100% !important;
+    min-width: auto !important; /* スマートフォンでは最小幅を削除 */
+    width: 100% !important;
     height: auto;
   }
   
@@ -981,6 +1021,8 @@ body {
     transform: rotate(90deg);
     margin: 10px 0;
     font-size: 1.5rem;
+    align-self: center; /* スマートフォンでも中央揃え */
+    height: auto;
   }
   
   .flow-step-title {
@@ -1075,9 +1117,7 @@ body {
   }
   
   /* ヒーローセクション */
-  .service-hero {
-    padding: 25px 10px;
-  }
+  
   
   .service-hero-lp-title {
     font-size: 1.6rem;

@@ -48,7 +48,7 @@ class WebsiteView(TemplateView):
 
 class ITSupportView(TemplateView):
     """IT伴走サポートサービスページのビュー"""
-    template_name = 'service/it_sport.html'
+    template_name = 'service/it_support.html'
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
