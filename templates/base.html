@@ -39,9 +39,9 @@
 
 
 
-    <style data-tag="reset-style-sheet">
+    {% comment %} <style data-tag="reset-style-sheet">
       html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;  -webkit-font-smoothing: antialiased;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6,figure,blockquote,figcaption {  margin: 0;  padding: 0;}button {  background-color: transparent;}button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="submit"] {  -webkit-appearance: button;  color: inherit;}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}pre {  white-space: normal;}input {  padding: 2px 4px;}img {  display: block;}details {  display: block;  margin: 0;  padding: 0;}summary::-webkit-details-marker {  display: none;}[data-thq="accordion"] [data-thq="accordion-content"] {  max-height: 0;  overflow: hidden;  transition: max-height 0.3s ease-in-out;  padding: 0;}[data-thq="accordion"] details[data-thq="accordion-trigger"][open] + [data-thq="accordion-content"] {  max-height: 1000vh;}details[data-thq="accordion-trigger"][open] summary [data-thq="accordion-icon"] {  transform: rotate(180deg);}html { scroll-behavior: smooth  }
-    </style>
+    </style> {% endcomment %}
     <style data-tag="default-style-sheet">
       html {
         font-family: "-apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen","Ubuntu", "Cantarell", "Fira Sans","Droid Sans", "Helvetica Neue", sans-serif";
@@ -68,7 +68,7 @@
         }
       }
 
-      body {
+      {% comment %} body {
         font-weight: 300;
         font-style:normal;
         text-decoration: none;
@@ -78,13 +78,13 @@
         color: var(--dl-color-gray-900);
         background: var(--dl-color-gray-white);
         fill: var(--dl-color-gray-900);
-      }
+      } {% endcomment %}
       
-      /* 日本語文章の改行制御 */
+      {% comment %} /* 日本語文章の改行制御 */
       body {
         word-break: keep-all;
         overflow-wrap: break-word;
-      }
+      } {% endcomment %}
     </style>
     <link
       rel="stylesheet"
@@ -104,7 +104,13 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!-- Base CSS -->
+    {% if debug %}
+    <!-- 開発時：キャッシュバスティング用のタイムスタンプ付きCSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?v={{ css_timestamp }}" />
+    {% else %}
+    <!-- 本番時：通常のCSS -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    {% endif %}
     {% block extra_head %}{% endblock %}
 </head>
 <body>
@@ -267,10 +273,11 @@
                         <div class="footer-container18">
                             <div class="footer-container19">
                                 <span class="footer-text13 TextXS">Site Map</span>
-                                
+                                <a href="{% url 'homepage:home' %}" class="footer-text16 TextSM">Home</a>
+                                <a href="{% url 'service:service' %}" class="footer-text16 TextSM">Service</a>
                                 <a href="{% url 'homepage:about' %}" class="footer-text16 TextSM">About</a>
                                 <a href="https://reang-reserve.jp/tenant/reservation/" class="footer-text14 TextSM">Contact Us</a>
-                                <span class="footer-text22 TextSM">Privacy Policy</span>
+                                <a href="{% url 'homepage:privacy' %}" class="footer-text16 TextSM">Privacy Policy</a>
                             </div>
                             <div class="footer-container20">
                                 <span class="footer-text18 TextXS">Contact info</span>
