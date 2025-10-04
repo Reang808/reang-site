@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ service.title }} - サービス詳細{% endblock %}
+
+{% block page_css %}
+<link rel="stylesheet" href="{% static 'css/index.css' %}" />
+<link rel="stylesheet" href="{% static 'css/service_detail.css' %}" />
+{% endblock %}
+
+{% block content %}
+<div class="detail-container">
+
+  <div class="product-header">
+    
+    <div class="product-gallery">
+      {% if service.main_image %}
+        <img src="{{ service.main_image.url }}" alt="{{ service.title }} メイン画像" class="main-image">
+      {% else %}
+        <div class="no-image">画像がありません</div>
+      {% endif %}
+      {# 今後、サブ画像を複数表示することも可能 #}
+    </div>
+
+    <div class="product-info">
+      <p class="category-tag">{{ service.category.name }}</p>
+      <h1 class="product-title">{{ service.title }}</h1>
+      
+      <div class="price-box">
+        <span class="price-label">初期費用</span>
+        <span class="price-amount">{{ service.price }}</span>
+        <span class="price-note">（税込）</span>
+        {% if service.monthly_info %}
+          <p class="monthly-fee">{{ service.monthly_info }}</p>
+        {% endif %}
+      </div>
+      
+      <div class="social-proof">
+        {# いいね・コメントは将来的にモデルに追加した際に動的にできます #}
+        <span class="likes">❤️ 12 いいね</span>
+        <span class="comments">💬 3 コメント</span>
+      </div>
+
+      <div class="action-panel">
+        <p class="action-lead">ご相談・お見積りは無料です。<br>お気軽にお問い合わせください。</p>
+        <a href="#" class="cta-button">今すぐ無料相談する</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="product-content-body">
+    
+    {# 詳しい説明 #}
+    <div class="content-section">
+      <h2 class="section-title">サービスの詳細</h2>
+      <div class="section-content">
+        {{ service.description_rich|safe }}
+      </div>
+    </div>
+
+    {# 導入の流れ #}
+    <div class="content-section">
+      <h2 class="section-title">導入の流れ</h2>
+      <div class="section-content">
+        {{ service.flow_rich|safe }}
+      </div>
+    </div>
+
+  </div>
+
+</div>
+{# ... 「導入の流れ」セクションの下に追加 ... #}
+
+<div class="content-section">
+  <h2 class="section-title">よくあるご質問</h2>
+
+  <div class="faq-accordion">
+
+    <div class="accordion-item">
+      <button class="accordion-trigger">
+        <span class="accordion-title">初期費用以外に追加で料金はかかりますか？</span>
+        <span class="accordion-icon"></span>
+      </button>
+      <div class="accordion-content">
+        <p>月額の運用保守費以外に、追加機能の開発や大幅なデザイン変更をご希望の場合は別途お見積りとなります。通常のサポートや軽微な修正は月額費用に含まれておりますのでご安心ください。</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-trigger">
+        <span class="accordion-title">ドメインやサーバーの知識がなくても大丈夫ですか？</span>
+        <span class="accordion-icon"></span>
+      </button>
+      <div class="accordion-content">
+        <p>はい、全く問題ありません。サービスの月額費用にはドメインの取得・管理、サーバーのレンタル・保守費用が全て含まれております。専門的なことは全て弊社にお任せいただけます。</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-trigger">
+        <span class="accordion-title">契約期間に縛りはありますか？</span>
+        <span class="accordion-icon"></span>
+      </button>
+      <div class="accordion-content">
+        <p>最低契約期間は1年間となっております。その後は1ヶ月単位での更新となりますので、いつでも解約が可能です。長期でご利用のお客様向けの割引プランもご用意しております。</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+{# ... contentブロックの終わり ... #}
+<script src="{% static 'js/service_detail.js' %}"></script>
+{% endblock %}

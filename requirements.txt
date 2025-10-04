@@ -2,13 +2,17 @@
 Django==5.2.6
 
 # Database
-# SQLite is included with Django by default, but you can add PostgreSQL or MySQL drivers if needed
-psycopg2-binary==2.9.9  # For PostgreSQL
-# mysqlclient==2.2.4      # For MySQL
+psycopg[binary]==3.2.10     # PostgreSQL adapter (Python 3.13 compatible)
+# psycopg2-binary==2.9.9     # Old version (Python 3.13 compatibility issues)
+# mysqlclient==2.2.4         # MySQL adapter (if needed)
+
+# Environment variables
+python-dotenv==1.1.1        # Load environment variables from .env file
+python-decouple==3.8        # Environment variables management (alternative)
 
 # Static files and media handling
-Pillow==10.4.0             # For image processing
-whitenoise==6.8.2          # For serving static files in production
+Pillow==10.4.0             # Image processing library
+whitenoise==6.8.2          # Static files serving in production
 
 # Development and debugging
 django-debug-toolbar==4.4.6  # Debug toolbar for development
@@ -18,12 +22,20 @@ django-extensions==3.2.3     # Useful Django extensions
 django-crispy-forms==2.3     # Better form rendering
 crispy-bootstrap5==2024.10   # Bootstrap 5 support for crispy forms
 
-# Security and deployment
-python-decouple==3.8        # Environment variables management
-gunicorn==23.0.0            # WSGI HTTP Server for production
+# Rich text editor
+django-ckeditor==6.7.1      # CKEditor integration for Django
 
-# API development (if needed)
+# API development
 djangorestframework==3.15.2  # REST API framework
 
-# Testing
+# Production deployment
+gunicorn==23.0.0            # WSGI HTTP Server for production
+
+# Testing and code quality
 coverage==7.6.9             # Code coverage testing
+pytest==8.3.3              # Testing framework
+pytest-django==4.9.0       # Django integration for pytest
+
+# Additional utilities
+requests==2.32.3           # HTTP library
+python-dateutil==2.9.0     # Date utilities

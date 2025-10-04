@@ -28,13 +28,12 @@ load_dotenv(BASE_DIR / '.env')
 SECRET_KEY = 'django-insecure-+1x+(9#81qvr=bux8=bh705*l0@pm2z4_$nlm)zy1t3o3a3cw!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False  # 開発時はTrueに設定
+DEBUG = True  # 開発時はTrueに設定
 
-ALLOWED_HOSTS = ['reang.jp', 'www.reang.jp', '163.44.96.248',]
+ALLOWED_HOSTS = ['reang.jp', 'www.reang.jp', '163.44.96.248', 'localhost', '127.0.0.1']
 
 # NOTE: For production deployment, use config/production_settings.py
 # This file contains development settings only
-
 
 # Application definition
 
@@ -58,6 +57,8 @@ INSTALLED_APPS = [
     # Local apps
     'homepage',
     'service',
+    
+    'ckeditor',
 ]
 
 MIDDLEWARE = [
