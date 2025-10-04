@@ -421,7 +421,7 @@
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  background-color: var(--dl-color-pimary-900);
+  
 }
 .footer-container11 {
   width: 100%;
@@ -1412,7 +1412,7 @@
   border-radius: var(--dl-layout-radius-round);
   flex-direction: column;
   justify-content: center;
-  background-color: var(--dl-color-pimary-700);
+  background-color: gray;
 }
 .home-icon18 {
   fill: var(--dl-color-pimary-500);
@@ -1450,12 +1450,12 @@
   border-radius: var(--dl-layout-radius-round);
   flex-direction: column;
   justify-content: center;
-  background-color: var(--dl-color-pimary-700);
+  background-color: rgb(101, 193, 255);
 }
 .home-icon20,
 .home-icon22,
 .home-icon25 {
-  fill: var(--dl-color-pimary-500);
+  fill: gray;
   width: 20px;
   height: 20px;
 }
@@ -1564,6 +1564,7 @@
 
 /* --- Home: Section 3 & Contact Form --- */
 .home-section3 {
+  background-color: #0a104b;
   flex: 0 0 auto;
   width: 100%;
   display: flex;
@@ -1571,7 +1572,7 @@
   align-items: center;
   padding: var(--dl-layout-space-fiveunits) var(--dl-layout-space-tripleunit);
   flex-direction: column;
-  background-color: var(--dl-color-secondary-100);
+  
 }
 .home-container54 {
   width: 100%;
@@ -1700,8 +1701,8 @@
   align-items: center;
   padding: 0.75rem 1.5rem;
   margin-top: 1rem;
-  background: rgb(185, 232, 254);
-  color: #000000;
+  background: #0a104b;
+  color: #ffffff;
   text-decoration: none;
   font-weight: 600;
   font-size: 0.95rem;

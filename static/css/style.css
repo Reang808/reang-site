@@ -4,13 +4,13 @@
   --dl-color-gray-black: #000000;
   --dl-color-gray-white: #FFFFFF;
   --dl-color-pimary-300: #0284c7ff;
-  --dl-color-pimary-500: #4aa4e3ff;
+  --dl-color-pimary-500: rgb(74, 163, 227);
   --dl-color-pimary-700: #c3e5faff;
   --dl-color-pimary-800: #e3e8efff;
   --dl-color-pimary-900: #f2f5f9ff;
   --dl-layout-size-unit: 1rem;
   --dl-layout-space-unit: 1rem;
-  --dl-color-secondary-100: #111729ff;
+  --dl-color-secondary-100: rgb(0, 18, 73);
   --dl-color-secondary-300: #1e293bff;
   --dl-color-secondary-400: #334155ff;
   --dl-color-secondary-500: #677b8eff;

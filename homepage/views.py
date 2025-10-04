@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
 
+
 class HomeView(TemplateView):
     """ホームページのビュー"""
     template_name = 'homepage/home.html'
@@ -27,7 +28,6 @@ class PrivacyView(TemplateView):
         context = super().get_context_data(**kwargs)
         context['page_title'] = 'プライバシーポリシー'
         return context
-
 
 
 
