@@ -101,25 +101,32 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 import os
 
-DATABASES = {
-    # 開発時はSQLiteを使用（PostgreSQLに切り替える場合は下記をコメントアウト）
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    },
+# 環境変数でデータベースタイプを選択（本番環境ではpostgresqlを指定）
+DATABASE_ENGINE = os.getenv('DATABASE_ENGINE', 'sqlite3')
+
+if DATABASE_ENGINE == 'postgresql':
     # PostgreSQL設定（本番環境用）
-    # 'postgres': {
-    #     'ENGINE': 'django.db.backends.postgresql',
-    #     'NAME': os.getenv('DATABASE_NAME', 'reang_reservation'),
-    #     'USER': os.getenv('DATABASE_USER', 'reang_user'),
-    #     'PASSWORD': os.getenv('DATABASE_PASSWORD', 'Retsushi.0718'),
-    #     'HOST': os.getenv('DATABASE_HOST', 'localhost'),
-    #     'PORT': os.getenv('DATABASE_PORT', '5432'),
-    #     'OPTIONS': {
-    #         'client_encoding': 'UTF8',
-    #     },
-    # }
-}
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': os.getenv('DATABASE_NAME', 'reang_reservation'),
+            'USER': os.getenv('DATABASE_USER', 'reang_user'),
+            'PASSWORD': os.getenv('DATABASE_PASSWORD'),  # フォールバック値を削除
+            'HOST': os.getenv('DATABASE_HOST', 'localhost'),
+            'PORT': os.getenv('DATABASE_PORT', '5432'),
+            'OPTIONS': {
+                'client_encoding': 'UTF8',
+            },
+        }
+    }
+else:
+    # SQLite設定（開発環境用）
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
 
 
 # Password validation
