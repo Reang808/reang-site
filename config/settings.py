@@ -102,7 +102,7 @@ WSGI_APPLICATION = 'config.wsgi.application'
 import os
 
 DATABASES = {
-    # # 開発時はSQLiteを使用（PostgreSQLに切り替える場合は下記をコメントアウト）
+    # 開発時はSQLiteを使用（PostgreSQLに切り替える場合は下記をコメントアウト）
     # 'default': {
     #     'ENGINE': 'django.db.backends.sqlite3',
     #     'NAME': BASE_DIR / 'db.sqlite3',
