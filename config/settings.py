@@ -108,7 +108,7 @@ DATABASES = {
     #     'NAME': BASE_DIR / 'db.sqlite3',
     # },
     # PostgreSQL設定（本番環境用）
-    'postgresql': {
+    'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': os.getenv('DATABASE_NAME', 'reang_reservation'),
         'USER': os.getenv('DATABASE_USER', 'reang_user'),
