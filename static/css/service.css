@@ -191,6 +191,27 @@ html, body {
   font-size: 1.25rem;
 }
 
+/* キャンペーン価格のスタイル */
+.price-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.original-price {
+  text-decoration: line-through;
+  color: #888888;
+  font-size: 0.9rem;
+  font-weight: 400;
+  opacity: 0.7;
+}
+
+.campaign-price {
+  color: #ff6b35;
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
 .shipping-tag {
   font-size: 0.75rem;
   color: #888888;

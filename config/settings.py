@@ -102,7 +102,13 @@ WSGI_APPLICATION = 'config.wsgi.application'
 import os
 
 DATABASES = {
+    # 開発時はSQLiteを使用（PostgreSQLに切り替える場合は下記をコメントアウト）
     'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    },
+    # PostgreSQL設定（本番環境用）
+    'postgresql': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': os.getenv('DATABASE_NAME', 'reang_reservation'),
         'USER': os.getenv('DATABASE_USER', 'reang_user'),
@@ -112,11 +118,6 @@ DATABASES = {
         'OPTIONS': {
             'client_encoding': 'UTF8',
         },
-    },
-    # SQLiteバックアップ（必要に応じて使用）
-    'sqlite_backup': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
