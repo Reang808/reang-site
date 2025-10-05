@@ -103,22 +103,22 @@ import os
 
 DATABASES = {
     # 開発時はSQLiteを使用（PostgreSQLに切り替える場合は下記をコメントアウト）
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': BASE_DIR / 'db.sqlite3',
-    # },
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    },
     # PostgreSQL設定（本番環境用）
-    'postgres': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv('DATABASE_NAME', 'reang_reservation'),
-        'USER': os.getenv('DATABASE_USER', 'reang_user'),
-        'PASSWORD': os.getenv('DATABASE_PASSWORD', 'Retsushi.0718'),
-        'HOST': os.getenv('DATABASE_HOST', 'localhost'),
-        'PORT': os.getenv('DATABASE_PORT', '5432'),
-        'OPTIONS': {
-            'client_encoding': 'UTF8',
-        },
-    }
+    # 'postgres': {
+    #     'ENGINE': 'django.db.backends.postgresql',
+    #     'NAME': os.getenv('DATABASE_NAME', 'reang_reservation'),
+    #     'USER': os.getenv('DATABASE_USER', 'reang_user'),
+    #     'PASSWORD': os.getenv('DATABASE_PASSWORD', 'Retsushi.0718'),
+    #     'HOST': os.getenv('DATABASE_HOST', 'localhost'),
+    #     'PORT': os.getenv('DATABASE_PORT', '5432'),
+    #     'OPTIONS': {
+    #         'client_encoding': 'UTF8',
+    #     },
+    # }
 }
 
 
