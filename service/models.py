@@ -18,6 +18,7 @@ class Service(models.Model):
     price = models.CharField("価格表記", max_length=50, help_text="例: ¥50,000, ¥10,000~ など自由に入力できます")
     monthly_info = models.CharField("月額情報など", max_length=100, help_text="例: 運用保守費：月額１万円")
     is_campaign_target = models.BooleanField("キャンペーン対象", default=False, help_text="チェックを入れるとキャンペーン対象になります")
+    campaign_price = models.CharField("キャンペーン価格", max_length=50, blank=True, null=True, help_text="キャンペーン対象の場合の特別価格")
 
     # --- 詳細ページコンテンツ (ここからが新しい設定) ---
     main_image = models.ImageField("（詳細ページ用）メイン画像", upload_to='services/main_images/', blank=True, null=True)

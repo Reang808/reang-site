@@ -11,11 +11,12 @@
 {% block content %}
 <div class="campaign-banner">
   <h2 class="campaign-title">🎉 期間限定キャンペーン実施中！ 🎉</h2>
-  <p class="campaign-subtitle">初期費用・設計開発費・製作費が<span class="campaign-highlight">完全無料</span>！</p>
-  <div class="campaign-period">📅 キャンペーン期間：2024年12月31日まで</div>
-  <div class="campaign-cta">
-    <a href="https://reang-reserve.jp/tenant/reservation/" class="campaign-button">今すぐ予約する</a>
-  </div>
+  <p class="campaign-subtitle">
+    初期費用・設計開発費・製作費が
+    <span class="campaign-highlight">完全無料</span>！
+  </p>
+  <p class="campaign-period">📅 キャンペーン期間：2024年12月31日まで</p>
+  <a href="#reserve" class="campaign-button">今すぐ予約する</a>
 </div>
 
 <div class="page-header">
@@ -38,7 +39,14 @@
       <h3 class="product-title">{{ service.title }}</h3>
       <div class="product-details">
         <div class="product-price">
-          <span class="{% if service.is_campaign_target %}campaign-highlight{% endif %}">{{ service.price }}</span>
+          {% if service.is_campaign_target and service.campaign_price %}
+            <div class="price-container">
+              <span class="original-price">{{ service.price }}</span>
+              <span class="campaign-price">{{ service.campaign_price }}</span>
+            </div>
+          {% else %}
+            <span class="{% if service.is_campaign_target %}campaign-highlight{% endif %}">{{ service.price }}</span>
+          {% endif %}
           <span class="shipping-tag">{{ service.monthly_info|linebreaksbr }}</span>
         </div>
       </div>
@@ -53,4 +61,5 @@
   </a>
   {% endfor %}
 </div>
+
 {% endblock %}

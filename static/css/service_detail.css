@@ -81,6 +81,26 @@
   color: #d9534f; /* 目立つように少し赤色に */
   margin: 0 8px;
 }
+
+/* キャンペーン価格のスタイル */
+.price-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.original-price {
+  text-decoration: line-through;
+  color: #888888;
+  font-size: 1.2rem;
+  font-weight: 400;
+  opacity: 0.7;
+}
+
+.campaign-price {
+  color: #ff6b35;
+  font-weight: 700;
+}
 .price-note {
   font-size: 0.9rem;
   color: #6c757d;
@@ -131,6 +151,7 @@
 
 /* --- 下部コンテンツエリア --- */
 .content-section {
+  padding: 0 30px;
   margin-bottom: 50px;
 }
 .section-title {
@@ -154,6 +175,10 @@
 /* ===================================================================
  * FAQ Accordion Style
  * =================================================================== */
+
+.faq-accordion {
+  padding: 0 10px; /* 左右に10pxの余白を追加 */
+}
 
 .faq-accordion .accordion-item {
   border-bottom: 1px solid #dee2e6;
@@ -180,6 +205,29 @@
 
 .accordion-trigger:hover {
   color: #007bff;
+}
+
+/* タッチデバイスでのフィードバック */
+.accordion-trigger:active {
+  background-color: rgba(0, 123, 255, 0.05);
+}
+
+/* フォーカス時のスタイル（キーボード操作用） */
+.accordion-trigger:focus {
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
+}
+
+/* タッチ操作の改善 */
+@media (hover: none) and (pointer: coarse) {
+  .accordion-trigger:hover {
+    color: inherit; /* タッチデバイスではhoverを無効化 */
+  }
+  
+  .accordion-trigger {
+    -webkit-tap-highlight-color: rgba(0, 123, 255, 0.1);
+    tap-highlight-color: rgba(0, 123, 255, 0.1);
+  }
 }
 
 .accordion-icon {
@@ -231,18 +279,110 @@
 
 /* --- レスポンシブ対応 (スマホ表示) --- */
 @media (max-width: 768px) {
+  .detail-container {
+    margin: 20px auto;
+    padding: 16px;
+  }
+
   .product-header {
     grid-template-columns: 1fr; /* カラムを1列に */
     gap: 24px;
     margin-bottom: 40px;
   }
+  
   .product-title {
     font-size: 1.8rem;
   }
+  
   .price-amount {
     font-size: 2rem;
   }
+  
   .action-panel {
     margin-top: 24px; /* スマホでは自動配置を解除 */
+  }
+
+  /* FAQ アコーディオンのモバイル対応 */
+  .section-title {
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+  }
+
+  .accordion-trigger {
+    padding: 18px 0;
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+
+  .accordion-title {
+    padding-right: 12px; /* アイコンとの間隔を確保 */
+  }
+
+  .accordion-icon {
+    width: 20px;
+    height: 20px;
+    margin-left: 12px;
+  }
+
+  .accordion-icon::before,
+  .accordion-icon::after {
+    width: 14px;
+    height: 2px;
+  }
+
+  .accordion-content p {
+    padding: 0 8px 16px 8px;
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+}
+
+/* --- さらに小さい画面（iPhone SE など）対応 --- */
+@media (max-width: 480px) {
+  .detail-container {
+    margin: 16px auto;
+    padding: 12px;
+  }
+
+  .product-title {
+    font-size: 1.6rem;
+    line-height: 1.2;
+  }
+
+  .price-amount {
+    font-size: 1.8rem;
+  }
+
+  .section-title {
+    font-size: 1.3rem;
+  }
+
+  /* FAQのタッチ操作を改善 */
+  .accordion-trigger {
+    padding: 20px 0; /* タップしやすいように高さを増加 */
+    font-size: 0.95rem;
+    min-height: 60px; /* 最小高さを確保 */
+    align-items: flex-start;
+    padding-top: 16px;
+  }
+
+  .accordion-title {
+    flex: 1;
+    padding-right: 10px;
+    margin-top: 4px; /* アイコンとの位置調整 */
+  }
+
+  .accordion-icon {
+    margin-top: 8px; /* タイトルと位置を合わせる */
+  }
+
+  .accordion-content p {
+    padding: 0 6px 14px 6px;
+    font-size: 0.85rem;
+  }
+
+  /* 全体的な余白調整 */
+  .content-section {
+    margin-bottom: 35px;
   }
 }

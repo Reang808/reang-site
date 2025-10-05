@@ -5,7 +5,7 @@
 
 {% block page_css %}
 <link rel="stylesheet" href="{% static 'css/index.css' %}" />
-<link rel="stylesheet" href="{% static 'css/service_detail.css' %}" />
+<link rel="stylesheet" href="{% static 'css/service_detail.css' %}?v={{ css_timestamp }}" />
 {% endblock %}
 
 {% block content %}
@@ -28,7 +28,14 @@
       
       <div class="price-box">
         <span class="price-label">初期費用</span>
-        <span class="price-amount">{{ service.price }}</span>
+        {% if service.is_campaign_target and service.campaign_price %}
+          <div class="price-container">
+            <span class="original-price">{{ service.price }}</span>
+            <span class="campaign-price price-amount">{{ service.campaign_price }}</span>
+          </div>
+        {% else %}
+          <span class="price-amount">{{ service.price }}</span>
+        {% endif %}
         <span class="price-note">（税込）</span>
         {% if service.monthly_info %}
           <p class="monthly-fee">{{ service.monthly_info }}</p>
@@ -43,7 +50,7 @@
 
       <div class="action-panel">
         <p class="action-lead">ご相談・お見積りは無料です。<br>お気軽にお問い合わせください。</p>
-        <a href="#" class="cta-button">今すぐ無料相談する</a>
+        <a href="https://reang-reserve.jp/tenant/reservation/" class="cta-button">今すぐ無料相談する</a>
       </div>
     </div>
 
@@ -72,43 +79,43 @@
 </div>
 {# ... 「導入の流れ」セクションの下に追加 ... #}
 
-<div class="content-section">
+{% comment %} <div class="content-section">
   <h2 class="section-title">よくあるご質問</h2>
 
   <div class="faq-accordion">
 
     <div class="accordion-item">
-      <button class="accordion-trigger">
+      <button class="accordion-trigger" type="button" role="button" tabindex="0">
         <span class="accordion-title">初期費用以外に追加で料金はかかりますか？</span>
-        <span class="accordion-icon"></span>
+        <span class="accordion-icon" aria-hidden="true"></span>
       </button>
-      <div class="accordion-content">
+      <div class="accordion-content" role="region">
         <p>月額の運用保守費以外に、追加機能の開発や大幅なデザイン変更をご希望の場合は別途お見積りとなります。通常のサポートや軽微な修正は月額費用に含まれておりますのでご安心ください。</p>
       </div>
     </div>
 
     <div class="accordion-item">
-      <button class="accordion-trigger">
+      <button class="accordion-trigger" type="button" role="button" tabindex="0">
         <span class="accordion-title">ドメインやサーバーの知識がなくても大丈夫ですか？</span>
-        <span class="accordion-icon"></span>
+        <span class="accordion-icon" aria-hidden="true"></span>
       </button>
-      <div class="accordion-content">
+      <div class="accordion-content" role="region">
         <p>はい、全く問題ありません。サービスの月額費用にはドメインの取得・管理、サーバーのレンタル・保守費用が全て含まれております。専門的なことは全て弊社にお任せいただけます。</p>
       </div>
     </div>
 
     <div class="accordion-item">
-      <button class="accordion-trigger">
+      <button class="accordion-trigger" type="button" role="button" tabindex="0">
         <span class="accordion-title">契約期間に縛りはありますか？</span>
-        <span class="accordion-icon"></span>
+        <span class="accordion-icon" aria-hidden="true"></span>
       </button>
-      <div class="accordion-content">
+      <div class="accordion-content" role="region">
         <p>最低契約期間は1年間となっております。その後は1ヶ月単位での更新となりますので、いつでも解約が可能です。長期でご利用のお客様向けの割引プランもご用意しております。</p>
       </div>
     </div>
 
   </div>
-</div>
+</div> {% endcomment %}
 
 {# ... contentブロックの終わり ... #}
 <script src="{% static 'js/service_detail.js' %}"></script>
