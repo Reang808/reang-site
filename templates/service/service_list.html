@@ -1,6 +1,11 @@
 {% extends 'base.html' %}
 {% load static %}
-
+{% block extra_head %}
+{# Google Fontsの読み込み（base.htmlに記載済みなら不要） #}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+{% endblock %}
 {% block page_css %}
 <link rel="stylesheet" href="{% static 'css/index.css' %}" />
 <link rel="stylesheet" href="{% static 'css/service_list.css' %}" />
@@ -12,11 +17,11 @@
 <div class="campaign-banner">
   <h2 class="campaign-title">🎉 期間限定キャンペーン実施中！ 🎉</h2>
   <p class="campaign-subtitle">
-    初期費用・設計開発費・製作費が
+    初期費用・設計開発費・製作費が<br>
     <span class="campaign-highlight">完全無料</span>！
   </p>
   <p class="campaign-period">📅 キャンペーン期間：2024年12月31日まで</p>
-  <a href="#reserve" class="campaign-button">今すぐ予約する</a>
+  <a href="https://reang-reserve.jp/tenant/reservation/" class="campaign-button">今すぐ予約する</a>
 </div>
 
 <div class="page-header">
@@ -55,7 +60,7 @@
           <span class="likes">❤️ 12</span>
           <span class="comments">💬 3</span>
         </div>
-        <div style="color: #4CAF50; font-weight: 600;">人気</div>
+        <div class="popularity-badge">人気</div>
       </div>
     </div>
   </a>
