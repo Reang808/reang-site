@@ -1,23 +1,29 @@
 /* ===================================================================
- * Service List Page - Modern E-commerce Style (Amazon-inspired)
+ * Service List Page - Reang Branding Style
  * =================================================================== */
 
-/* --- 1. 基本設定とカラーパレット --- */
+/* --- 1. 基本設定と新しいカラーパレット --- */
 :root {
   --font-family-sans-serif: "Amazon Ember", "Helvetica Neue", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
   
-  /* カラーパレット */
-  --color-primary: #00ffd0;       /* Amazon風のティールブルー */
-  --color-secondary: #ff9900;     /* アクセントのオレンジ */
-  --color-background: #f0f2f5;    /* 背景の薄いグレー */
-  --color-white: #ffffff;
-  --color-text-base: #0f1111;      /* 基本テキストカラー */
-  --color-text-secondary: #565959; /* 補助テキストカラー */
-  --color-link: #77ff00;
-  --color-link-hover: #c7511f;
-  --color-border: #ddd;
-  --color-price: #b12704;        /* 価格用の赤色 */
-
+  /* ブランドカラー */
+  --dl-color-primary-300: #0284c7;
+  --dl-color-primary-500: #4aa4e3;
+  --dl-color-primary-700: #c3e5fa;
+  --dl-color-gray-700: #999999;
+  --dl-color-gray-900: #c3c5c9;
+  --dl-color-gray-black: #0f1111;
+  --dl-color-gray-white: #FFFFFF;
+  
+  /* アクセントカラー */
+  --dl-color-gold: #FFD700;
+  --dl-color-gold-dark: #FFA500;
+  
+  /* キャンペーン用カラー */     
+  --campaign-primary: #ff6b35;
+  --campaign-secondary: #f39c12;
+  --campaign-bg: #fff3cd;
+  
   /* レイアウト変数 */
   --border-radius: 8px;
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
@@ -26,8 +32,8 @@
 }
 
 body {
-  background-color: var(--color-background);
-  color: var(--color-text-base);
+  background-color: #f8f9fa; /* 少し明るい背景色に変更 */
+  color: var(--dl-color-gray-black);
   font-family: var(--font-family-sans-serif);
 }
 
@@ -36,9 +42,10 @@ body {
   max-width: 1200px;
   margin: 24px auto;
   padding: 24px 32px;
-  background: #E3F2FD; /* Reangトーンに変更 */
-  color: #0D47A1;
+  background: linear-gradient(135deg, var(--dl-color-primary-700), var(--dl-color-gray-white));
+  color: var(--dl-color-primary-300);
   border-radius: var(--border-radius);
+  border: 1px solid var(--dl-color-primary-500);
   text-align: center;
   box-shadow: var(--shadow-md);
 }
@@ -47,7 +54,7 @@ body {
   font-size: 1.8rem;
   font-weight: 700;
   margin: 0 0 8px 0;
-  color: #0D47A1;
+  color: var(--dl-color-primary-300);
 }
 
 .campaign-subtitle {
@@ -56,20 +63,22 @@ body {
   line-height: 1.6;
 }
 
-/* 🔥 完全無料の強調デザイン */
+.campaign-highlight {
+  color: var(--campaign-primary);
+  font-weight: 900;
+  font-size: 1.4em;
+  vertical-align: middle;
+}
 
-/* 期間表示 */
 .campaign-period {
   font-size: 0.9rem;
   opacity: 0.8;
   margin-bottom: 20px;
-  color: #0D47A1;
 }
 
-/* ボタン */
 .campaign-button {
-  background-color: #0284c7ff;
-  color: var(--color-white);
+  background-color: var(--dl-color-primary-300);
+  color: var(--dl-color-gray-white);
   font-size: 1rem;
   font-weight: 700;
   padding: 12px 28px;
@@ -77,13 +86,13 @@ body {
   text-decoration: none;
   transition: var(--transition);
   box-shadow: var(--shadow-sm);
+  border: none;
 }
 .campaign-button:hover {
-  background-color: #2196F3;
+  background-color: var(--dl-color-primary-500);
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
 }
-
 
 /* --- 3. ページヘッダー --- */
 .page-header {
@@ -94,10 +103,11 @@ body {
   font-size: 2.2rem;
   font-weight: 700;
   margin-bottom: 8px;
+  color: var(--dl-color-gray-black);
 }
 .page-subtitle {
   font-size: 1rem;
-  color: var(--color-text-secondary);
+  color: var(--dl-color-gray-700);
   max-width: 600px;
   margin: 0 auto;
 }
@@ -114,12 +124,12 @@ body {
 
 /* --- 5. 商品カード --- */
 .product-card {
-  background: var(--color-white);
-  border: 1px solid var(--color-border);
+  background: var(--dl-color-gray-white);
+  border: 1px solid var(--dl-color-gray-900);
   border-radius: var(--border-radius);
   overflow: hidden;
   text-decoration: none;
-  color: var(--color-text-base);
+  color: var(--dl-color-gray-black);
   display: flex;
   flex-direction: column;
   box-shadow: var(--shadow-sm);
@@ -128,8 +138,11 @@ body {
 }
 .product-card:hover {
   box-shadow: var(--shadow-md);
-  border-color: #bbb;
+  border-color: var(--dl-color-primary-500);
   transform: translateY(-4px);
+}
+.product-card:hover .product-title {
+  color: var(--dl-color-primary-300);
 }
 
 .product-image-container {
@@ -141,7 +154,7 @@ body {
 .product-image {
   width: 100%;
   height: 100%;
-  object-fit: contain; /* 商品全体が見えるようにcontainに変更 */
+  object-fit: contain;
 }
 
 .product-content {
@@ -155,7 +168,7 @@ body {
   font-size: 1.2rem;
   font-weight: 800;
   line-height: 1.4;
-  height: 2.8em; /* 2行分 */
+  height: 2.8em;
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -164,25 +177,24 @@ body {
   margin-bottom: 12px;
 }
 
-
 .product-details {
-  margin-top: auto; /* 価格情報をカード下部に配置 */
+  margin-top: auto;
 }
 .product-price {
   font-size: 1.5rem;
   font-weight: 500;
-  color: var(--color-price);
+  color: var(--dl-color-gray-black);
 }
 .shipping-tag {
   display: block;
   font-size: 0.8rem;
-  color: var(--color-text-secondary);
+  color: var(--dl-color-gray-700);
   margin-top: 4px;
 }
 
 .product-meta {
   font-size: 0.8rem;
-  color: var(--color-text-secondary);
+  color: var(--dl-color-gray-700);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -191,14 +203,23 @@ body {
   border-top: 1px solid #f0f2f5;
 }
 
+.popularity-badge {
+  background-color: var(--dl-color-gold);
+  color: var(--dl-color-gray-black);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
 /* --- 6. キャンペーンアイテムの特別装飾 --- */
 .product-card.campaign-item::before {
   content: 'キャンペーン';
   position: absolute;
   top: 12px;
   left: 0;
-  background-color: var(--color-price);
-  color: var(--color-white);
+  background-color: var(--campaign-primary);
+  color: var(--dl-color-gray-white);
   padding: 4px 10px;
   font-size: 0.75rem;
   font-weight: 700;
@@ -206,7 +227,6 @@ body {
   box-shadow: var(--shadow-sm);
 }
 
-/* キャンペーン価格のスタイル */
 .price-container {
   display: flex;
   flex-direction: column;
@@ -215,18 +235,16 @@ body {
 
 .original-price {
   text-decoration: line-through;
-  color: #888888;
+  color: var(--dl-color-gray-700);
   font-size: 0.9rem;
   font-weight: 400;
-  opacity: 0.7;
 }
 
 .campaign-price {
-  color: #ff6b35;
+  color: var(--campaign-primary);
   font-weight: 700;
-  font-size: 1.25rem;
+  font-size: 1.4rem; /* 少し大きくして強調 */
 }
-
 
 
 /* --- 7. レスポンシブ対応 --- */
@@ -239,7 +257,7 @@ body {
 
 @media (max-width: 480px) {
   .product-grid {
-    grid-template-columns: repeat(2, 1fr); /* スマホでは2列表示 */
+    grid-template-columns: repeat(2, 1fr);
     gap: 8px;
   }
   .product-content {
@@ -249,7 +267,7 @@ body {
     font-size: 0.9rem;
     height: 2.52em;
   }
-  .product-price {
+  .product-price, .campaign-price {
     font-size: 1.2rem;
   }
 }

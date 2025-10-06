@@ -1,44 +1,124 @@
 /* ===================================================================
- * Service Detail Page - Amazon-like Style
+ * Service Detail Page - Refined Design
  * =================================================================== */
+
+/* --- 変数定義 --- */
+:root {
+  --primary-color: #0d2c4f;      /* ディープブルー */
+  --accent-color: #ff6b35;       /* サンセットオレンジ */
+  --text-color: #333;            /* 基本テキスト */
+  --text-muted-color: #6c757d;   /* 補足テキスト */
+  --bg-color: #ffffff;           /* 背景色 */
+  --bg-soft-color: #f8f9fa;      /* やや薄い背景色 */
+  --border-color: #dee2e6;       /* 境界線 */
+  --success-color: #28a745;      /* 成功・チェックマーク */
+  
+  --font-family-base: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.05);
+  --shadow-md: 0 8px 32px rgba(0,0,0,0.08);
+}
+
+/* --- 基本スタイル --- */
+.service-detail-page {
+  font-family: var(--font-family-base);
+  background-color: var(--bg-soft-color);
+  color: var(--text-color);
+}
 
 /* --- 全体コンテナ --- */
 .detail-container {
-  max-width: 1100px;
-  margin: 40px auto;
-  padding: 24px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  background-color: #fff;
-  border-radius: 12px;
-  box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 48px;
+  background-color: var(--bg-color);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+/* --- パンくずリスト --- */
+.breadcrumbs {
+  max-width: 1200px;
+  margin: 24px auto 0;
+  padding: 0 48px;
+  font-size: 0.9rem;
+}
+.breadcrumbs ol {
+  list-style: none;
+  padding: 25px 0 0 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.breadcrumbs a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+.breadcrumbs a:hover {
+  opacity: 0.7;
+}
+.breadcrumbs li:not(:last-child)::after {
+  content: '/';
+  margin-left: 8px;
+  color: var(--text-muted-color);
 }
 
 /* --- 上部ヘッダー（2カラムレイアウト） --- */
 .product-header {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* 2つのカラムを均等に配置 */
-  gap: 40px;
-  margin-bottom: 60px;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 60px;
+  margin-bottom: 80px;
 }
 
 /* --- 左カラム：画像エリア --- */
 .product-gallery .main-image {
   width: 100%;
   height: auto;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 16 / 11;
   object-fit: cover;
-  border-radius: 8px;
-  border: 1px solid #eee;
+  border-radius: var(--border-radius-md);
+  border: 1px solid var(--border-color);
+  margin-bottom: 16px;
 }
 .product-gallery .no-image {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
-  aspect-ratio: 4 / 3;
-  background-color: #f8f9fa;
-  color: #adb5bd;
-  border-radius: 8px;
+  aspect-ratio: 16 / 11;
+  background-color: var(--bg-soft-color);
+  color: var(--text-muted-color);
+  border-radius: var(--border-radius-md);
+  margin-bottom: 16px;
+}
+.thumbnail-list {
+  display: flex;
+  gap: 12px;
+}
+.thumbnail-item {
+  width: 90px;
+  height: 65px;
+  object-fit: cover;
+  border: 2px solid transparent;
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  opacity: 0.6;
+  transition: all 0.3s ease;
+}
+.thumbnail-item:hover,
+.thumbnail-item.active {
+  opacity: 1;
+  border-color: var(--accent-color);
+  transform: translateY(-2px);
 }
 
 /* --- 右カラム：情報エリア --- */
@@ -47,342 +127,298 @@
   flex-direction: column;
 }
 .category-tag {
-  display: inline-block;
-  background-color: #e6f2ff;
-  color: #007bff;
-  padding: 4px 10px;
+  align-self: flex-start;
+  background-color: var(--primary-color);
+  color: #fff;
+  padding: 6px 14px;
   font-size: 0.8rem;
-  font-weight: 600;
+  font-weight: var(--font-weight-medium);
   border-radius: 20px;
-  margin-bottom: 12px;
-  align-self: flex-start; /* タグの幅をコンテンツに合わせる */
+  margin-bottom: 16px;
 }
 .product-title {
-  font-size: 2.2rem;
-  font-weight: 700;
+  font-size: 2.5rem;
+  font-weight: var(--font-weight-bold);
   line-height: 1.3;
   margin: 0 0 24px 0;
+  color: var(--primary-color);
 }
 
 .price-box {
-  background-color: #f8f9fa;
-  border: 1px solid #dee2e6;
-  border-radius: 8px;
-  padding: 20px;
-  margin-bottom: 16px;
+  background-color: var(--bg-soft-color);
+  border-radius: var(--border-radius-md);
+  padding: 24px;
+  margin-bottom: 32px;
 }
 .price-label {
-  font-size: 0.9rem;
-  color: #6c757d;
-}
-.price-amount {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #d9534f; /* 目立つように少し赤色に */
-  margin: 0 8px;
-}
-
-/* キャンペーン価格のスタイル */
-.price-container {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.original-price {
-  text-decoration: line-through;
-  color: #888888;
-  font-size: 1.2rem;
-  font-weight: 400;
-  opacity: 0.7;
-}
-
-.campaign-price {
-  color: #ff6b35;
-  font-weight: 700;
+  font-size: 1rem;
+  color: var(--text-muted-color);
+  margin-bottom: 8px;
+  display: block;
 }
 .price-note {
-  font-size: 0.9rem;
-  color: #6c757d;
+  font-size: 0.85rem;
+  margin-left: 4px;
+}
+.price-amount {
+  font-size: 2.8rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--primary-color);
+  line-height: 1;
+}
+.price-container {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+.original-price {
+  text-decoration: line-through;
+  color: var(--text-muted-color);
+  font-size: 1.4rem;
+  font-weight: var(--font-weight-regular);
+}
+.campaign-price.price-amount {
+  color: var(--accent-color);
 }
 .monthly-fee {
-  margin: 12px 0 0 0;
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: #212529;
+  margin: 16px 0 0 0;
+  font-size: 1rem;
+  font-weight: var(--font-weight-medium);
+  color: var(--primary-color);
 }
 
-.social-proof {
+.feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 32px 0;
+  font-size: 1rem;
+}
+.feature-list li {
   display: flex;
-  gap: 20px;
-  font-size: 0.9rem;
-  color: #6c757d;
-  margin-bottom: 24px;
-  padding-left: 5px;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  color: var(--text-color);
+}
+.feature-list .fa-check-circle {
+  color: var(--success-color);
+  font-size: 1.3em;
 }
 
 .action-panel {
-  margin-top: auto; /* ボタンを下部に配置 */
-  text-align: center;
-  border-top: 1px solid #eee;
+  margin-top: auto;
+  border-top: 1px solid var(--border-color);
   padding-top: 24px;
+  text-align: center;
 }
 .action-lead {
   font-size: 0.9rem;
-  color: #6c757d;
+  color: var(--text-muted-color);
   margin-bottom: 16px;
 }
 .cta-button {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
   width: 100%;
-  background-color: #007bff;
+  background: linear-gradient(45deg, var(--accent-color), #ff8a5c);
   color: #fff;
-  padding: 16px;
-  font-size: 1.1rem;
-  font-weight: 600;
+  padding: 18px;
+  font-size: 1.2rem;
+  font-weight: var(--font-weight-bold);
   text-align: center;
   text-decoration: none;
-  border-radius: 8px;
-  transition: background-color 0.2s ease;
+  border: none;
+  border-radius: var(--border-radius-md);
+  box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
+  transition: all 0.3s ease;
 }
 .cta-button:hover {
-  background-color: #0056b3;
+  transform: translateY(-3px);
+  box-shadow: 0 7px 20px rgba(255, 107, 53, 0.5);
+}
+.cta-button .arrow-icon {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.3s ease;
+}
+.cta-button:hover .arrow-icon {
+  transform: translateX(4px);
 }
 
 /* --- 下部コンテンツエリア --- */
 .content-section {
-  padding: 0 30px;
-  margin-bottom: 50px;
+  max-width: 900px;
+  margin: 0 auto 80px;
 }
 .section-title {
-  font-size: 1.8rem;
-  font-weight: 600;
-  border-bottom: 2px solid #dee2e6;
-  padding-bottom: 10px;
-  margin-bottom: 24px;
+  font-size: 2rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--primary-color);
+  padding-bottom: 16px;
+  margin-bottom: 32px;
+  border-bottom: 2px solid var(--primary-color);
+  position: relative;
+}
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 80px;
+  height: 2px;
+  background-color: var(--accent-color);
 }
 .section-content {
-  line-height: 1.8;
-  color: #343a40;
+  line-height: 1.9;
+  color: var(--text-color);
 }
-/* CKEditorで挿入される画像がコンテナからはみ出さないように */
 .section-content img {
   max-width: 100%;
   height: auto;
-  border-radius: 8px;
-  margin: 16px 0;
-}
-/* ===================================================================
- * FAQ Accordion Style
- * =================================================================== */
-
-.faq-accordion {
-  padding: 0 10px; /* 左右に10pxの余白を追加 */
+  border-radius: var(--border-radius-md);
+  margin: 24px 0;
 }
 
+/* --- FAQ アコーディオン --- */
 .faq-accordion .accordion-item {
-  border-bottom: 1px solid #dee2e6;
+  border-bottom: 1px solid var(--border-color);
 }
-.faq-accordion .accordion-item:last-child {
-  border-bottom: none;
-}
-
 .accordion-trigger {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 20px 0;
+  padding: 24px 8px;
   background: none;
   border: none;
   cursor: pointer;
   text-align: left;
   font-family: inherit;
   font-size: 1.1rem;
-  font-weight: 500;
-  color: #212529;
+  font-weight: var(--font-weight-medium);
+  color: var(--primary-color);
+  transition: color 0.2s ease;
 }
-
 .accordion-trigger:hover {
-  color: #007bff;
+  color: var(--accent-color);
 }
-
-/* タッチデバイスでのフィードバック */
-.accordion-trigger:active {
-  background-color: rgba(0, 123, 255, 0.05);
-}
-
-/* フォーカス時のスタイル（キーボード操作用） */
-.accordion-trigger:focus {
-  outline: 2px solid #007bff;
-  outline-offset: 2px;
-}
-
-/* タッチ操作の改善 */
-@media (hover: none) and (pointer: coarse) {
-  .accordion-trigger:hover {
-    color: inherit; /* タッチデバイスではhoverを無効化 */
-  }
-  
-  .accordion-trigger {
-    -webkit-tap-highlight-color: rgba(0, 123, 255, 0.1);
-    tap-highlight-color: rgba(0, 123, 255, 0.1);
-  }
-}
-
 .accordion-icon {
   position: relative;
-  width: 16px;
-  height: 16px;
-  transition: transform 0.3s ease;
-  flex-shrink: 0; /* アイコンが縮まないように */
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
   margin-left: 16px;
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
-
 .accordion-icon::before,
 .accordion-icon::after {
   content: '';
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 12px;
+  width: 16px;
   height: 2px;
-  background-color: #6c757d;
+  background-color: currentColor;
   transform: translate(-50%, -50%);
+  border-radius: 2px;
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
-
 .accordion-icon::after {
   transform: translate(-50%, -50%) rotate(90deg);
-  transition: opacity 0.2s ease;
 }
-
-/* --- 開いたとき(active)のスタイル --- */
-.accordion-trigger.active .accordion-icon {
-  transform: rotate(180deg);
+.accordion-trigger[aria-expanded="true"] .accordion-icon {
+  transform: rotate(135deg);
 }
-.accordion-trigger.active .accordion-icon::after {
-  opacity: 0; /* プラスの縦棒を消してマイナスに見せる */
-}
-
-/* --- 回答部分のスタイル --- */
 .accordion-content {
-  max-height: 0; /* JSで高さを変更してアニメーションさせる */
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.4s ease-out;
+}
+.accordion-content > p {
   overflow: hidden;
-  transition: max-height 0.4s ease-out;
+}
+.accordion-trigger[aria-expanded="true"] + .accordion-content {
+  grid-template-rows: 1fr;
 }
 .accordion-content p {
-  padding: 0 10px 20px 10px;
+  padding: 0 8px 24px 8px;
   margin: 0;
-  line-height: 1.7;
-  color: #343a40;
+  line-height: 1.8;
+  color: var(--text-color);
 }
 
-/* --- レスポンシブ対応 (スマホ表示) --- */
+/* --- レスポンシブ対応 (タブレット) --- */
+@media (max-width: 1024px) {
+  .product-header {
+    gap: 40px;
+  }
+  .product-title {
+    font-size: 2rem;
+  }
+  .price-amount {
+    font-size: 2.4rem;
+  }
+}
+
+/* --- レスポンシブ対応 (スマホ) --- */
 @media (max-width: 768px) {
   .detail-container {
     margin: 20px auto;
-    padding: 16px;
+    padding: 24px;
+    box-shadow: none;
   }
-
+  .breadcrumbs {
+    padding: 0 24px;
+  }
   .product-header {
-    grid-template-columns: 1fr; /* カラムを1列に */
-    gap: 24px;
-    margin-bottom: 40px;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    margin-bottom: 48px;
   }
-  
   .product-title {
     font-size: 1.8rem;
   }
-  
   .price-amount {
-    font-size: 2rem;
+    font-size: 2.2rem;
   }
-  
   .action-panel {
-    margin-top: 24px; /* スマホでは自動配置を解除 */
+    margin-top: 24px;
   }
-
-  /* FAQ アコーディオンのモバイル対応 */
+  .content-section {
+    margin-bottom: 60px;
+  }
   .section-title {
-    font-size: 1.4rem;
-    margin-bottom: 20px;
-  }
-
-  .accordion-trigger {
-    padding: 18px 0;
-    font-size: 1rem;
-    line-height: 1.4;
-  }
-
-  .accordion-title {
-    padding-right: 12px; /* アイコンとの間隔を確保 */
-  }
-
-  .accordion-icon {
-    width: 20px;
-    height: 20px;
-    margin-left: 12px;
-  }
-
-  .accordion-icon::before,
-  .accordion-icon::after {
-    width: 14px;
-    height: 2px;
-  }
-
-  .accordion-content p {
-    padding: 0 8px 16px 8px;
-    font-size: 0.9rem;
-    line-height: 1.6;
+    font-size: 1.6rem;
+    margin-bottom: 24px;
   }
 }
 
-/* --- さらに小さい画面（iPhone SE など）対応 --- */
+/* --- さらに小さい画面 --- */
 @media (max-width: 480px) {
   .detail-container {
-    margin: 16px auto;
-    padding: 12px;
+    padding: 16px;
   }
-
+  .breadcrumbs {
+    padding: 0 16px;
+    font-size: 0.8rem;
+  }
   .product-title {
     font-size: 1.6rem;
-    line-height: 1.2;
   }
-
   .price-amount {
-    font-size: 1.8rem;
+    font-size: 2rem;
   }
-
-  .section-title {
-    font-size: 1.3rem;
+  .cta-button {
+    font-size: 1.1rem;
+    padding: 16px;
   }
-
-  /* FAQのタッチ操作を改善 */
   .accordion-trigger {
-    padding: 20px 0; /* タップしやすいように高さを増加 */
-    font-size: 0.95rem;
-    min-height: 60px; /* 最小高さを確保 */
-    align-items: flex-start;
-    padding-top: 16px;
+    padding: 20px 0;
+    font-size: 1rem;
   }
-
-  .accordion-title {
-    flex: 1;
-    padding-right: 10px;
-    margin-top: 4px; /* アイコンとの位置調整 */
-  }
-
-  .accordion-icon {
-    margin-top: 8px; /* タイトルと位置を合わせる */
-  }
-
   .accordion-content p {
-    padding: 0 6px 14px 6px;
-    font-size: 0.85rem;
-  }
-
-  /* 全体的な余白調整 */
-  .content-section {
-    margin-bottom: 35px;
+    font-size: 0.9rem;
   }
 }
