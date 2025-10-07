@@ -4,113 +4,119 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
-    
+
     <!-- ページタイトル -->
-    <title>{% block title %}【個人開発】広島での予約システム・ECサイト構築｜Reang{% endblock %}</title>
-    
+    <title>{% block title %}広島の個人エンジニア | Reang ｜予約システム・ECサイト・DX化支援{% endblock %}</title>
+
     <!-- SEO メタタグ -->
-    <meta name="description" content="{% block description %}広島市を拠点に、個人でWebアプリケーション開発を行っています。オーダーメイドの予約サイト構築、ECサイト、業務効率化ツールなど、柔軟な対応と適正価格でご提案。事業の課題解決を直接サポートします。{% endblock %}">
-    <meta name="keywords" content="{% block keywords %}広島,Web開発,予約システム,ECサイト,個人開発,アプリ開発,業務効率化,Reang{% endblock %}">
-    <meta name="author" content="Reang">
-    <meta name="robots" content="index, follow">
-    
-    <!-- OGP（Facebook・SNS共有用） -->
-    <meta property="og:title" content="{% block og_title %}【個人開発】広島での予約システム・ECサイト構築｜Reang{% endblock %}">
-    <meta property="og:description" content="{% block og_description %}広島を拠点に個人でWebアプリを開発。予約サイト構築やECサイト、業務効率化ツールなど、柔軟な対応で事業の課題解決をサポートします。{% endblock %}">
+    <meta name="description" content="{% block description %}広島を拠点に活動する個人エンジニア『（Reang）』。予約システム、ECサイト開発、業務DX化支援を一貫対応。小規模事業者・個人事業主の課題を、技術で解決します。{% endblock %}">
+    <meta name="keywords" content="{% block keywords %}広島, エンジニア, 個人開発, Webアプリ, 予約システム, ECサイト, DX, 業務改善, Reang{% endblock %}">
+    <meta name="author" content="後藤田烈志 - Reang">
+    <meta name="robots" content="home, about, service, contact, privacy">
+
+    <!-- OGP（SNS共有用） -->
+    <meta property="og:title" content="{% block og_title %}広島の個人エンジニア | Reang ｜予約システム・ECサイト・DX化支援{% endblock %}">
+    <meta property="og:description" content="{% block og_description %}広島市を拠点に活動する個人エンジニア『（Reang）』。予約システム、ECサイト、業務効率化など、事業の成長を支援するWeb開発サービス。{% endblock %}">
     <meta property="og:image" content="{% block og_image %}{% if request.is_secure %}https{% else %}http{% endif %}://{{ request.get_host }}{% static 'images/reang_ogp.png' %}{% endblock %}">
     <meta property="og:url" content="{% block og_url %}{% if request.is_secure %}https{% else %}http{% endif %}://{{ request.get_host }}{{ request.get_full_path }}{% endblock %}">
     <meta property="og:type" content="{% block og_type %}website{% endblock %}">
     <meta property="og:site_name" content="Reang">
     <meta property="og:locale" content="ja_JP">
-    
+
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="{% block twitter_title %}【個人開発】広島での予約システム・ECサイト構築｜Reang{% endblock %}">
-    <meta name="twitter:description" content="{% block twitter_description %}広島でのWebアプリ開発をサポートします。予約サイト構築、ECサイト、業務効率化ツールなど、柔軟な対応で事業の課題解決を支援。{% endblock %}">
+    <meta name="twitter:title" content="{% block twitter_title %}広島の個人エンジニア | Reang ｜予約システム・ECサイト・DX化支援{% endblock %}">
+    <meta name="twitter:description" content="{% block twitter_description %}広島で活動する個人エンジニア『（Reang）』が、予約システム・ECサイト開発・業務DX化を一貫対応。{% endblock %}">
     <meta name="twitter:image" content="{% block twitter_image %}{% if request.is_secure %}https{% else %}http{% endif %}://{{ request.get_host }}{% static 'images/reang_ogp.png' %}{% endblock %}">
     <meta name="twitter:site" content="@reang_dev">
-    
+
     <!-- ファビコン -->
     <link href="{% static 'images/reangicon.jpg' %}" rel="shortcut icon" type="image/x-icon">
     <link href="{% static 'images/reangicon.jpg' %}" rel="apple-touch-icon">
-    
+
     <!-- 正規URL -->
     <link rel="canonical" href="{% block canonical_url %}{% if request.is_secure %}https{% else %}http{% endif %}://{{ request.get_host }}{{ request.get_full_path }}{% endblock %}">
 
+    <!-- ✅ AI最適化構造化データ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "後藤田烈志",
+      "alternateName": "Reang",
+      "jobTitle": "フリーランスエンジニア",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Reang"
+      },
+      "url": "https://reang.jp",
+      "image": "https://reang.jp/static/images/reang_ogp.png",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "広島市",
+        "addressRegion": "広島県",
+        "addressCountry": "JP"
+      },
+      "sameAs": [
+        "https://x.com/reang_jp",
+        "https://www.instagram.com/reang.jp",
+        "https://github.com/reangjp"
+      ],
+      "description": "広島を拠点に活動する個人エンジニア。予約システム、ECサイト、業務DX化支援などを一貫して担当。小規模事業者・店舗の成長をサポートします。",
+      "knowsAbout": ["Webアプリ開発", "Django", "予約システム", "DX推進", "ECサイト", "業務改善"]
+    }
+    </script>
 
+    <!-- ✅ FAQ構造化データ（AI検索対応） -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "広島で予約システムを開発できるエンジニアを探しています。",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Reang（烈志）は広島を拠点に、個人事業主や店舗向けの予約システムをDjangoで開発しています。初期費用5万円から対応可能です。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "ECサイトや業務DX化の相談もできますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "はい、可能です。ECサイト構築から業務の自動化、LINE連携まで、小規模事業者様の課題に合わせた柔軟な開発を行っています。"
+          }
+        }
+      ]
+    }
+    </script>
 
-    {% comment %} <style data-tag="reset-style-sheet">
-      html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;  -webkit-font-smoothing: antialiased;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6,figure,blockquote,figcaption {  margin: 0;  padding: 0;}button {  background-color: transparent;}button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="submit"] {  -webkit-appearance: button;  color: inherit;}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}pre {  white-space: normal;}input {  padding: 2px 4px;}img {  display: block;}details {  display: block;  margin: 0;  padding: 0;}summary::-webkit-details-marker {  display: none;}[data-thq="accordion"] [data-thq="accordion-content"] {  max-height: 0;  overflow: hidden;  transition: max-height 0.3s ease-in-out;  padding: 0;}[data-thq="accordion"] details[data-thq="accordion-trigger"][open] + [data-thq="accordion-content"] {  max-height: 1000vh;}details[data-thq="accordion-trigger"][open] summary [data-thq="accordion-icon"] {  transform: rotate(180deg);}html { scroll-behavior: smooth  }
-    </style> {% endcomment %}
-    <style data-tag="default-style-sheet">
-      html {
-        font-family: "-apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen","Ubuntu", "Cantarell", "Fira Sans","Droid Sans", "Helvetica Neue", sans-serif";
-        font-size: 1rem;
-        overflow-x: hidden; 
-      }
-      
-      /* スマートフォン用フォント調整 */
-      @media screen and (max-width: 450px) {
-        html {
-          font-size: 0.9rem;
-        }
-      }
-      
-      @media screen and (max-width: 375px) {
-        html {
-          font-size: 0.85rem;
-        }
-      }
-      
-      @media screen and (max-width: 350px) {
-        html {
-          font-size: 0.8rem;
-        }
-      }
-
-      {% comment %} body {
-        font-weight: 300;
-        font-style:normal;
-        text-decoration: none;
-        text-transform: none;
-        letter-spacing: normal;
-        line-height: 1.6;
-        color: var(--dl-color-gray-900);
-        background: var(--dl-color-gray-white);
-        fill: var(--dl-color-gray-900);
-      } {% endcomment %}
-      
-      {% comment %} /* 日本語文章の改行制御 */
-      body {
-        word-break: keep-all;
-        overflow-wrap: break-word;
-      } {% endcomment %}
-    </style>
+    <!-- 外部CSS・フォントなど -->
     <link
       rel="stylesheet"
       href="https://unpkg.com/animate.css@4.1.1/animate.css"
     />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&amp;display=swap"
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap"
       data-tag="font"
     />
     <link
       rel="stylesheet"
       href="https://unpkg.com/@teleporthq/teleport-custom-scripts/dist/style.css"
     />
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <!-- Base CSS -->
+
+    <!-- CSS読込（本番・開発） -->
     {% if debug %}
-    <!-- 開発時：キャッシュバスティング用のタイムスタンプ付きCSS -->
-    <link rel="stylesheet" href="{% static 'css/style.css' %}?v={{ css_timestamp }}" />
+      <link rel="stylesheet" href="{% static 'css/style.css' %}?v={{ css_timestamp }}" />
     {% else %}
-    <!-- 本番時：通常のCSS -->
-    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+      <link rel="stylesheet" href="{% static 'css/style.css' %}" />
     {% endif %}
+
     {% block page_css %}{% endblock %}
     {% block extra_head %}{% endblock %}
 </head>
