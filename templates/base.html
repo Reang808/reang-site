@@ -98,24 +98,24 @@
       rel="stylesheet"
       href="https://unpkg.com/animate.css@4.1.1/animate.css"
     />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap"
-      data-tag="font"
-    />
+    <!-- Googleフォント: Inter (Modern Sans-serif) + Noto Sans JP (Japanese) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+JP:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+    
     <link
       rel="stylesheet"
       href="https://unpkg.com/@teleporthq/teleport-custom-scripts/dist/style.css"
     />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <!-- Phosphor Icons for modern iconography -->
+    <link href="https://unpkg.com/phosphor-icons@1.4.2/src/css/phosphor.css" rel="stylesheet">
+    
     <!-- CSS読込（本番・開発） -->
-    {% if debug %}
-      <link rel="stylesheet" href="{% static 'css/style.css' %}?v={{ css_timestamp }}" />
-    {% else %}
-      <link rel="stylesheet" href="{% static 'css/style.css' %}" />
-    {% endif %}
+   <link rel="stylesheet" href="{% static 'css/modern-style.css' %}" />
+  
 
     {% block page_css %}{% endblock %}
     {% block extra_head %}{% endblock %}
@@ -126,181 +126,233 @@
 
         <div class="{% block container_class %}{% endblock %}">
             <!-- ヘッダー -->
-            <header-wrapper class="header-wrapper">
-                <!--Header component-->
-                <div data-role="Header" class="header-header header">
-                    <div class="header-container1">
-                        <a href="{% url 'homepage:home' %}" class="header-navlink1">
-                            <img src="{% static 'images/reang.jpg' %}" alt="Reang" class="header-logo" />
+            <header class="modern-header">
+                <nav class="navbar navbar-expand-lg fixed-top">
+                    <div class="container-fluid px-4">
+                        <!-- Logo -->
+                        <a href="{% url 'homepage:home' %}" class="navbar-brand">
+                            <img src="{% static 'images/reang.jpg' %}" alt="Reang" class="brand-logo" />
+                            <span class="brand-text">Reang</span>
                         </a>
-                        <a href="{% url 'homepage:about' %}" class="header-navlink2">
-                            <div class="header-container2">
-                                <svg viewBox="0 0 1024 1024" class="header-icon10">
-                                    <path
-                                        d="M576 706.612v-52.78c70.498-39.728 128-138.772 128-237.832 0-159.058 0-288-192-288s-192 128.942-192 288c0 99.060 57.502 198.104 128 237.832v52.78c-217.102 17.748-384 124.42-384 253.388h896c0-128.968-166.898-235.64-384-253.388z"
-                                    ></path>
-                                </svg>
-                                <span class="header-text1 TextSM">About</span>
-                            </div>
-                        </a>
-                        <a href="{% url 'service:list' %}" class="header-navlink3">
-                            <div class="header-container3">
-                                <svg viewBox="0 0 1024 1024" class="header-icon12">
-                                    <path
-                                        d="M512 276.571q48 0 82 34t34 82-34 82-82 34-82-34-34-82 34-82 82-34zM878.857 512q0-12-2.286-28.571l60.571-47.429q6.857-5.143 8.571-13.714t-3.429-16l-57.143-99.429q-5.143-8.571-13.714-11.429t-17.143 0.571l-71.429 28.571q-30.857-22.857-65.143-37.714l-14.286-75.429q-1.714-9.143-9.143-15.429t-16.571-6.286h-114.286q-9.143 0-16.571 6.286t-9.143 15.429l-14.286 75.429q-34.286 14.857-65.143 37.714l-71.429-28.571q-8.571-3.429-17.143-0.571t-13.714 11.429l-57.143 99.429q-5.143 8.571-3.429 16t8.571 13.714l60.571 47.429q-2.286 16.571-2.286 28.571t2.286 28.571l-60.571 47.429q-6.857 5.143-8.571 13.714t3.429 16l57.143 99.429q5.143 8.571 13.714 11.429t17.143-0.571l71.429-28.571q30.857 22.857 65.143 37.714l14.286 75.429q1.714 9.143 9.143 15.429t16.571 6.286h114.286q9.143 0 16.571-6.286t9.143-15.429l14.286-75.429q34.286-14.857 65.143-37.714l71.429 28.571q8.571 3.429 17.143 0.571t13.714-11.429l57.143-99.429q5.143-8.571 3.429-16t-8.571-13.714l-60.571-47.429q2.286-16.571 2.286-28.571z"
-                                    ></path>
-                                </svg>
-                                <span class="header-text2 TextSM">サービス内容</span>
-                            </div>
-                        </a>
-                        
-                    </div>
-                    <div data-role="BurgerMenu" class="header-burger-menu">
-                        <svg viewBox="0 0 1024 1024" class="header-icon17">
-                            <path
-                                d="M128 256h768v86h-768v-86zM128 554v-84h768v84h-768zM128 768v-86h768v86h-768z"
-                            ></path>
-                        </svg>
-                    </div>
-                    <div class="header-container4">
-                        <a href="https://www.facebook.com/780813908451391?ref=pl_edit_xav_ig_profile_page_web" target="_blank" rel="noopener noreferrer">
-                            <img src="{% static 'images/Facebook.png' %}" alt="Facebook" class="header-social-icon" />
-                        </a>
-                        <a href="https://www.instagram.com/syetemreang/" target="_blank" rel="noopener noreferrer">
-                            <img src="{% static 'images/Instagram.png' %}" alt="Instagram" class="header-social-icon" />
-                        </a>
-                        <a href="https://linevoom.line.me/user/_dUXiZG-QzYilD8hygKJSa1HU5xfLbnqvpln54bA" target="_blank" rel="noopener noreferrer">
-                            <img src="{% static 'images/LINE_APP_iOS.png' %}" alt="LINE" class="header-social-icon" />
-                        </a>
-                        <a href="https://github.com/Reang808" target="_blank" rel="noopener noreferrer">
-                            <img src="{% static 'images/github.png' %}" alt="GitHub" class="header-social-icon" />
-                        </a>
-                    </div>
-                    <div data-role="MobileMenu" class="header-mobile-menu">
-                        <div class="header-top">
-                            <a href="{% url 'homepage:home' %}" class="header-navlink4">
-                                <img src="{% static 'images/reang.jpg' %}" alt="Reang" class="header-logo-mobile" />
-                            </a>
-                            <div data-role="CloseMobileMenu" class="header-close-menu">
-                                <svg viewBox="0 0 1024 1024" class="header-icon25">
-                                    <path
-                                        d="M810 274l-238 238 238 238-60 60-238-238-238 238-60-60 238-238-238-238 60-60 238 238 238-238z"
-                                    ></path>
-                                </svg>
-                            </div>
-                        </div>
-                        <div class="header-mid">
-                            <a href="{% url 'homepage:about' %}" class="header-navlink5">
-                                <div class="header-container5">
-                                    <svg viewBox="0 0 1024 1024" class="header-icon27">
-                                        <path
-                                            d="M576 706.612v-52.78c70.498-39.728 128-138.772 128-237.832 0-159.058 0-288-192-288s-192 128.942-192 288c0 99.060 57.502 198.104 128 237.832v52.78c-217.102 17.748-384 124.42-384 253.388h896c0-128.968-166.898-235.64-384-253.388z"
-                                        ></path>
-                                    </svg>
-                                    <span class="header-text3 TextSM">代表挨拶</span>
-                                </div>
 
+                        <!-- Desktop Navigation -->
+                        <div class="navbar-nav d-none d-lg-flex flex-row ms-auto me-4">
+                            <a href="{% url 'homepage:home' %}" class="nav-link nav-item-modern">
+                                <i class="ph-house"></i>
+                                <span>Home</span>
+                            </a>
+                            <a href="{% url 'homepage:about' %}" class="nav-link nav-item-modern">
+                                <i class="ph-user-circle"></i>
+                                <span>About</span>
+                            </a>
+                            <a href="{% url 'service:list' %}" class="nav-link nav-item-modern">
+                                <i class="ph-gear"></i>
+                                <span>Service</span>
+                            </a>
+                            <a href="{% url 'homepage:price' %}" class="nav-link nav-item-modern">
+                                <i class="ph-currency-circle-dollar"></i>
+                                <span>Price</span>
+                            </a>
+                            <a href="https://reang-reserve.jp/tenant/reservation/" class="nav-link nav-item-modern" target="_blank">
+                                <i class="ph-envelope"></i>
+                                <span>Contact</span>
+                            </a>
+                        </div>
+
+                        <!-- Social Links Desktop -->
+                        <div class="social-links d-none d-lg-flex">
+                            <a href="https://www.facebook.com/780813908451391" target="_blank" rel="noopener noreferrer" class="social-link">
+                                <img src="{% static 'images/Facebook.png' %}" alt="Facebook" />
+                            </a>
+                            <a href="https://www.instagram.com/syetemreang/" target="_blank" rel="noopener noreferrer" class="social-link">
+                                <img src="{% static 'images/Instagram.png' %}" alt="Instagram" />
+                            </a>
+                            <a href="https://linevoom.line.me/user/_dUXiZG-QzYilD8hygKJSa1HU5xfLbnqvpln54bA" target="_blank" rel="noopener noreferrer" class="social-link">
+                                <img src="{% static 'images/LINE_APP_iOS.png' %}" alt="LINE" />
+                            </a>
+                            <a href="https://github.com/Reang808" target="_blank" rel="noopener noreferrer" class="social-link">
+                                <img src="{% static 'images/github.png' %}" alt="GitHub" />
+                            </a>
+                        </div>
+
+                        <!-- Mobile Menu Button -->
+                        <button class="mobile-menu-toggle d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu">
+                            <span class="hamburger-line"></span>
+                            <span class="hamburger-line"></span>
+                            <span class="hamburger-line"></span>
+                        </button>
+                    </div>
+                </nav>
+
+                <!-- Mobile Offcanvas Menu -->
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="mobileMenu">
+                    <div class="offcanvas-header">
+                        <div class="d-flex align-items-center">
+                            <img src="{% static 'images/reang.jpg' %}" alt="Reang" class="mobile-logo" />
+                            <span class="mobile-brand-text">Reang</span>
+                        </div>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <div class="mobile-nav">
+                            <a href="{% url 'homepage:home' %}" class="mobile-nav-link">
+                                <i class="ph-house"></i>
+                                <span>Home</span>
+                                <i class="ph-arrow-right"></i>
+                            </a>
+                            <a href="{% url 'homepage:about' %}" class="mobile-nav-link">
+                                <i class="ph-user-circle"></i>
+                                <span>About</span>
+                                <i class="ph-arrow-right"></i>
+                            </a>
+                            <a href="{% url 'service:list' %}" class="mobile-nav-link">
+                                <i class="ph-gear"></i>
+                                <span>Service</span>
+                                <i class="ph-arrow-right"></i>
+                            </a>
+                            <a href="{% url 'homepage:price' %}" class="mobile-nav-link">
+                                <i class="ph-currency-circle-dollar"></i>
+                                <span>Price</span>
+                                <i class="ph-arrow-right"></i>
+                            </a>
+                            <a href="https://reang-reserve.jp/tenant/reservation/" class="mobile-nav-link" target="_blank">
+                                <i class="ph-envelope"></i>
+                                <span>Contact</span>
+                                <i class="ph-arrow-right"></i>
                             </a>
                             
                         </div>
                         
-                        <div class="header-mid">
-                            <a href="{% url 'service:list' %}" class="header-navlink5">
-                                <div class="header-container5">
-                                    <svg viewBox="0 0 1024 1024" class="header-icon27">
-                                        <path
-                                            d="M512 276.571q48 0 82 34t34 82-34 82-82 34-82-34-34-82 34-82 82-34zM878.857 512q0-12-2.286-28.571l60.571-47.429q6.857-5.143 8.571-13.714t-3.429-16l-57.143-99.429q-5.143-8.571-13.714-11.429t-17.143 0.571l-71.429 28.571q-30.857-22.857-65.143-37.714l-14.286-75.429q-1.714-9.143-9.143-15.429t-16.571-6.286h-114.286q-9.143 0-16.571 6.286t-9.143 15.429l-14.286 75.429q-34.286 14.857-65.143 37.714l-71.429-28.571q-8.571-3.429-17.143-0.571t-13.714 11.429l-57.143 99.429q-5.143 8.571-3.429 16t8.571 13.714l60.571 47.429q-2.286 16.571-2.286 28.571t2.286 28.571l-60.571 47.429q-6.857 5.143-8.571 13.714t3.429 16l57.143 99.429q5.143 8.571 13.714 11.429t17.143-0.571l71.429-28.571q30.857 22.857 65.143 37.714l14.286 75.429q1.714 9.143 9.143 15.429t16.571 6.286h114.286q9.143 0 16.571-6.286t9.143-15.429l14.286-75.429q34.286-14.857-65.143-37.714l71.429 28.571q8.571 3.429 17.143 0.571t13.714-11.429l57.143-99.429q5.143-8.571 3.429-16t-8.571-13.714l-60.571-47.429q2.286-16.571 2.286-28.571z"
-                                        ></path>
-                                    </svg>
-                                    <span class="header-text3 TextSM">サービス内容</span>
-                                </div>
-                                
-                            </a>
-                            
-                        </div>
-                        
-                        <div class="header-bot">
-                            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-                                <img src="{% static 'images/Facebook.png' %}" alt="Facebook" class="header-social-icon-mobile" />
-                            </a>
-                            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-                                <img src="{% static 'images/Instagram.png' %}" alt="Instagram" class="header-social-icon-mobile" />
-                            </a>
-                            <a href="https://line.me" target="_blank" rel="noopener noreferrer">
-                                <img src="{% static 'images/LINE_APP_iOS.png' %}" alt="LINE" class="header-social-icon-mobile" />
-                            </a>
-                            <a href="https://github.com" target="_blank" rel="noopener noreferrer">
-                                <img src="{% static 'images/github.png' %}" alt="GitHub" class="header-social-icon-mobile" />
-                            </a>
+                        <div class="mobile-social-section">
+                            <h6 class="mobile-social-title">Follow Us</h6>
+                            <div class="mobile-social-links">
+                                <a href="https://www.facebook.com/780813908451391" target="_blank" class="mobile-social-link">
+                                    <img src="{% static 'images/Facebook.png' %}" alt="Facebook" />
+                                </a>
+                                <a href="https://www.instagram.com/syetemreang/" target="_blank" class="mobile-social-link">
+                                    <img src="{% static 'images/Instagram.png' %}" alt="Instagram" />
+                                </a>
+                                <a href="https://linevoom.line.me/user/_dUXiZG-QzYilD8hygKJSa1HU5xfLbnqvpln54bA" target="_blank" class="mobile-social-link">
+                                    <img src="{% static 'images/LINE_APP_iOS.png' %}" alt="LINE" />
+                                </a>
+                                <a href="https://github.com/Reang808" target="_blank" class="mobile-social-link">
+                                    <img src="{% static 'images/github.png' %}" alt="GitHub" />
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </header-wrapper>
+            </header>
 
             <!-- メインコンテンツ -->
-            {% block content %}
-            {% endblock %}
+            <main class="main-content">
+                {% block content %}
+                {% endblock %}
+            </main>
 
             <!-- フッター -->
-            <footer-wrapper class="footer-wrapper">
-                <!--Footer component-->
-                <div class="footer-container10">
-                    <div class="footer-container11">
-                        <div class="footer-container12">
-                            <a href="{% url 'homepage:home' %}" class="header-navlink1">
-                            <img src="{% static 'images/reang.jpg' %}" alt="Reang" class="header-logo" />
-                            </a>
-                            <span class="footer-text12">
-                                <span></span>
-                            </span>
-                            <div class="footer-container13">
-                                <div class="footer-container14">
-                                    <a href="https://www.facebook.com/780813908451391?ref=pl_edit_xav_ig_profile_page_web" target="_blank" rel="noopener noreferrer">
-                                        <img src="{% static 'images/Facebook.png' %}" alt="Facebook" class="footer-social-icon" />
-                                    </a>
+            <footer class="modern-footer">
+                <div class="container">
+                    <div class="row gy-4">
+                        <!-- Brand Section -->
+                        <div class="col-lg-4 col-md-6">
+                            <div class="footer-brand">
+                                <div class="d-flex align-items-center mb-3">
+                                    <img src="{% static 'images/reang.jpg' %}" alt="Reang" class="footer-logo" />
+                                    <span class="footer-brand-text">Reang</span>
                                 </div>
-                                <div class="footer-container15">
-                                    <a href="https://www.instagram.com/syetemreang/" target="_blank" rel="noopener noreferrer">
-                                        <img src="{% static 'images/Instagram.png' %}" alt="Instagram" class="footer-social-icon" />
+                                <p class="footer-description">
+                                    広島を拠点に、Webアプリ開発・業務DX化支援を通じて、お客様のビジネス成長をサポートしています。
+                                </p>
+                                <div class="footer-social-links">
+                                    <a href="https://www.facebook.com/780813908451391" target="_blank" class="footer-social-link">
+                                        <img src="{% static 'images/Facebook.png' %}" alt="Facebook" />
                                     </a>
-                                </div>
-                                <div class="footer-container16">
-                                    <a href="https://line.me/R/ti/p/%40reang" target="_blank" rel="noopener noreferrer">
-                                        <img src="{% static 'images/LINE_APP_iOS.png' %}" alt="LINE" class="footer-social-icon" />
+                                    <a href="https://www.instagram.com/syetemreang/" target="_blank" class="footer-social-link">
+                                        <img src="{% static 'images/Instagram.png' %}" alt="Instagram" />
                                     </a>
-                                </div>
-                                <div class="footer-container17">
-                                    <a href="https://github.com/Reang808" target="_blank" rel="noopener noreferrer">
-                                        <img src="{% static 'images/github.png' %}" alt="GitHub" class="footer-social-icon" />
+                                    <a href="https://line.me/R/ti/p/%40reang" target="_blank" class="footer-social-link">
+                                        <img src="{% static 'images/LINE_APP_iOS.png' %}" alt="LINE" />
+                                    </a>
+                                    <a href="https://github.com/Reang808" target="_blank" class="footer-social-link">
+                                        <img src="{% static 'images/github.png' %}" alt="GitHub" />
                                     </a>
                                 </div>
                             </div>
                         </div>
-                        <div class="footer-container18">
-                            <div class="footer-container19">
-                                <span class="footer-text13 TextXS">Site Map</span>
-                                <a href="{% url 'homepage:home' %}" class="footer-text16 TextSM">Home</a>
-                                <a href="{% url 'service:list' %}" class="footer-text16 TextSM">Service</a>
-                                <a href="{% url 'homepage:about' %}" class="footer-text16 TextSM">About</a>
-                                <a href="https://reang-reserve.jp/tenant/reservation/" class="footer-text14 TextSM">Contact Us</a>
-                                <a href="{% url 'homepage:privacy' %}" class="footer-text16 TextSM">Privacy Policy</a>
-                            </div>
-                            <div class="footer-container20">
-                                <span class="footer-text18 TextXS">Contact info</span>
-                                <span class="footer-text21 TextSM">所在地：〒730-0051<br></span>
-                                <span class="footer-text19 TextSM">広島県広島市中区大手町<br>1丁目26番大手町1番ビル305<br></span>
-                                <span class="footer-text20 TextSM">電話番号：080-8636-3296</span>
-                                <span class="footer-text22 TextSM">メール：info@reang.jp</span>
-                                
+
+                        <!-- Quick Links -->
+                        <div class="col-lg-2 col-md-6">
+                            <h6 class="footer-title">Quick Links</h6>
+                            <ul class="footer-links">
+                                <li><a href="{% url 'homepage:home' %}">Home</a></li>
+                                <li><a href="{% url 'homepage:about' %}">About</a></li>
+                                <li><a href="{% url 'service:list' %}">Service</a></li>
+                                <li><a href="{% url 'homepage:price' %}">Price</a></li>
+                                <li><a href="https://reang-reserve.jp/tenant/reservation/" target="_blank">Contact</a></li>
+                                <li><a href="{% url 'homepage:privacy' %}">Privacy Policy</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- Services -->
+                        <div class="col-lg-3 col-md-6">
+                            <h6 class="footer-title">Our Services</h6>
+                            <ul class="footer-links">
+                                <li><a href="{% url 'service:list' %}">予約システム開発</a></li>
+                                <li><a href="{% url 'service:list' %}">ECサイト構築</a></li>
+                                <li><a href="{% url 'service:list' %}">業務DX化支援</a></li>
+                                <li><a href="{% url 'service:list' %}">Webアプリ開発</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- Contact Info -->
+                        <div class="col-lg-3 col-md-6">
+                            <h6 class="footer-title">Contact Info</h6>
+                            <div class="footer-contact">
+                                <div class="contact-item">
+                                    <i class="ph-map-pin"></i>
+                                    <div>
+                                        <strong>所在地</strong>
+                                        〒730-0051 <br>広島県広島市中区
+                                        大手町1丁目26番<br>大手町1番ビル305
+                                    </div>
+                                </div>
+                                <div class="contact-item">
+                                    <i class="ph-phone"></i>
+                                    <div>
+                                        <strong>電話番号</strong>
+                                        080-8636-3296
+                                    </div>
+                                </div>
+                                <div class="contact-item">
+                                    <i class="ph-envelope"></i>
+                                    <div>
+                                        <strong>メール</strong>
+                                        info@reang.jp
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="footer-container21"></div>
-                    <span class="footer-text23 TextSM">
-                        Copyright © 2025 Reang Inc. All rights reserved.
-                    </span>
+                    
+                    <hr class="footer-divider">
+                    
+                    <div class="footer-bottom">
+                        <div class="row align-items-center">
+                            <div class="col-md-6">
+                                <p class="copyright">
+                                    © 2025 Reang Inc. All rights reserved.
+                                </p>
+                            </div>
+                            <div class="col-md-6 text-md-end">
+                                <p class="footer-note">
+                                    Made with <i class="ph-heart-fill text-danger"></i> in Hiroshima
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </footer-wrapper>
+            </footer>
         </div>
     </div>
     <script
@@ -308,37 +360,173 @@
       src="https://unpkg.com/@teleporthq/teleport-custom-scripts"
     ></script>
     <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     
-    <!-- カスタム ハンバーガーメニュー制御 -->
+    <!-- Modern Navigation & Interactions -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const burgerMenu = document.querySelector('[data-role="BurgerMenu"]');
-            const mobileMenu = document.querySelector('[data-role="MobileMenu"]');
-            const closeMenu = document.querySelector('[data-role="CloseMobileMenu"]');
-            
-            if (burgerMenu && mobileMenu && closeMenu) {
-                // ハンバーガーメニューを開く
-                burgerMenu.addEventListener('click', function() {
-                    mobileMenu.style.display = 'flex';
-                    document.body.style.overflow = 'hidden'; // スクロール防止
+            // Smooth scroll behavior
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
                 });
-                
-                // ハンバーガーメニューを閉じる
-                closeMenu.addEventListener('click', function() {
-                    mobileMenu.style.display = 'none';
-                    document.body.style.overflow = 'auto'; // スクロール復元
-                });
-                
-                // 背景クリックで閉じる
-                mobileMenu.addEventListener('click', function(e) {
-                    if (e.target === mobileMenu) {
-                        mobileMenu.style.display = 'none';
-                        document.body.style.overflow = 'auto';
+            });
+
+            // Header scroll effect
+            const header = document.querySelector('.modern-header .navbar');
+            if (header) {
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 100) {
+                        header.classList.add('scrolled');
+                    } else {
+                        header.classList.remove('scrolled');
                     }
                 });
             }
+
+            // Mobile menu close on link click
+            document.querySelectorAll('#mobileMenu .mobile-nav-link').forEach(link => {
+                link.addEventListener('click', function() {
+                    const offcanvas = bootstrap.Offcanvas.getInstance(document.getElementById('mobileMenu'));
+                    if (offcanvas) {
+                        offcanvas.hide();
+                    }
+                });
+            });
+
+            // Add loading animation to external links
+            document.querySelectorAll('a[target="_blank"]').forEach(link => {
+                link.addEventListener('click', function() {
+                    this.style.opacity = '0.7';
+                    setTimeout(() => {
+                        this.style.opacity = '1';
+                    }, 300);
+                });
+            });
+
+            // Intersection Observer for scroll animations
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-fade-in-up');
+                    }
+                });
+            }, observerOptions);
+
+            // Observe elements for animations
+            document.querySelectorAll('.modern-card, .footer-brand, .footer-title').forEach(el => {
+                observer.observe(el);
+            });
+
+            // Parallax effect for footer - Disabled to prevent gap
+            // window.addEventListener('scroll', function() {
+            //     const footer = document.querySelector('.modern-footer');
+            //     if (footer) {
+            //         const scrolled = window.pageYOffset;
+            //         const parallax = scrolled * 0.2;
+            //         footer.style.transform = `translateY(${parallax}px)`;
+            //     }
+            // });
+
+            // Add hover effects to cards
+            document.querySelectorAll('.modern-card').forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-4px) scale(1.02)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+
+            // Loading state simulation for buttons
+            document.querySelectorAll('.btn-modern').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    if (!this.classList.contains('loading')) {
+                        this.classList.add('loading');
+                        const originalText = this.textContent;
+                        this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Loading...';
+                        
+                        setTimeout(() => {
+                            this.innerHTML = originalText;
+                            this.classList.remove('loading');
+                        }, 1000);
+                    }
+                });
+            });
+
+            // Dynamic theme color based on scroll position
+            let ticking = false;
+            
+            function updateTheme() {
+                const scrollPercent = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+                const hue = Math.floor(scrollPercent * 3.6); // 0-360 degrees
+                
+                document.documentElement.style.setProperty('--dynamic-hue', hue);
+                ticking = false;
+            }
+
+            window.addEventListener('scroll', function() {
+                if (!ticking) {
+                    requestAnimationFrame(updateTheme);
+                    ticking = true;
+                }
+            });
+
+            // Add ripple effect to clickable elements
+            document.querySelectorAll('.btn-modern, .social-link, .nav-item-modern').forEach(element => {
+                element.addEventListener('click', function(e) {
+                    const ripple = document.createElement('span');
+                    const rect = this.getBoundingClientRect();
+                    const size = Math.max(rect.width, rect.height);
+                    const x = e.clientX - rect.left - size / 2;
+                    const y = e.clientY - rect.top - size / 2;
+                    
+                    ripple.style.cssText = `
+                        position: absolute;
+                        width: ${size}px;
+                        height: ${size}px;
+                        left: ${x}px;
+                        top: ${y}px;
+                        background: rgba(255, 255, 255, 0.3);
+                        border-radius: 50%;
+                        transform: scale(0);
+                        animation: ripple 0.6s linear;
+                        pointer-events: none;
+                    `;
+                    
+                    this.style.position = 'relative';
+                    this.style.overflow = 'hidden';
+                    this.appendChild(ripple);
+                    
+                    setTimeout(() => {
+                        ripple.remove();
+                    }, 600);
+                });
+            });
         });
+
+        // CSS for ripple animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
     </script>
     {% block extra_js %}{% endblock %}
 </body>

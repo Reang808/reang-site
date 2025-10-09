@@ -1,0 +1,237 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ service.title }} Reang - 料金詳細{% endblock %}
+
+{% block extra_head %}
+{# Google Fontsの読み込み（base.htmlに記載済みなら不要） #}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block page_css %}
+
+<link rel="stylesheet" href="{% static 'css/price.css' %}?v={{ css_timestamp }}" />
+{% endblock %}
+
+{% block content %}
+<div class="price-container">
+    <!-- ヘッダーセクション -->
+    <section class="price-header">
+        <h1>Webアプリ開発・DX化 料金体系</h1>
+        <p>透明性のある料金設定で、お客様に安心してご利用いただけるサービスを提供いたします。<br>
+        すべての料金は事前にお見積もりし、追加費用は事前相談なしには発生いたしません。</p>
+    </section>
+
+    <!-- 透明性へのこだわり -->
+    <section class="pricing-section">
+        <h2 class="section-title">料金透明性へのこだわり</h2>
+        <div class="transparency-section">
+            <div class="transparency-grid">
+                <div class="transparency-item">
+                    <div class="transparency-icon">📊</div>
+                    <h4>詳細な見積書</h4>
+                    <p>作業項目ごとの工数と単価を明記した詳細見積書を提供いたします。</p>
+                </div>
+                <div class="transparency-item">
+                    <div class="transparency-icon">🔒</div>
+                    <h4>追加費用なし</h4>
+                    <p>事前合意のない追加費用は一切発生いたしません。変更時は必ず事前相談いたします。</p>
+                </div>
+                <div class="transparency-item">
+                    <div class="transparency-icon">⏱️</div>
+                    <h4>進捗の可視化</h4>
+                    <p>開発進捗と消化工数をリアルタイムで共有し、予算管理を透明化します。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 基本料金体系 -->
+    <section class="pricing-section">
+        <h2 class="section-title">基本料金体系</h2>
+        <div class="pricing-cards">
+            <div class="pricing-card">
+                <div class="card-header">
+                    <h3>システム企画・設計</h3>
+                </div>
+                <div class="card-price">
+                    <span class="price-amount">¥8,000</span>
+                    <span class="price-unit">/ 時間</span>
+                </div>
+                <ul class="card-features">
+                    <li>要件定義・ヒアリング</li>
+                    <li>システム設計・DB設計</li>
+                    <li>UI/UXデザイン設計</li>
+                    <li>技術選定・アーキテクチャ設計</li>
+                </ul>
+            </div>
+
+            <div class="pricing-card featured">
+                <div class="card-header">
+                    <h3>開発・実装</h3>
+                </div>
+                <div class="card-price">
+                    <span class="price-amount">¥6,000</span>
+                    <span class="price-unit">/ 時間</span>
+                </div>
+                <ul class="card-features">
+                    <li>フロントエンド開発</li>
+                    <li>バックエンド開発</li>
+                    <li>データベース構築</li>
+                    <li>API開発・連携</li>
+                    <li>テスト実装</li>
+                </ul>
+            </div>
+
+            <div class="pricing-card">
+                <div class="card-header">
+                    <h3>運用・保守</h3>
+                </div>
+                <div class="card-price">
+                    <span class="price-amount">¥15,000</span>
+                    <span class="price-unit">/ 月</span>
+                </div>
+                <ul class="card-features">
+                    <li>サーバー監視・保守</li>
+                    <li>セキュリティ対応</li>
+                    <li>バックアップ・復旧</li>
+                    <li>軽微な修正対応</li>
+                    <li>技術サポート</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 料金算出方法 -->
+    <section class="pricing-section">
+        <h2 class="section-title">料金算出方法</h2>
+        <div class="calculation-method">
+            <div class="calculation-grid">
+                <div class="calculation-item">
+                    <h4>要件整理</h4>
+                    <p>お客様の課題やご要望を詳しくお伺いし、必要な機能や規模を明確化します。複雑な業務フローほど企画工数が増加します。</p>
+                </div>
+                <div class="calculation-item">
+                    <h4>工数見積もり</h4>
+                    <p>機能ごとに必要な作業時間を算出。類似案件の実績データを基に、精度の高い見積もりを提供します。</p>
+                </div>
+                <div class="calculation-item">
+                    <h4>技術難易度評価</h4>
+                    <p>外部API連携、高度なセキュリティ要件、大量データ処理など、技術的難易度に応じて工数を調整します。</p>
+                </div>
+                <div class="calculation-item">
+                    <h4>総合見積書作成</h4>
+                    <p>企画・設計・開発・テスト・運用の各フェーズの工数と料金を明記した詳細見積書を作成します。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DX化プロジェクト料金例 -->
+    <section class="pricing-section">
+        <h2 class="section-title">DX化プロジェクト 料金例</h2>
+        <div class="estimate-examples">
+            <div class="estimate-card">
+                <h4>小規模EC サイト</h4>
+                <dl class="estimate-details">
+                    <dt>プロジェクト内容</dt>
+                    <dd>商品管理、注文処理、決済連携、顧客管理</dd>
+                    <dt>開発期間</dt>
+                    <dd>2-3ヶ月</dd>
+                    <dt>主な機能</dt>
+                    <dd>商品カタログ、ショッピングカート、在庫管理、売上レポート</dd>
+                </dl>
+                <div class="estimate-total">
+                    総額: ¥800,000 - ¥1,200,000
+                </div>
+            </div>
+
+            <div class="estimate-card">
+                <h4>中規模業務管理システム</h4>
+                <dl class="estimate-details">
+                    <dt>プロジェクト内容</dt>
+                    <dd>顧客管理、案件管理、売上分析、レポート機能</dd>
+                    <dt>開発期間</dt>
+                    <dd>3-5ヶ月</dd>
+                    <dt>主な機能</dt>
+                    <dd>CRM、案件進捗管理、売上ダッシュボード、Excel連携</dd>
+                </dl>
+                <div class="estimate-total">
+                    総額: ¥1,500,000 - ¥2,500,000
+                </div>
+            </div>
+
+            <div class="estimate-card">
+                <h4>大規模DXプラットフォーム</h4>
+                <dl class="estimate-details">
+                    <dt>プロジェクト内容</dt>
+                    <dd>既存システム統合、API基盤構築、データ分析基盤</dd>
+                    <dt>開発期間</dt>
+                    <dd>6-12ヶ月</dd>
+                    <dt>主な機能</dt>
+                    <dd>マイクロサービス、データパイプライン、AI/ML連携</dd>
+                </dl>
+                <div class="estimate-total">
+                    総額: ¥3,000,000 - ¥8,000,000
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 見積もりの流れ -->
+    <section class="pricing-section">
+        <h2 class="section-title">お見積もりの流れ</h2>
+        <div class="calculation-method">
+            <div class="calculation-grid">
+                <div class="calculation-item">
+                    <h4>初回ヒアリング</h4>
+                    <p>現在の課題、理想の姿、予算感、スケジュールなどを詳しくお聞かせください。（無料・1-2時間）</p>
+                </div>
+                <div class="calculation-item">
+                    <h4>要件整理・提案</h4>
+                    <p>ヒアリング内容を基に、最適なソリューションと概算見積もりをご提案します。（無料・3-5日）</p>
+                </div>
+                <div class="calculation-item">
+                    <h4>詳細見積もり作成</h4>
+                    <p>ご提案内容にご納得いただけましたら、詳細な工数見積もりと開発計画書を作成します。（無料・1週間）</p>
+                </div>
+                <div class="calculation-item">
+                    <h4>契約・開発開始</h4>
+                    <p>見積もり内容にご同意いただけましたら、契約を締結し開発に着手いたします。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- よくある質問 -->
+    <section class="pricing-section">
+        <h2 class="section-title">よくあるご質問</h2>
+        <div class="calculation-method">
+            <div style="display: grid; gap: 20px;">
+                <div class="calculation-item" style="padding: 25px;">
+                    <h4 style="color: #2c3e50; margin-bottom: 15px;">Q. 見積もり後に追加費用は発生しますか？</h4>
+                    <p>A. 事前合意のない追加費用は一切発生いたしません。仕様変更が必要な場合は、必ず事前に相談し、追加見積もりを提示いたします。</p>
+                </div>
+                <div class="calculation-item" style="padding: 25px;">
+                    <h4 style="color: #2c3e50; margin-bottom: 15px;">Q. 小さなプロジェクトでも対応可能ですか？</h4>
+                    <p>A. はい、10万円程度の小規模な改善から大規模なシステム開発まで幅広く対応いたします。お気軽にご相談ください。</p>
+                </div>
+                <div class="calculation-item" style="padding: 25px;">
+                    <h4 style="color: #2c3e50; margin-bottom: 15px;">Q. 支払い方法は選べますか？</h4>
+                    <p>A. プロジェクトの規模に応じて、一括払い・分割払い・マイルストーン払いから選択いただけます。柔軟に対応いたします。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- お問い合わせセクション -->
+    <section class="contact-section">
+        <h3>お見積もり・ご相談はこちら</h3>
+        <p>初回ヒアリングから詳細見積もりまで、すべて無料で対応いたします。<br>
+        お気軽にお問い合わせください。</p>
+        <a href="#contact" class="cta-button">無料相談を申し込む</a>
+    </section>
+</div>
+{% endblock %}

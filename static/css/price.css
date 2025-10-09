@@ -1,0 +1,348 @@
+/* 料金詳細ページのスタイル */
+.price-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.price-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.price-header h1 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.price-header p {
+    font-size: 1.2rem;
+    color: #7f8c8d;
+    line-height: 1.6;
+}
+
+/* 料金セクション */
+.pricing-section {
+    margin-bottom: 80px;
+}
+
+.section-title {
+    font-size: 2rem;
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #3498db, #2980b9);
+    border-radius: 2px;
+}
+
+/* 料金カード */
+.pricing-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.pricing-card {
+    background: white;
+    border-radius: 15px;
+    padding: 40px 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.pricing-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    border-color: #3498db;
+}
+
+.pricing-card.featured {
+    border-color: #3498db;
+    position: relative;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.pricing-card.featured::before {
+    content: '人気';
+    position: absolute;
+    top: -10px;
+    right: 20px;
+    background: linear-gradient(90deg, #3498db, #2980b9);
+    color: white;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.card-header h3 {
+    font-size: 1.5rem;
+    color: #2c3e50;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.card-price {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.price-amount {
+    font-size: 2.5rem;
+    color: #3498db;
+    font-weight: 700;
+}
+
+.price-unit {
+    font-size: 1rem;
+    color: #7f8c8d;
+    margin-left: 5px;
+}
+
+.card-features {
+    list-style: none;
+    padding: 0;
+}
+
+.card-features li {
+    padding: 10px 0;
+    border-bottom: 1px solid #ecf0f1;
+    color: #555;
+    position: relative;
+    padding-left: 25px;
+}
+
+.card-features li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #27ae60;
+    font-weight: bold;
+}
+
+.card-features li:last-child {
+    border-bottom: none;
+}
+
+/* 料金算出方法 */
+.calculation-method {
+    background: #f8f9fa;
+    border-radius: 15px;
+    padding: 40px;
+    margin-bottom: 50px;
+}
+
+.calculation-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.calculation-item {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.calculation-item h4 {
+    color: #3498db;
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.calculation-item h4::before {
+    content: counter(step-counter);
+    counter-increment: step-counter;
+    background: #3498db;
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.calculation-grid {
+    counter-reset: step-counter;
+}
+
+/* 見積もり例 */
+.estimate-examples {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.estimate-card {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-left: 5px solid #3498db;
+}
+
+.estimate-card h4 {
+    color: #2c3e50;
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+}
+
+.estimate-details {
+    margin-bottom: 20px;
+}
+
+.estimate-details dt {
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.estimate-details dd {
+    color: #777;
+    margin-bottom: 15px;
+    margin-left: 0;
+}
+
+.estimate-total {
+    text-align: right;
+    padding-top: 20px;
+    border-top: 2px solid #ecf0f1;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #3498db;
+}
+
+/* コンタクトセクション */
+.contact-section {
+    text-align: center;
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+    color: white;
+    padding: 60px 40px;
+    border-radius: 20px;
+    margin-top: 60px;
+}
+
+.contact-section h3 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.contact-section p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+.cta-button {
+    display: inline-block;
+    background: white;
+    color: #3498db;
+    padding: 15px 40px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    color: #2980b9;
+}
+
+/* 透明性セクション */
+.transparency-section {
+    background: #f8f9fa;
+    border-radius: 15px;
+    padding: 40px;
+    margin-bottom: 50px;
+}
+
+.transparency-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.transparency-item {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.transparency-icon {
+    font-size: 2.5rem;
+    color: #3498db;
+    margin-bottom: 15px;
+}
+
+.transparency-item h4 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.transparency-item p {
+    color: #666;
+    line-height: 1.6;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .price-container {
+        padding: 20px 15px;
+    }
+    
+    .price-header h1 {
+        font-size: 2rem;
+    }
+    
+    .section-title {
+        font-size: 1.5rem;
+    }
+    
+    .pricing-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .calculation-grid,
+    .estimate-examples,
+    .transparency-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-section {
+        padding: 40px 20px;
+    }
+    
+    .contact-section h3 {
+        font-size: 1.5rem;
+    }
+}

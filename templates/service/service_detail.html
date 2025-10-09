@@ -11,7 +11,7 @@
 {% endblock %}
 
 {% block page_css %}
-<link rel="stylesheet" href="{% static 'css/index.css' %}" />
+
 <link rel="stylesheet" href="{% static 'css/service_detail.css' %}?v={{ css_timestamp }}" />
 {% endblock %}
 
@@ -103,31 +103,11 @@
   
     </section>
 
-    <section class="content-section">
-      <h2 class="section-title">よくあるご質問</h2>
-      <div class="faq-accordion">
-        <div class="accordion-item">
-          <button class="accordion-trigger" aria-expanded="false">
-            <span class="accordion-title">Q. 契約前に相談だけでも可能ですか？</span>
-            <span class="accordion-icon" aria-hidden="true"></span>
-          </button>
-          <div class="accordion-content">
-            <p>A. はい、もちろん可能です。初回のご相談・お見積りは完全に無料ですので、まずはお気軽にお問い合わせください。</p>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <button class="accordion-trigger" aria-expanded="false">
-            <span class="accordion-title">Q. 制作期間はどれくらいかかりますか？</span>
-            <span class="accordion-icon" aria-hidden="true"></span>
-          </button>
-          <div class="accordion-content">
-            <p>A. 制作するサービスの規模や内容によって変動しますが、平均して1ヶ月〜3ヶ月程度が目安となります。詳細なスケジュールはヒアリング後にお伝えします。</p>
-          </div>
-        </div>
-      </div>
-    </section>
-  
+    
   </main>
 </div>
-<script src="{% static 'js/service_detail.js' %}"></script>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/service_detail.js' %}?v={{ js_timestamp }}"></script>
 {% endblock %}
