@@ -29,5 +29,12 @@ class PrivacyView(TemplateView):
         context['page_title'] = 'プライバシーポリシー'
         return context
 
-
+class PriceView(TemplateView):
+    """料金ページのビュー"""
+    template_name = 'homepage/price.html'
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['page_title'] = '料金'
+        return context
 

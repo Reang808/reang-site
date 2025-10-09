@@ -92,7 +92,7 @@ html, body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+  background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75));
   z-index: 0;
 }
 
@@ -102,16 +102,20 @@ html, body {
   z-index: 0;
 }
 
-.profile-hero-title {
-  font-size: 2.8rem;
+.profile-hero .profile-hero-content .profile-hero-title {
+  font-size: clamp(2rem, 4vw, 3.5rem);
   font-weight: 700;
   line-height: 1.3;
   margin-bottom: 1rem;
+  color: white !important;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-.profile-hero-subtitle {
-  font-size: 1.25rem;
+.profile-hero .profile-hero-content .profile-hero-subtitle {
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
   font-weight: 300;
+  color: white !important;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 /* --- Introduction Section --- */
@@ -138,6 +142,7 @@ html, body {
 .profile-intro-text p {
   margin-bottom: 1.5rem;
   line-height: 1.8;
+  color: #000000;
 }
 
 .profile-intro-image {
@@ -284,31 +289,82 @@ html, body {
 .profile-cta-title {
   font-size: 2rem;
   font-weight: 700;
-  color: white;
+  color: #000000;
   margin-bottom: 1rem;
 }
 
 .profile-cta-text {
-  color: #e0e0e0;
+  color: #000000;
   font-size: 1.125rem;
   margin-bottom: 2rem;
 }
 
 .profile-cta-button {
-  display: inline-block;
-  padding: 1rem 2.5rem;
-  font-size: 1rem;
-  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1.2rem 2.8rem;
+  font-size: 1.1rem;
+  font-weight: 700;
   color: white;
-  background-color: var(--dl-color-pimary-500);
-  border-radius: 8px;
+  background: linear-gradient(135deg, #0066cc 0%, #004499 100%);
+  border: none;
+  border-radius: 50px;
   text-decoration: none;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 
+    0 4px 15px rgba(0, 102, 204, 0.3),
+    0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-transform: none;
+  letter-spacing: 0.5px;
+  min-width: 220px;
+}
+
+.profile-cta-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
 }
 
 .profile-cta-button:hover {
-  background-color: var(--dl-color-pimary-300);
-  transform: translateY(-3px);
+  background: linear-gradient(135deg, #0078e6 0%, #0056b3 100%);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 
+    0 8px 25px rgba(0, 102, 204, 0.4),
+    0 4px 10px rgba(0, 0, 0, 0.15);
+  color: white;
+  text-decoration: none;
+}
+
+.profile-cta-button:hover::before {
+  left: 100%;
+}
+
+.profile-cta-button:active {
+  transform: translateY(-1px) scale(1.01);
+  box-shadow: 
+    0 4px 15px rgba(0, 102, 204, 0.3),
+    0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.profile-cta-button::after {
+  content: '→';
+  font-size: 1.2rem;
+  margin-left: 0.3rem;
+  transition: transform 0.3s ease;
+}
+
+.profile-cta-button:hover::after {
+  transform: translateX(3px);
 }
 
 /* ==========================================================================
@@ -388,6 +444,28 @@ html, body {
   }
 }
 
+/* --- Hero Text Size Adjustments by Screen Size --- */
+@media(max-width: 1200px) {
+  .profile-hero .profile-hero-content .profile-hero-title {
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  }
+  
+  .profile-hero .profile-hero-content .profile-hero-subtitle {
+    font-size: clamp(0.95rem, 2vw, 1.25rem);
+  }
+}
+
+@media(max-width: 768px) {
+  .profile-hero .profile-hero-content .profile-hero-title {
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    line-height: 1.2;
+  }
+  
+  .profile-hero .profile-hero-content .profile-hero-subtitle {
+    font-size: clamp(0.9rem, 1.8vw, 1.1rem);
+  }
+}
+
 /* --- Small Phones (max-width: 450px) --- */
 @media(max-width: 450px) {
   /* Header adjustments for small screens */
@@ -426,13 +504,13 @@ html, body {
     max-width: calc(100vw - 2rem) !important;
     width: 100% !important;
   }
-  .profile-hero-title {
-    font-size: 1.8rem !important;
+  .profile-hero .profile-hero-content .profile-hero-title {
+    font-size: clamp(1.3rem, 2.5vw, 1.8rem) !important;
     line-height: 1.2 !important;
     margin-bottom: 0.8rem !important;
   }
-  .profile-hero-subtitle {
-    font-size: 1rem !important;
+  .profile-hero .profile-hero-content .profile-hero-subtitle {
+    font-size: clamp(0.85rem, 1.5vw, 1rem) !important;
     line-height: 1.4 !important;
   }
   .profile-section-title {
@@ -499,9 +577,9 @@ html, body {
     margin-bottom: 1.5rem;
   }
   .profile-cta-button {
-    padding: 0.8rem 1.8rem;
-    font-size: 0.9rem;
-    width: auto;
+    padding: 1rem 2rem;
+    font-size: 0.95rem;
+    min-width: 180px;
     max-width: 280px;
   }
 
@@ -576,8 +654,9 @@ html, body {
     font-size: 0.9rem;
   }
   .profile-cta-button {
-    padding: 0.7rem 1.5rem;
-    font-size: 0.85rem;
+    padding: 0.9rem 1.8rem;
+    font-size: 0.9rem;
+    min-width: 160px;
     max-width: 250px;
   }
 }
