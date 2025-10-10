@@ -226,7 +226,7 @@
 
         .styled-table .price-cell {
             font-weight: 700;
-            color: var(--accent-color);
+            color: var(--primary-color);
             font-size: 1.1em;
         }
 
@@ -313,7 +313,7 @@
 
         .item-percentage {
             font-weight: 700;
-            color: var(--accent-color);
+            color: var(--primary-color);
             font-size: clamp(0.875rem, 2vw, 1rem);
             min-width: 3rem;
             text-align: right;
@@ -1190,7 +1190,7 @@
         }
 
         .reang-side .price-range {
-            color: var(--accent-color);
+            color: var(--primary-color);
         }
 
         .vs-center {

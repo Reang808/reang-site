@@ -35,9 +35,20 @@ html, body {
   flex-direction: column;
   min-height: 100vh;
   background-color: #f8f9fa;
-  overflow-x: hidden !important;
-  overflow-y: auto !important;
-  height: auto !important;
+  overflow-x: hidden ;
+  overflow-y: auto;
+  height: auto;
+}
+.section-accent-line {
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, #007bff 60%, #00c6ff 100%);
+  border-radius: 2px;
+  margin: 1.2rem auto 2rem auto;
+  display: block;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 1px 6px 0 rgba(0,0,0,0.08);
 }
 
 .profile-section {
@@ -187,7 +198,7 @@ html, body {
 
 .profile-strength-icon {
   font-size: 2rem;
-  color: var(--dl-color-pimary-500);
+  color: #007bff;
   margin-bottom: 1rem;
 }
 
