@@ -4,234 +4,544 @@
 {% block title %}{{ service.title }} Reang - 料金詳細{% endblock %}
 
 {% block extra_head %}
-{# Google Fontsの読み込み（base.htmlに記載済みなら不要） #}
+{# Modern Fonts for Professional Look #}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="プロフェッショナルな個人開発者による透明性の高い料金体系とサービス詳細">
 {% endblock %}
 
 {% block page_css %}
-
-<link rel="stylesheet" href="{% static 'css/price.css' %}?v={{ css_timestamp }}" />
+<link href="{% static 'css/price.css' %}" rel="stylesheet" /> 
 {% endblock %}
 
 {% block content %}
-<div class="price-container">
-    <!-- ヘッダーセクション -->
-    <section class="price-header">
-        <h1>Webアプリ開発・DX化 料金体系</h1>
-        <p>透明性のある料金設定で、お客様に安心してご利用いただけるサービスを提供いたします。<br>
-        すべての料金は事前にお見積もりし、追加費用は事前相談なしには発生いたしません。</p>
-    </section>
+    
+<body>
 
-    <!-- 透明性へのこだわり -->
-    <section class="pricing-section">
-        <h2 class="section-title">料金透明性へのこだわり</h2>
-        <div class="transparency-section">
-            <div class="transparency-grid">
-                <div class="transparency-item">
-                    <div class="transparency-icon">📊</div>
-                    <h4>詳細な見積書</h4>
-                    <p>作業項目ごとの工数と単価を明記した詳細見積書を提供いたします。</p>
-                </div>
-                <div class="transparency-item">
-                    <div class="transparency-icon">🔒</div>
-                    <h4>追加費用なし</h4>
-                    <p>事前合意のない追加費用は一切発生いたしません。変更時は必ず事前相談いたします。</p>
-                </div>
-                <div class="transparency-item">
-                    <div class="transparency-icon">⏱️</div>
-                    <h4>進捗の可視化</h4>
-                    <p>開発進捗と消化工数をリアルタイムで共有し、予算管理を透明化します。</p>
-                </div>
-            </div>
-        </div>
-    </section>
+    <div class="container">
+        <header class="section">
+            <h1>個人で戦う理由 — 明確な価値提案</h1>
+            <p>企業に頼むコストの高さと、個人の柔軟性を両取りするために“個人”のままプロフェッショナルに戦う設計をしています。ここでは料金の比較と、リスクを確実に減らすための施策を示します。</p>
+        </header>
 
-    <!-- 基本料金体系 -->
-    <section class="pricing-section">
-        <h2 class="section-title">基本料金体系</h2>
-        <div class="pricing-cards">
-            <div class="pricing-card">
-                <div class="card-header">
-                    <h3>システム企画・設計</h3>
+        <main>
+            <section class="section">
+                <h2>主な差分（要約）</h2>
+                <div class="table-responsive">
+                    <table class="styled-table">
+                        <thead>
+                            <tr>
+                                <th>項目</th>
+                                <th>企業</th>
+                                <th>Reang（個人）</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>コスト</strong></td>
+                                <td>高（管理コスト・マージンあり）</td>
+                                <td class="price-cell">低（中間マージンなし）</td>
+                            </tr>
+                            <tr>
+                                <td><strong>柔軟性</strong></td>
+                                <td>中〜低</td>
+                                <td class="price-cell">高（即断）</td>
+                            </tr>
+                            <tr>
+                                <td><strong>責任の一貫性</strong></td>
+                                <td>分散することがある</td>
+                                <td class="price-cell">責任者は常に同一（烈志）</td>
+                            </tr>
+                            <tr>
+                                <td><strong>拡張性</strong></td>
+                                <td>チームで対応可能</td>
+                                <td class="price-cell">外注で拡張（明文化）</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
-                <div class="card-price">
-                    <span class="price-amount">¥8,000</span>
-                    <span class="price-unit">/ 時間</span>
+                 <div class="cta-container">
+                    <a href="#price-plans" class="cta-button">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                        料金目安を見る
+                    </a>
+                    <a href="#flow" class="cta-button" style="background: linear-gradient(135deg, var(--secondary-color), #0891b2);">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 11l3 3L22 4"/>
+                            <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
+                        </svg>
+                        進行フローを確認
+                    </a>
                 </div>
-                <ul class="card-features">
-                    <li>要件定義・ヒアリング</li>
-                    <li>システム設計・DB設計</li>
-                    <li>UI/UXデザイン設計</li>
-                    <li>技術選定・アーキテクチャ設計</li>
+            </section>
+
+            <section class="section">
+                <h2>一言で伝える強み</h2>
+                <p><strong>「個人」であることをマイナスにしない——仕組みと契約で安心感を作ります。</strong>契約書・NDA・定期進捗レポートを必須とし、第三者レビューや外部協業で品質を担保します。</p>
+                <h3>主要メニュー</h3>
+                <ul class="feature-list premium">
+                    <li>要件定義・設計（固定価格制 / 小分け）</li>
+                    <li>MVP構築（短期リリース重視）</li>
+                    <li>運用・保守契約（SLA指定可）</li>
+                    <li>コード品質保証（第三者レビューの導入）</li>
                 </ul>
-            </div>
+            </section>
 
-            <div class="pricing-card featured">
-                <div class="card-header">
-                    <h3>開発・実装</h3>
+            <section class="section" id="price-plans">
+                <h2>料金目安（企業 vs 個人）</h2>
+                <p>一般的な費用感の比較です。個別見積りで詳細な金額を算出します。</p>
+                
+                <!-- 価格比較カード -->
+                <div class="price-comparison-grid">
+                    <div class="comparison-card">
+                        <div class="card-header">
+                            <h3>📅 予約・コーポレートサイト</h3>
+                            <p class="card-description">美容室、クリニック、レストラン等の基本予約システム</p>
+                        </div>
+                        <div class="price-comparison">
+                            <div class="price-row">
+                                <div class="price-side corporate-side">
+                                    <span class="label">企業相場</span>
+                                    <span class="price-range">¥100〜300万</span>
+                                </div>
+                                <div class="vs-center">VS</div>
+                                <div class="price-side reang-side">
+                                    <span class="label">Reang</span>
+                                    <span class="price-range">¥50〜150万</span>
+                                </div>
+                            </div>
+                            <div class="savings-row">
+                                <span class="savings">最大50%削減</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card">
+                        <div class="card-header">
+                            <h3>🛒 ECサイト・会員制サービス</h3>
+                            <p class="card-description">商品販売、会員管理、決済連携を含む本格システム</p>
+                        </div>
+                        <div class="price-comparison">
+                            <div class="price-row">
+                                <div class="price-side corporate-side">
+                                    <span class="label">企業相場</span>
+                                    <span class="price-range">¥500〜1,500万</span>
+                                </div>
+                                <div class="vs-center">VS</div>
+                                <div class="price-side reang-side">
+                                    <span class="label">Reang</span>
+                                    <span class="price-range">¥200〜600万</span>
+                                </div>
+                            </div>
+                            <div class="savings-row">
+                                <span class="savings">最大60%削減</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card">
+                        <div class="card-header">
+                            <h3>🤖 業務自動化・AIシステム</h3>
+                            <p class="card-description">複雑なワークフロー、AI機能、大規模データ処理システム</p>
+                        </div>
+                        <div class="price-comparison">
+                            <div class="price-row">
+                                <div class="price-side corporate-side">
+                                    <span class="label">企業相場</span>
+                                    <span class="price-range">¥2,000万〜</span>
+                                </div>
+                                <div class="vs-center">VS</div>
+                                <div class="price-side reang-side">
+                                    <span class="label">Reang</span>
+                                    <span class="price-range">¥800〜1,500万</span>
+                                </div>
+                            </div>
+                            <div class="savings-row">
+                                <span class="savings">最大25%削減</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card maintenance">
+                        <div class="card-header">
+                            <h3>🔧 運用・保守</h3>
+                            <p class="card-description">年間サポート・メンテナンス</p>
+                        </div>
+                        <div class="price-comparison">
+                            <div class="price-row">
+                                <div class="price-side corporate-side">
+                                    <span class="label">企業相場</span>
+                                    <span class="price-range">初期の20〜30%</span>
+                                </div>
+                                <div class="vs-center">VS</div>
+                                <div class="price-side reang-side">
+                                    <span class="label">Reang</span>
+                                    <span class="price-range">初期の10〜20%</span>
+                                </div>
+                            </div>
+                            <div class="savings-row">
+                                <span class="savings">コスト半減</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="card-price">
-                    <span class="price-amount">¥6,000</span>
-                    <span class="price-unit">/ 時間</span>
+
+                <!-- プランカード -->
+                <div class="section-divider">
+                    <h3>💼 推奨プラン（具体的な開発例）</h3>
                 </div>
-                <ul class="card-features">
-                    <li>フロントエンド開発</li>
-                    <li>バックエンド開発</li>
-                    <li>データベース構築</li>
-                    <li>API開発・連携</li>
-                    <li>テスト実装</li>
+                <div class="plans-container">
+                    <div class="plan-card">
+                        <div class="plan-badge">スタートアップ</div>
+                        <h3>ライト</h3>
+                        <div class="price">¥50万<span>〜150万</span></div>
+                        <div class="development-example">
+                            <h4>📅 開発例：予約システム・コーポレートサイト</h4>
+                            <p class="example-description">美容室、レストラン、クリニック等の基本的な予約管理</p>
+                        </div>
+                        <ul class="plan-features">
+                            <li>予約フォーム・カレンダー表示</li>
+                            <li>基本的なお客様管理</li>
+                            <li>メール自動送信</li>
+                            <li>シンプルな管理画面</li>
+                            <li>レスポンシブ対応</li>
+                            <li>⏱️ 納期：1〜2ヶ月</li>
+                        </ul>
+                        <div class="suitable-for">
+                            <strong>🎯 こんな方に最適：</strong>
+                            <span>初回システム導入・小規模店舗・スタートアップ</span>
+                        </div>
+                        <div class="plan-cta">
+                            <a href="{% url 'service:list' %}" class="plan-button light">
+                                
+                                詳細を見る
+                            </a>
+                        </div>
+                    </div>
+                    <div class="plan-card recommended">
+                        <div class="plan-badge recommended-badge">最人気</div>
+                        <h3>スタンダード</h3>
+                        <div class="price">¥200万<span>〜600万</span></div>
+                        <div class="development-example">
+                            <h4>🛒 開発例：ECサイト・会員制サービス</h4>
+                            <p class="example-description">商品販売、会員管理、決済連携を含む本格システム</p>
+                        </div>
+                        <ul class="plan-features">
+                            <li>会員登録・ログイン機能</li>
+                            <li>商品管理・在庫管理</li>
+                            <li>決済システム連携（Stripe等）</li>
+                            <li>管理者ダッシュボード</li>
+                            <li>メール配信・通知機能</li>
+                            <li>SEO対策・アナリティクス</li>
+                            <li>⏱️ 納期：2〜4ヶ月</li>
+                        </ul>
+                        <div class="suitable-for">
+                            <strong>🎯 こんな方に最適：</strong>
+                            <span>中小企業・オンライン販売開始・システム刷新</span>
+                        </div>
+                        <div class="plan-cta">
+                            <a href="{% url 'service:list' %}" class="plan-button standard">
+                               
+                                詳細を見る
+                            </a>
+                        </div>
+                    </div>
+                    <div class="plan-card">
+                        <div class="plan-badge">エンタープライズ</div>
+                        <h3>プレミアム</h3>
+                        <div class="price">¥800万<span>〜1500万</span></div>
+                        <div class="development-example">
+                            <h4>🤖 開発例：業務自動化ツール・AIシステム</h4>
+                            <p class="example-description">複雑なワークフロー、AI機能、大規模データ処理</p>
+                        </div>
+                        <ul class="plan-features">
+                            <li>AI・機械学習機能統合</li>
+                            <li>複雑な業務フロー自動化</li>
+                            <li>大量データ処理・分析</li>
+                            <li>外部API多数連携</li>
+                            <li>高度なセキュリティ対策</li>
+                            <li>クラウドインフラ構築</li>
+                            <li>外部専門家チーム協業</li>
+                            <li>⏱️ 納期：4〜8ヶ月</li>
+                        </ul>
+                        <div class="suitable-for">
+                            <strong>🎯 こんな方に最適：</strong>
+                            <span>大企業・複雑な業務システム・革新的なサービス</span>
+                        </div>
+                        <div class="plan-cta">
+                            <a href="{% url 'homepage:contact' %}" class="plan-button premium">
+                                
+                                無料相談フォームへ
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 顧問DX・保守運用プラン -->
+                <div class="section-divider">
+                    <h3>🔧 顧問DX・保守運用プラン（月額制）</h3>
+                    <p style="color: var(--text-secondary); font-size: 1rem; margin-top: 0.5rem;">開発後の安心をお届け。システムの安定稼働と継続改善をサポートします。</p>
+                </div>
+                <div class="maintenance-plans-container">
+                    <div class="maintenance-plan-card basic">
+                        <div class="maintenance-badge">ベーシック</div>
+                        <h3>保守運用</h3>
+                        <div class="monthly-price">¥5万<span>/月</span></div>
+                        <div class="maintenance-example">
+                            <h4>🛡️ 基本メンテナンス・障害対応</h4>
+                            <p class="example-description">システムの安定稼働を最優先でサポート</p>
+                        </div>
+                        <ul class="plan-features">
+                            <li>障害・エラー対応（平日対応）</li>
+                            <li>セキュリティアップデート</li>
+                            <li>バックアップ・復旧支援</li>
+                            <li>月次稼働レポート</li>
+                            <li>メール・チャット相談</li>
+                            <li>📞 応答時間：24時間以内</li>
+                        </ul>
+                        <div class="suitable-for">
+                            <strong>🎯 こんな方に最適：</strong>
+                            <span>安定稼働重視・基本的な保守で十分・コスト重視</span>
+                        </div>
+                    </div>
+
+                    <div class="maintenance-plan-card standard">
+                        <div class="maintenance-badge recommended">人気</div>
+                        <h3>DXサポート</h3>
+                        <div class="monthly-price">¥15万<span>/月</span></div>
+                        <div class="maintenance-example">
+                            <h4>📈 改善提案・機能追加・データ活用</h4>
+                            <p class="example-description">システムを育てて業務効率化を継続推進</p>
+                        </div>
+                        <ul class="plan-features">
+                            <li>保守運用（全機能込み）</li>
+                            <li>月2回の機能改善提案</li>
+                            <li>小規模機能追加（月10時間）</li>
+                            <li>データ分析・レポート作成</li>
+                            <li>業務フロー最適化提案</li>
+                            <li>優先サポート・オンライン会議</li>
+                            <li>📞 応答時間：4時間以内</li>
+                        </ul>
+                        <div class="suitable-for">
+                            <strong>🎯 こんな方に最適：</strong>
+                            <span>継続改善重視・DX推進・データ活用したい</span>
+                        </div>
+                    </div>
+
+                    <div class="maintenance-plan-card premium">
+                        <div class="maintenance-badge">プレミアム</div>
+                        <h3>顧問DX</h3>
+                        <div class="monthly-price">¥30万<span>/月</span></div>
+                        <div class="maintenance-example">
+                            <h4>🚀 戦略的DX・新技術導入・組織変革</h4>
+                            <p class="example-description">技術顧問として経営レベルのDX戦略をサポート</p>
+                        </div>
+                        <ul class="plan-features">
+                            <li>DXサポート（全機能込み）</li>
+                            <li>月次役員・経営陣向けレポート</li>
+                            <li>DX戦略・ロードマップ策定</li>
+                            <li>新技術調査・導入支援</li>
+                            <li>社内研修・技術指導</li>
+                            <li>中規模開発対応（月25時間）</li>
+                            <li>24時間緊急対応</li>
+                            <li>📞 応答時間：2時間以内</li>
+                        </ul>
+                        <div class="suitable-for">
+                            <strong>🎯 こんな方に最適：</strong>
+                            <span>DX戦略重視・技術顧問が欲しい・組織変革を推進</span>
+                        </div>
+                        <div class="plan-cta">
+                            <a href="{% url 'service:list' %}" class="plan-button dx-consulting">
+                                
+                                詳細を見る
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="section">
+                <h2>料金内訳（透明性）</h2>
+                 <p>見積りを分解して示すことで「何に費用がかかるか」を明確化します。各項目にかかる費用感を視覚的にご理解いただけます。</p>
+                
+                <div class="breakdown-list">
+                    <div class="breakdown-item">
+                        <div class="item-label">要件定義・設計</div>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar" style="width: 20%;" data-percentage="15〜20%"></div>
+                        </div>
+                        <div class="item-percentage">15〜20%</div>
+                    </div>
+                    <div class="breakdown-item">
+                        <div class="item-label">UI/UXデザイン</div>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar" style="width: 15%;" data-percentage="10〜15%"></div>
+                        </div>
+                        <div class="item-percentage">10〜15%</div>
+                    </div>
+                    <div class="breakdown-item">
+                        <div class="item-label">実装（コーディング）</div>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar" style="width: 60%;" data-percentage="50〜60%"></div>
+                        </div>
+                        <div class="item-percentage">50〜60%</div>
+                    </div>
+                    <div class="breakdown-item">
+                        <div class="item-label">テスト・品質保証</div>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar" style="width: 10%;" data-percentage="~10%"></div>
+                        </div>
+                        <div class="item-percentage">~10%</div>
+                    </div>
+                    <div class="breakdown-item">
+                        <div class="item-label">運用・保守（年間）</div>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar" style="width: 20%;" data-percentage="年間10〜20%"></div>
+                        </div>
+                        <div class="item-percentage">年間10〜20%</div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="section">
+                <h2>リスク緩和（個人での具体策）</h2>
+                <ul class="feature-list basic">
+                    <li><strong>契約の明文化：</strong>納期・成果物・保守範囲を明記した契約書を交わします。</li>
+                    <li><strong>分割納品とマイルストーン：</strong>支払いと納品を段階的に分離して管理します。</li>
+                    <li><strong>コード品質保証：</strong>必要に応じて第三者レビューを導入します（別途費用）。</li>
+                    <li><strong>バックアップ体制：</strong>リポジトリは共通のクラウドで管理、継続的なCIを設定します。</li>
+                    <li><strong>代替体制の約束：</strong>長期不在時の手配（外注、引継ぎドキュメント）を規定します。</li>
                 </ul>
-            </div>
 
-            <div class="pricing-card">
-                <div class="card-header">
-                    <h3>運用・保守</h3>
-                </div>
-                <div class="card-price">
-                    <span class="price-amount">¥15,000</span>
-                    <span class="price-unit">/ 月</span>
-                </div>
-                <ul class="card-features">
-                    <li>サーバー監視・保守</li>
-                    <li>セキュリティ対応</li>
-                    <li>バックアップ・復旧</li>
-                    <li>軽微な修正対応</li>
-                    <li>技術サポート</li>
+                <h3>信頼担保のためのオプション（例）</h3>
+                <ul class="feature-list premium">
+                    <li>NDA・機密保持契約（無料）</li>
+                    <li>定期進捗レポート（週次／月次、標準）</li>
+                    <li>保守SLA（応答時間・改修優先度を明記）</li>
+                    <li>第三者コードレビュー（外部エンジニアをアサイン：有償）</li>
+                    <li>成果物検収プロセス（受入基準を明文化）</li>
                 </ul>
-            </div>
-        </div>
-    </section>
+            </section>
+            
+             <section class="section" id="flow">
+                <h2>契約・開発フロー（個人ならではの明快さ）</h2>
+                <p>誰が何をいつまでに行うかを明確にすることで信頼を担保します。</p>
 
-    <!-- 料金算出方法 -->
-    <section class="pricing-section">
-        <h2 class="section-title">料金算出方法</h2>
-        <div class="calculation-method">
-            <div class="calculation-grid">
-                <div class="calculation-item">
-                    <h4>要件整理</h4>
-                    <p>お客様の課題やご要望を詳しくお伺いし、必要な機能や規模を明確化します。複雑な業務フローほど企画工数が増加します。</p>
+                <div class="timeline-flow">
+                    <div class="timeline-item">
+                        <div class="timeline-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                        </div>
+                        <div class="timeline-content">
+                            <h3><span class="step-indicator">1</span>ご相談</h3>
+                            <p>現状の課題やご要望をお伺いします。（無料・30分）</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                        </div>
+                        <div class="timeline-content">
+                            <h3><span class="step-indicator">2</span>要件定義</h3>
+                            <p>開発する内容や範囲を具体的に定めます。（有償／固定）</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline><path d="M16 13.5L16 19l-3-1.5-3 1.5V13.5"></path></svg>
+                        </div>
+                        <div class="timeline-content">
+                            <h3><span class="step-indicator">3</span>見積・契約</h3>
+                            <p>開発のマイルストーンと費用を明示し、契約を締結します。</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                        </div>
+                        <div class="timeline-content">
+                            <h3><span class="step-indicator">4</span>開発</h3>
+                            <p>週次報告を行いながら、マイルストーン毎に納品します。</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                        </div>
+                        <div class="timeline-content">
+                            <h3><span class="step-indicator">5</span>検収・納品</h3>
+                            <p>事前に定めた受入基準に沿って成果物をご確認いただきます。</p>
+                        </div>
+                    </div>
+                     <div class="timeline-item">
+                        <div class="timeline-icon">
+                           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2H3a2 2 0 0 0-2 2v12c0 1.1.9 2 2 2h4.5"></path><path d="M8 16h8"></path><path d="M8 12h8"></path><path d="M7.5 7.5a2.5 2.5 0 0 1 5 0"></path><path d="M3.5 16.5a2.5 2.5 0 0 1 5 0"></path></svg>
+                        </div>
+                        <div class="timeline-content">
+                            <h3><span class="step-indicator">6</span>保守・運用</h3>
+                            <p>ご契約内容（SLA）に基づき、安定稼働をサポートします。</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="calculation-item">
-                    <h4>工数見積もり</h4>
-                    <p>機能ごとに必要な作業時間を算出。類似案件の実績データを基に、精度の高い見積もりを提供します。</p>
+                
+                <div class="documents-info">
+                    <h3>📋 事前に交わすドキュメント</h3>
+                     <ul class="feature-list basic">
+                        <li>見積書（明細あり）</li>
+                        <li>契約書（納期・保守・保証を明記）</li>
+                        <li>NDA（必要時）</li>
+                        <li>引継ぎドキュメント（ソース構成・運用手順）</li>
+                    </ul>
                 </div>
-                <div class="calculation-item">
-                    <h4>技術難易度評価</h4>
-                    <p>外部API連携、高度なセキュリティ要件、大量データ処理など、技術的難易度に応じて工数を調整します。</p>
-                </div>
-                <div class="calculation-item">
-                    <h4>総合見積書作成</h4>
-                    <p>企画・設計・開発・テスト・運用の各フェーズの工数と料金を明記した詳細見積書を作成します。</p>
-                </div>
-            </div>
-        </div>
-    </section>
+            </section>
 
-    <!-- DX化プロジェクト料金例 -->
-    <section class="pricing-section">
-        <h2 class="section-title">DX化プロジェクト 料金例</h2>
-        <div class="estimate-examples">
-            <div class="estimate-card">
-                <h4>小規模EC サイト</h4>
-                <dl class="estimate-details">
-                    <dt>プロジェクト内容</dt>
-                    <dd>商品管理、注文処理、決済連携、顧客管理</dd>
-                    <dt>開発期間</dt>
-                    <dd>2-3ヶ月</dd>
-                    <dt>主な機能</dt>
-                    <dd>商品カタログ、ショッピングカート、在庫管理、売上レポート</dd>
-                </dl>
-                <div class="estimate-total">
-                    総額: ¥800,000 - ¥1,200,000
+            <section class="section">
+                <h2>よくある懸念と回答</h2>
+                <div class="faq-container">
+                    <details class="faq-item">
+                        <summary>Q. 個人だと途中で辞めたりしないか不安です。</summary>
+                        <div class="faq-content">
+                            <p>A. 契約で代替体制（外注手配）・納品物の引継ぎ方法を定めます。実務レベルの引継ぎドキュメントを必須にしています。</p>
+                        </div>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Q. 品質はどう担保されますか？</summary>
+                        <div class="faq-content">
+                            <p>A. コードレビュー、単体・結合テスト、受入基準の明文化、希望があれば第三者レビュー導入で保証します。</p>
+                        </div>
+                    </details>
+                     <details class="faq-item">
+                        <summary>Q. 大規模対応は可能か？</summary>
+                        <div class="faq-content">
+                            <p>A. 基本は個人で対応。必要時は広島・全国の信頼できる協業パートナー（デザイナー、バックエンド、QA）をアサインして対応します（追加見積り）。</p>
+                        </div>
+                    </details>
+                     <details class="faq-item">
+                        <summary>Q. 契約や発注フローは企業に合わせられますか？</summary>
+                        <div class="faq-content">
+                            <p>A. はい。請求書発行、納品物の検収、守秘契約など企業標準に合わせて対応可能です。</p>
+                        </div>
+                    </details>
                 </div>
-            </div>
+            </section>
 
-            <div class="estimate-card">
-                <h4>中規模業務管理システム</h4>
-                <dl class="estimate-details">
-                    <dt>プロジェクト内容</dt>
-                    <dd>顧客管理、案件管理、売上分析、レポート機能</dd>
-                    <dt>開発期間</dt>
-                    <dd>3-5ヶ月</dd>
-                    <dt>主な機能</dt>
-                    <dd>CRM、案件進捗管理、売上ダッシュボード、Excel連携</dd>
-                </dl>
-                <div class="estimate-total">
-                    総額: ¥1,500,000 - ¥2,500,000
+            <section class="section cta-section" style="background: linear-gradient(135deg, var(--primary-color), #1e40af); color: white; border-radius: var(--border-radius-xl); position: relative; overflow: hidden;">
+                <div style="position: absolute; top: 0; right: 0; width: 200px; height: 200px; background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%); border-radius: 50%;"></div>
+                <h2 style="color: white; margin-bottom: 1.5rem; position: relative; z-index: 1;">🚀 次の一歩 — 無料相談を申し込む</h2>
+                <p style="font-size: 1.1rem; margin-bottom: 2rem; position: relative; z-index: 1;">まずは現状（要件・予算・希望納期）を教えてください。30分のオンライン相談で見込み回答を差し上げます。</p>
+                <div class="cta-container">
+                    <a href="{% url 'homepage:contact' %}" class="cta-button" style="background: white; color: var(--primary-color); font-weight: 700; box-shadow: 0 8px 20px rgba(0,0,0,0.2);">
+                        無料相談を申込む
+                    </a>
                 </div>
-            </div>
+            </section>
+        </main>
+    </div>
 
-            <div class="estimate-card">
-                <h4>大規模DXプラットフォーム</h4>
-                <dl class="estimate-details">
-                    <dt>プロジェクト内容</dt>
-                    <dd>既存システム統合、API基盤構築、データ分析基盤</dd>
-                    <dt>開発期間</dt>
-                    <dd>6-12ヶ月</dd>
-                    <dt>主な機能</dt>
-                    <dd>マイクロサービス、データパイプライン、AI/ML連携</dd>
-                </dl>
-                <div class="estimate-total">
-                    総額: ¥3,000,000 - ¥8,000,000
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 見積もりの流れ -->
-    <section class="pricing-section">
-        <h2 class="section-title">お見積もりの流れ</h2>
-        <div class="calculation-method">
-            <div class="calculation-grid">
-                <div class="calculation-item">
-                    <h4>初回ヒアリング</h4>
-                    <p>現在の課題、理想の姿、予算感、スケジュールなどを詳しくお聞かせください。（無料・1-2時間）</p>
-                </div>
-                <div class="calculation-item">
-                    <h4>要件整理・提案</h4>
-                    <p>ヒアリング内容を基に、最適なソリューションと概算見積もりをご提案します。（無料・3-5日）</p>
-                </div>
-                <div class="calculation-item">
-                    <h4>詳細見積もり作成</h4>
-                    <p>ご提案内容にご納得いただけましたら、詳細な工数見積もりと開発計画書を作成します。（無料・1週間）</p>
-                </div>
-                <div class="calculation-item">
-                    <h4>契約・開発開始</h4>
-                    <p>見積もり内容にご同意いただけましたら、契約を締結し開発に着手いたします。</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- よくある質問 -->
-    <section class="pricing-section">
-        <h2 class="section-title">よくあるご質問</h2>
-        <div class="calculation-method">
-            <div style="display: grid; gap: 20px;">
-                <div class="calculation-item" style="padding: 25px;">
-                    <h4 style="color: #2c3e50; margin-bottom: 15px;">Q. 見積もり後に追加費用は発生しますか？</h4>
-                    <p>A. 事前合意のない追加費用は一切発生いたしません。仕様変更が必要な場合は、必ず事前に相談し、追加見積もりを提示いたします。</p>
-                </div>
-                <div class="calculation-item" style="padding: 25px;">
-                    <h4 style="color: #2c3e50; margin-bottom: 15px;">Q. 小さなプロジェクトでも対応可能ですか？</h4>
-                    <p>A. はい、10万円程度の小規模な改善から大規模なシステム開発まで幅広く対応いたします。お気軽にご相談ください。</p>
-                </div>
-                <div class="calculation-item" style="padding: 25px;">
-                    <h4 style="color: #2c3e50; margin-bottom: 15px;">Q. 支払い方法は選べますか？</h4>
-                    <p>A. プロジェクトの規模に応じて、一括払い・分割払い・マイルストーン払いから選択いただけます。柔軟に対応いたします。</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- お問い合わせセクション -->
-    <section class="contact-section">
-        <h3>お見積もり・ご相談はこちら</h3>
-        <p>初回ヒアリングから詳細見積もりまで、すべて無料で対応いたします。<br>
-        お気軽にお問い合わせください。</p>
-        <a href="#contact" class="cta-button">無料相談を申し込む</a>
-    </section>
-</div>
+</body>
+</html>
 {% endblock %}

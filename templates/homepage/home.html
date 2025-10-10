@@ -30,60 +30,80 @@
     <div class="hero-container">
         <div class="hero-content">
             <div class="hero-badge">
-                <span class="badge-text">🏢 -About-</span>
+                <a href="#about-section" class="badge-link">
+                    <span class="badge-text">-About-</span>
+                </a>
                 <span class="badge-divider">|</span>
-                <span class="badge-text">🌐 -Service-</span>
+                <a href="#service-section" class="badge-link">
+                    <span class="badge-text">-Service-</span>
+                </a>
                 <span class="badge-divider">|</span>
-                <span class="badge-text">💰 -Price-</span>
+                <a href="#price-section" class="badge-link">
+                    <span class="badge-text">-Price-</span>
+                </a>
+                <span class="badge-divider">|</span>
+                <a href="#contact-section" class="badge-link">
+                    <span class="badge-text">-Contact-</span>
+                </a>
+                <span class="badge-divider">|</span>
+                <a href="#faq-section" class="badge-link">
+                    <span class="badge-text">-Q＆A-</span>
+                </a>
             </div>
             
             <h1 class="hero-title">
                 <span class="title-highlight">身近なWeb開発<br>パートナー</span>
             </h1>
             
-            <p class="hero-subtitle">現場に寄り添い、成果を出すためのDX支援・Web開発を行います。</p>
+            <p class="hero-subtitle">現場に寄り添い、成果を出すための<br>DX支援・Web開発を行います。</p>
         </div>
         
         <div class="hero-features">
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <img src="{% static 'images/ABOUT.JPEG' %}" alt="会社概要" class="feature-img">
-                </div>
+            <div id="about-section" class="feature-card">
+                <h3 class="feature-card-title">会社概要 -About-</h3>
                 <div class="feature-card-content">
-                    <h3>会社概要 -About-</h3>
-                    <p>最新技術に精通した開発者が、あなたのビジネスパートナーとして伴走します。</p>
-                    <a href="/about/" class="cta-button secondary">
-                        <span class="cta-icon">🏢</span>
-                        会社概要を見る
-                    </a>
+                    <div class="feature-icon">
+                        <img src="{% static 'images/ABOUT.JPEG' %}" alt="会社概要" class="feature-img">
+                    </div>
+                    <div class="feature-card-text-content">
+                        <p>最新技術に精通した開発者が、あなたのビジネスパートナーとして伴走します。</p>
+                        <a href="/about/" class="cta-button secondary">
+                            <span class="cta-icon">🏢</span>
+                            会社概要を見る
+                        </a>
+                    </div>
                 </div>
             </div>
             
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <img src="{% static 'images/service.jpeg' %}" alt="サービス" class="feature-img">
-                </div>
+            <div id="service-section" class="feature-card">
+                <h3 class="feature-card-title">サービス -Service-</h3>
                 <div class="feature-card-content">
-                    <h3>サービス -Service-</h3>
-                    <p>React＋Djangoを用いたMVP型業務アプリ・社内ツールの開発、顧問DX支援を行っています。</p>
-                    <a href="/service/" class="cta-button secondary">
-                        <span class="cta-icon">🌐</span>
-                        サービス一覧へ
-                    </a>
+                    <div class="feature-icon">
+                        <img src="{% static 'images/service.jpeg' %}" alt="サービス" class="feature-img">
+                    </div>
+                    <div class="feature-card-text-content">
+                        <p>React＋Djangoを用いたMVP型業務アプリ・社内ツールの開発、顧問DX支援を行っています。</p>
+                        <a href="/service/" class="cta-button secondary">
+                            <span class="cta-icon">🌐</span>
+                            サービス一覧へ
+                        </a>
+                    </div>
                 </div>
             </div>
             
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <img src="{% static 'images/reang.jpg' %}" alt="料金プラン" class="feature-img">
-                </div>
+            <div id="price-section" class="feature-card">
+                <h3 class="feature-card-title">料金 -Price-</h3>
                 <div class="feature-card-content">
-                    <h3>料金 -Price-</h3>
-                    <p>価格の透明性を大切にし、明確な料金体系を提供します。</p>
-                    <a href="{% url 'homepage:price' %}" class="cta-button secondary">
-                        <span class="cta-icon">💰</span>
-                        料金詳細へ
-                    </a>
+                    <div class="feature-icon">
+                        <img src="{% static 'images/reang.jpg' %}" alt="料金プラン" class="feature-img">
+                    </div>
+                    <div class="feature-card-text-content">
+                        <p>価格の透明性を大切にし、明確な料金体系を提供します。</p>
+                        <a href="{% url 'homepage:price' %}" class="cta-button secondary">
+                            <span class="cta-icon">💰</span>
+                            料金詳細へ
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -91,7 +111,7 @@
         
     </div>
 </section>
-<section class="contact-section">
+<section id="contact-section" class="contact-section">
     <div class="section-content">
         <h1 class="section-title">Contact</h1>
         <p class="section-subtitle">まずはお気軽にご相談ください</p>
@@ -100,8 +120,12 @@
             <span class="cta-icon">💬</span>
             無料相談フォームへ
         </a>
-        
-        <!-- FAQ Section within Contact -->
+    </div>
+</section>
+
+<!-- FAQ Section as separate section -->
+<section id="faq-section" class="faq-section">
+    <div class="section-content">
         <div class="faq-wrapper">
             <h2 class="faq-title">よくあるご質問</h2>
             <p class="faq-subtitle">FAQ</p>
