@@ -38,3 +38,11 @@ class PriceView(TemplateView):
         context['page_title'] = '料金'
         return context
 
+class ContactView(TemplateView):
+    """お問い合わせページのビュー"""
+    template_name = 'homepage/contact.html'
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['page_title'] = 'お問い合わせ'
+        return context

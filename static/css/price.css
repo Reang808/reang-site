@@ -1,348 +1,1694 @@
-/* 料金詳細ページのスタイル */
-.price-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 40px 20px;
-}
 
-.price-header {
-    text-align: center;
-    margin-bottom: 60px;
-}
+        /* シンプルで統一されたカラーパレット */
+        :root {
+            --primary-color: #1e3a8a;        /* 紺色 */
+            --secondary-color: #00b7ff;      /* 水色 */
+            --accent-color: #f59e0b;         /* オレンジ */
+            --background-color: #f8fafc;
+            --surface-color: #ffffff;
+            --text-primary: #1e3a8a;         /* 紺色 */
+            --text-secondary: #64748b;
+            --text-muted: #94a3b8;
+            --border-color: #e2e8f0;
+            --border-light: #f1f5f9;
+            --shadow-sm: 0 1px 2px 0 rgba(30, 58, 138, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(30, 58, 138, 0.1), 0 2px 4px -1px rgba(30, 58, 138, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(30, 58, 138, 0.1), 0 4px 6px -2px rgba(30, 58, 138, 0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(30, 58, 138, 0.1), 0 10px 10px -5px rgba(30, 58, 138, 0.04);
+            --border-radius-sm: 0.375rem;
+            --border-radius: 0.5rem;
+            --border-radius-lg: 0.75rem;
+            --border-radius-xl: 1rem;
+            --transition-fast: 150ms ease;
+            --transition-normal: 250ms ease;
+            --transition-slow: 350ms ease;
+        }
 
-.price-header h1 {
-    font-size: 2.5rem;
-    color: #2c3e50;
-    margin-bottom: 20px;
-    font-weight: 700;
-}
+        * {
+            box-sizing: border-box;
+        }
 
-.price-header p {
-    font-size: 1.2rem;
-    color: #7f8c8d;
-    line-height: 1.6;
-}
+        body {
+            font-family: 'Inter', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Yu Gothic', 'Meiryo', sans-serif;
+            line-height: 1.7;
+            color: var(--text-primary);
+            background-color: var(--background-color);
+            margin: 0;
+            padding: 0;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
 
-/* 料金セクション */
-.pricing-section {
-    margin-bottom: 80px;
-}
+        .container {
+            max-width: min(1200px, 90vw);
+            margin: 0 auto;
+            padding: clamp(1rem, 5vw, 2.5rem);
+        }
 
-.section-title {
-    font-size: 2rem;
-    color: #2c3e50;
-    text-align: center;
-    margin-bottom: 40px;
-    position: relative;
-    padding-bottom: 15px;
-}
+        /* プロフェッショナル見出しスタイル */
+        h1, h2, h3, h4, h5, h6 {
+            color: var(--primary-color);
+            line-height: 1.3;
+            font-weight: 700;
+            letter-spacing: -0.025em;
+            margin: 0;
+        }
 
-.section-title::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 3px;
-    background: linear-gradient(90deg, #3498db, #2980b9);
-    border-radius: 2px;
-}
+        h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            text-align: center;
+            margin-bottom: clamp(1.5rem, 4vw, 3rem);
+            color: var(--primary-color);
+        }
 
-/* 料金カード */
-.pricing-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    margin-bottom: 50px;
-}
+        h2 {
+            font-size: clamp(1.5rem, 3vw, 2.25rem);
+            position: relative;
+            padding-bottom: 1rem;
+            margin-top: clamp(3rem, 8vw, 5rem);
+            margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
+            color: var(--primary-color);
+        }
 
-.pricing-card {
-    background: white;
-    border-radius: 15px;
-    padding: 40px 30px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 2px solid transparent;
-}
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 3rem;
+            height: 3px;
+            background: var(--secondary-color);
+            border-radius: 2px;
+        }
 
-.pricing-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-    border-color: #3498db;
-}
+        h3 {
+            font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+            color: var(--text-primary);
+            margin-top: clamp(2rem, 5vw, 3rem);
+            margin-bottom: clamp(1rem, 2.5vw, 1.5rem);
+        }
 
-.pricing-card.featured {
-    border-color: #3498db;
-    position: relative;
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-}
+        p {
+            margin-bottom: 1.25em;
+            color: rgb(0, 0, 0);
+            line-height: 1.7;
+            font-size: clamp(0.95rem, 2vw, 1.05rem);
+        }
 
-.pricing-card.featured::before {
-    content: '人気';
-    position: absolute;
-    top: -10px;
-    right: 20px;
-    background: linear-gradient(90deg, #3498db, #2980b9);
-    color: white;
-    padding: 8px 20px;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    font-weight: 600;
-}
+        .lead {
+            font-size: clamp(1.1rem, 2.5vw, 1.25rem);
+            color: var(--text-primary);
+            font-weight: 400;
+            line-height: 1.6;
+        }
 
-.card-header h3 {
-    font-size: 1.5rem;
-    color: #2c3e50;
-    margin-bottom: 10px;
-    text-align: center;
-}
+        /* モダンセクション */
+        .section {
+            background: var(--surface-color);
+            padding: clamp(2rem, 6vw, 4rem);
+            margin-bottom: clamp(1.5rem, 4vw, 3rem);
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-light);
+            transition: box-shadow var(--transition-normal), transform var(--transition-normal);
+        }
 
-.card-price {
-    text-align: center;
-    margin-bottom: 30px;
-}
+        .section:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-2px);
+        }
 
-.price-amount {
-    font-size: 2.5rem;
-    color: #3498db;
-    font-weight: 700;
-}
+        /* プロフェッショナルボタン */
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            background: var(--accent-color);
+            color: white;
+            font-size: clamp(1rem, 2.5vw, 1.125rem);
+            font-weight: 600;
+            text-decoration: none;
+            margin: 10px 0;
+            padding: 10px 24px;
+            border-radius: var(--border-radius-xl);
+            transition: all var(--transition-normal);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border: none;
+            cursor: pointer;
+            box-shadow: var(--shadow-md);
+        }
 
-.price-unit {
-    font-size: 1rem;
-    color: #7f8c8d;
-    margin-left: 5px;
-}
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left var(--transition-slow);
+        }
 
-.card-features {
-    list-style: none;
-    padding: 0;
-}
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-xl);
+        }
 
-.card-features li {
-    padding: 10px 0;
-    border-bottom: 1px solid #ecf0f1;
-    color: #555;
-    position: relative;
-    padding-left: 25px;
-}
+        .cta-button:hover::before {
+            left: 100%;
+        }
 
-.card-features li::before {
-    content: '✓';
-    position: absolute;
-    left: 0;
-    color: #27ae60;
-    font-weight: bold;
-}
+        .cta-button:active {
+            transform: translateY(-1px);
+        }
 
-.card-features li:last-child {
-    border-bottom: none;
-}
+        .cta-container {
+            text-align: center;
+            margin: clamp(2.5rem, 6vw, 4rem) 0;
+        }
 
-/* 料金算出方法 */
-.calculation-method {
-    background: #f8f9fa;
-    border-radius: 15px;
-    padding: 40px;
-    margin-bottom: 50px;
-}
+        /* モダンテーブル */
+        .table-responsive {
+            overflow-x: auto;
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-md);
+            margin: clamp(1.5rem, 4vw, 2.5rem) 0;
+        }
 
-.calculation-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-}
+        .styled-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: clamp(0.875rem, 2vw, 1rem);
+            background: var(--surface-color);
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+        }
 
-.calculation-item {
-    background: white;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-}
+        .styled-table thead tr {
+            background: var(--primary-color);
+            color: white;
+        }
 
-.calculation-item h4 {
-    color: #3498db;
-    font-size: 1.3rem;
-    margin-bottom: 15px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
+        .styled-table th {
+            padding: clamp(1rem, 3vw, 1.25rem);
+            font-weight: 600;
+            text-align: left;
+            letter-spacing: 0.025em;
+            font-size: clamp(0.875rem, 2vw, 0.95rem);
+        }
 
-.calculation-item h4::before {
-    content: counter(step-counter);
-    counter-increment: step-counter;
-    background: #3498db;
-    color: white;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    font-size: 0.9rem;
-}
+        .styled-table td {
+            padding: clamp(0.875rem, 2.5vw, 1.125rem);
+            border-bottom: 1px solid var(--border-color);
+            transition: background-color var(--transition-fast);
+        }
 
-.calculation-grid {
-    counter-reset: step-counter;
-}
+        .styled-table tbody tr:hover {
+            background-color: var(--border-light);
+        }
 
-/* 見積もり例 */
-.estimate-examples {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 30px;
-    margin-bottom: 50px;
-}
+        .styled-table tbody tr:nth-of-type(even) {
+            background-color: #fafbfc;
+        }
 
-.estimate-card {
-    background: white;
-    border-radius: 15px;
-    padding: 30px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    border-left: 5px solid #3498db;
-}
+        .styled-table tbody tr:nth-of-type(even):hover {
+            background-color: var(--border-light);
+        }
 
-.estimate-card h4 {
-    color: #2c3e50;
-    font-size: 1.4rem;
-    margin-bottom: 20px;
-}
+        .styled-table td strong {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
 
-.estimate-details {
-    margin-bottom: 20px;
-}
+        .styled-table .price-cell {
+            font-weight: 700;
+            color: var(--accent-color);
+            font-size: 1.1em;
+        }
 
-.estimate-details dt {
-    font-weight: 600;
-    color: #555;
-    margin-bottom: 5px;
-}
+        /* モバイル対応テーブル */
+        @media (max-width: 640px) {
+            .styled-table {
+                font-size: 0.875rem;
+            }
+            
+            .styled-table th,
+            .styled-table td {
+                padding: 0.75rem 0.5rem;
+            }
+        }
+        /* モダン料金内訳 */
+        .breakdown-list {
+            margin-top: clamp(1.5rem, 4vw, 2.5rem);
+            background: var(--surface-color);
+            padding: clamp(1.5rem, 4vw, 2rem);
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-color);
+        }
 
-.estimate-details dd {
-    color: #777;
-    margin-bottom: 15px;
-    margin-left: 0;
-}
+        .breakdown-item {
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            align-items: center;
+            gap: clamp(1rem, 3vw, 1.5rem);
+            padding: clamp(1rem, 2.5vw, 1.25rem) 0;
+            border-bottom: 1px solid var(--border-light);
+            transition: background-color var(--transition-fast);
+        }
 
-.estimate-total {
-    text-align: right;
-    padding-top: 20px;
-    border-top: 2px solid #ecf0f1;
-    font-size: 1.3rem;
-    font-weight: 700;
-    color: #3498db;
-}
+        .breakdown-item:last-child {
+            border-bottom: none;
+        }
 
-/* コンタクトセクション */
-.contact-section {
-    text-align: center;
-    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
-    color: white;
-    padding: 60px 40px;
-    border-radius: 20px;
-    margin-top: 60px;
-}
+        .breakdown-item:hover {
+            background-color: var(--border-light);
+            border-radius: var(--border-radius-sm);
+        }
 
-.contact-section h3 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-}
+        .item-label {
+            font-weight: 600;
+            color: var(--primary-color);
+            font-size: clamp(0.875rem, 2vw, 1rem);
+            white-space: nowrap;
+        }
 
-.contact-section p {
-    font-size: 1.1rem;
-    margin-bottom: 30px;
-    opacity: 0.9;
-}
+        .progress-bar-container {
+            background: linear-gradient(90deg, var(--border-light), var(--border-color));
+            height: clamp(8px, 2vw, 12px);
+            border-radius: var(--border-radius-xl);
+            overflow: hidden;
+            position: relative;
+            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
+        }
 
-.cta-button {
-    display: inline-block;
-    background: white;
-    color: #3498db;
-    padding: 15px 40px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 1.1rem;
-    transition: all 0.3s ease;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-}
+        .progress-bar {
+            background: var(--secondary-color);
+            height: 100%;
+            border-radius: inherit;
+            transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
 
-.cta-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-    color: #2980b9;
-}
+        .progress-bar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            animation: shimmer 2s infinite;
+        }
 
-/* 透明性セクション */
-.transparency-section {
-    background: #f8f9fa;
-    border-radius: 15px;
-    padding: 40px;
-    margin-bottom: 50px;
-}
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
 
-.transparency-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-}
+        .item-percentage {
+            font-weight: 700;
+            color: var(--accent-color);
+            font-size: clamp(0.875rem, 2vw, 1rem);
+            min-width: 3rem;
+            text-align: right;
+        }
 
-.transparency-item {
-    background: white;
-    padding: 25px;
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-}
+        /* モバイル対応 - 料金内訳 */
+        @media (max-width: 768px) {
+            .breakdown-item {
+                grid-template-columns: 1fr;
+                gap: 0.75rem;
+                text-align: left;
+            }
 
-.transparency-icon {
-    font-size: 2.5rem;
-    color: #3498db;
-    margin-bottom: 15px;
-}
+            .item-label {
+                grid-column: 1;
+                margin-bottom: 0.25rem;
+            }
 
-.transparency-item h4 {
-    color: #2c3e50;
-    margin-bottom: 15px;
-}
+            .progress-bar-container {
+                grid-column: 1;
+                grid-row: 2;
+            }
 
-.transparency-item p {
-    color: #666;
-    line-height: 1.6;
-}
+            .item-percentage {
+                grid-column: 1;
+                grid-row: 3;
+                text-align: left;
+                margin-top: 0.25rem;
+                font-size: 0.875rem;
+            }
+        }
 
-/* レスポンシブ対応 */
-@media (max-width: 768px) {
-    .price-container {
-        padding: 20px 15px;
-    }
-    
-    .price-header h1 {
-        font-size: 2rem;
-    }
-    
-    .section-title {
-        font-size: 1.5rem;
-    }
-    
-    .pricing-cards {
-        grid-template-columns: 1fr;
-    }
-    
-    .calculation-grid,
-    .estimate-examples,
-    .transparency-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .contact-section {
-        padding: 40px 20px;
-    }
-    
-    .contact-section h3 {
-        font-size: 1.5rem;
-    }
-}
+        @media (max-width: 480px) {
+            .breakdown-list {
+                padding: 1rem;
+            }
+            
+            .breakdown-item {
+                padding: 0.875rem 0;
+            }
+        }
+
+        /* モダンリスト */
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: clamp(1rem, 3vw, 2rem) 0;
+        }
+
+        .feature-list li {
+            position: relative;
+            padding: clamp(0.5rem, 2vw, 0.75rem) 0 clamp(0.5rem, 2vw, 0.75rem) clamp(2rem, 5vw, 2.5rem);
+            margin-bottom: clamp(0.5rem, 2vw, 0.75rem);
+            font-size: clamp(0.875rem, 2vw, 1rem);
+            line-height: 1.6;
+            color: var(--text-secondary);
+            transition: all var(--transition-fast);
+            border-radius: var(--border-radius-sm);
+        }
+
+        .feature-list li:hover {
+            background-color: var(--border-light);
+            padding-left: clamp(2.25rem, 5.5vw, 2.75rem);
+        }
+
+        .feature-list li::before {
+            content: '';
+            position: absolute;
+            left: clamp(0.5rem, 2vw, 0.75rem);
+            top: 50%;
+            transform: translateY(-50%);
+            width: clamp(16px, 4vw, 20px);
+            height: clamp(16px, 4vw, 20px);
+            background: var(--secondary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: clamp(10px, 2.5vw, 12px);
+            color: white;
+            font-weight: 700;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .feature-list li::after {
+            content: '✓';
+            position: absolute;
+            left: clamp(0.5rem, 2vw, 0.75rem);
+            top: 50%;
+            transform: translateY(-50%);
+            width: clamp(16px, 4vw, 20px);
+            height: clamp(16px, 4vw, 20px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: clamp(10px, 2.5vw, 12px);
+            color: white;
+            font-weight: 700;
+            z-index: 1;
+        }
+
+        /* 特別なリストスタイル */
+        .feature-list.premium li::before {
+            background: var(--accent-color);
+        }
+
+        .feature-list.basic li::before {
+            background: var(--primary-color);
+        }
+
+        
+        /* プロフェッショナルプランカード */
+        .plans-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+            gap: clamp(1.5rem, 4vw, 2rem);
+            margin: clamp(2rem, 5vw, 3rem) 0;
+        }
+
+        .plan-card {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-xl);
+            padding: clamp(1.5rem, 4vw, 2.5rem);
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition-normal);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .plan-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+        }
+
+        .plan-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--secondary-color);
+        }
+
+        .plan-card.recommended {
+            position: relative;
+            border-color: var(--accent-color);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .plan-card.recommended::before {
+            background: linear-gradient(90deg, var(--accent-color), #f97316);
+            height: 6px;
+        }
+
+        .plan-card.recommended::after {
+            content: '推奨';
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--accent-color);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: var(--border-radius);
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+
+        .plan-card h3 {
+            margin: 0 0 1rem 0;
+            font-size: clamp(1.25rem, 3vw, 1.5rem);
+            color: var(--primary-color);
+        }
+
+        .plan-card .price {
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            font-weight: 800;
+            color: var(--primary-color);
+            margin: 1rem 0 1.5rem 0;
+            line-height: 1.2;
+        }
+
+        .plan-card .price span {
+            font-size: 0.4em;
+            font-weight: 400;
+            color: var(--text-secondary);
+            display: block;
+            margin-top: 0.25rem;
+        }
+
+        .plan-card p {
+            font-size: clamp(0.875rem, 2vw, 1rem);
+            color: var(--text-secondary);
+            line-height: 1.6;
+            min-height: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .plan-card .cta-button {
+            width: 100%;
+            margin-top: auto;
+        }
+        /* プロフェッショナルタイムライン */
+        .timeline-flow {
+            position: relative;
+            margin: clamp(3rem, 6vw, 5rem) 0;
+            padding: clamp(1rem, 3vw, 2rem) 0;
+        }
+
+        .timeline-flow::before {
+            content: '';
+            position: absolute;
+            left: clamp(1.5rem, 4vw, 2rem);
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--border-color);
+            border-radius: 2px;
+            z-index: 0;
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: flex-start;
+            position: relative;
+            margin-bottom: clamp(3rem, 6vw, 4rem);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .timeline-item:nth-child(1) { animation-delay: 0.1s; }
+        .timeline-item:nth-child(2) { animation-delay: 0.2s; }
+        .timeline-item:nth-child(3) { animation-delay: 0.3s; }
+        .timeline-item:nth-child(4) { animation-delay: 0.4s; }
+        .timeline-item:nth-child(5) { animation-delay: 0.5s; }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-icon {
+            width: clamp(3rem, 8vw, 4rem);
+            height: clamp(3rem, 8vw, 4rem);
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 4px solid var(--surface-color);
+            z-index: 2;
+            flex-shrink: 0;
+            transition: all var(--transition-normal);
+            box-shadow: var(--shadow-md);
+            position: relative;
+        }
+
+        .timeline-icon::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: 50%;
+            background: var(--accent-color);
+            z-index: -1;
+            opacity: 0;
+            transition: opacity var(--transition-normal);
+        }
+        
+        .timeline-item:hover .timeline-icon::before {
+            opacity: 1;
+        }
+
+        .timeline-item:hover .timeline-icon {
+            transform: scale(1.1);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .timeline-icon svg,
+        .timeline-icon .step-number {
+            width: clamp(1.25rem, 4vw, 1.5rem);
+            height: clamp(1.25rem, 4vw, 1.5rem);
+            color: white;
+            font-weight: 700;
+            font-size: clamp(1rem, 3vw, 1.25rem);
+        }
+
+        .timeline-content {
+            margin-left: clamp(1.5rem, 4vw, 2rem);
+            background: var(--surface-color);
+            padding: clamp(1.5rem, 4vw, 2rem);
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-md);
+            width: 100%;
+            border: 1px solid var(--border-color);
+            position: relative;
+            transition: all var(--transition-normal);
+        }
+
+        .timeline-content:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateX(4px);
+        }
+        
+        /* モダンな吹き出し矢印 */
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            top: clamp(1.25rem, 4vw, 1.5rem);
+            left: -8px;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 8px 8px 8px 0;
+            border-color: transparent var(--border-color) transparent transparent;
+        }
+
+        .timeline-content::after {
+            content: '';
+            position: absolute;
+            top: clamp(1.375rem, 4.2vw, 1.625rem);
+            left: -7px;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 7px 7px 7px 0;
+            border-color: transparent var(--surface-color) transparent transparent;
+        }
+
+        .timeline-content h3 {
+            margin: 0 0 clamp(0.75rem, 2vw, 1rem) 0;
+            font-size: clamp(1.125rem, 3vw, 1.375rem);
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .timeline-content h3 .step-indicator {
+            display: inline-block;
+            background: var(--secondary-color);
+            color: white;
+            padding: 0.25rem 0.5rem;
+            border-radius: var(--border-radius-sm);
+            font-size: clamp(0.75rem, 2vw, 0.875rem);
+            font-weight: 600;
+            margin-right: 0.75rem;
+            letter-spacing: 0.025em;
+        }
+
+        .timeline-content p {
+            margin: 0;
+            font-size: clamp(0.875rem, 2vw, 1rem);
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* モダンドキュメントエリア */
+        .documents-info {
+            margin: clamp(3rem, 6vw, 5rem) 0;
+            padding: clamp(2rem, 5vw, 3rem);
+            background: rgba(8, 145, 178, 0.05);
+            border: 1px solid rgba(8, 145, 178, 0.2);
+            border-radius: var(--border-radius-xl);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .documents-info::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--secondary-color);
+        }
+
+        .documents-info h3 {
+            margin: 0 0 clamp(1rem, 3vw, 1.5rem) 0;
+            color: var(--primary-color);
+            font-size: clamp(1.25rem, 3vw, 1.5rem);
+        }
+
+        .documents-info p {
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        /* プロフェッショナルフロー */
+        .flow-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
+            gap: clamp(1rem, 3vw, 2rem);
+            list-style: none;
+            padding: 0;
+            margin: clamp(3rem, 6vw, 5rem) 0;
+        }
+
+        .flow-steps li {
+            text-align: center;
+            position: relative;
+            padding: clamp(1.5rem, 4vw, 2rem);
+            background: var(--surface-color);
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-color);
+            transition: all var(--transition-normal);
+        }
+
+        .flow-steps li:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .flow-steps li::before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: -1px;
+            right: -1px;
+            bottom: -1px;
+            background: var(--secondary-color);
+            border-radius: var(--border-radius-lg);
+            z-index: -1;
+            opacity: 0;
+            transition: opacity var(--transition-normal);
+        }
+
+        .flow-steps li:hover::before {
+            opacity: 0.1;
+        }
+
+        .step-number {
+            background: var(--primary-color);
+            color: white;
+            width: clamp(3rem, 8vw, 4rem);
+            height: clamp(3rem, 8vw, 4rem);
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: clamp(1.125rem, 3vw, 1.375rem);
+            font-weight: 700;
+            margin-bottom: clamp(1rem, 2.5vw, 1.5rem);
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition-normal);
+        }
+
+        .flow-steps li:hover .step-number {
+            transform: scale(1.1);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .flow-steps li h4 {
+            color: var(--primary-color);
+            font-size: clamp(1rem, 2.5vw, 1.125rem);
+            font-weight: 600;
+            margin: 0 0 0.75rem 0;
+        }
+
+        .flow-steps li p {
+            color: var(--text-secondary);
+            font-size: clamp(0.875rem, 2vw, 0.95rem);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* プロフェッショナルFAQ */
+        .faq-container {
+            margin: clamp(3rem, 6vw, 5rem) 0;
+        }
+
+        .faq-item {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-lg);
+            margin-bottom: clamp(0.75rem, 2vw, 1rem);
+            overflow: hidden;
+            transition: all var(--transition-normal);
+        }
+
+        .faq-item:hover {
+            box-shadow: var(--shadow-md);
+            border-color: var(--secondary-color);
+        }
+
+        .faq-item summary {
+            font-weight: 600;
+            padding: clamp(1.25rem, 3vw, 1.5rem);
+            cursor: pointer;
+            outline: none;
+            position: relative;
+            background: linear-gradient(135deg, var(--surface-color), #fafbfc);
+            transition: all var(--transition-fast);
+            font-size: clamp(0.95rem, 2.5vw, 1.05rem);
+            color: var(--text-primary);
+            list-style: none;
+        }
+
+        .faq-item summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-item summary:hover {
+            background: linear-gradient(135deg, var(--border-light), #f1f5f9);
+        }
+
+        .faq-item summary::after {
+            content: '';
+            position: absolute;
+            right: clamp(1.25rem, 3vw, 1.5rem);
+            top: 50%;
+            transform: translateY(-50%);
+            width: clamp(20px, 5vw, 24px);
+            height: clamp(20px, 5vw, 24px);
+            background: var(--secondary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all var(--transition-normal);
+        }
+
+        .faq-item summary::before {
+            content: '+';
+            position: absolute;
+            right: clamp(1.25rem, 3vw, 1.5rem);
+            top: 50%;
+            transform: translateY(-50%);
+            width: clamp(20px, 5vw, 24px);
+            height: clamp(20px, 5vw, 24px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: clamp(14px, 3.5vw, 16px);
+            z-index: 1;
+            transition: transform var(--transition-normal);
+        }
+
+        .faq-item[open] summary::before {
+            transform: translateY(-50%) rotate(45deg);
+        }
+
+        .faq-item[open] summary::after {
+            background: var(--accent-color);
+        }
+
+        .faq-item .faq-content {
+            padding: 0 clamp(1.25rem, 3vw, 1.5rem) clamp(1.25rem, 3vw, 1.5rem);
+            background: var(--surface-color);
+            color: var(--text-secondary);
+            font-size: clamp(0.875rem, 2vw, 1rem);
+            line-height: 1.7;
+            animation: fadeInDown 0.3s ease;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* 包括的レスポンシブ対応 */
+        
+        /* タブレット対応 */
+        @media (max-width: 1024px) {
+            .container {
+                padding: clamp(1.5rem, 4vw, 2rem);
+            }
+
+            .timeline-flow::before {
+                left: 1.75rem;
+            }
+
+            .timeline-icon {
+                width: 3.5rem;
+                height: 3.5rem;
+            }
+        }
+
+        /* モバイル対応 */
+        @media (max-width: 768px) {
+            .container {
+                max-width: 95vw;
+            }
+
+            .section {
+                padding: clamp(1.5rem, 4vw, 2rem);
+                margin-bottom: clamp(1rem, 3vw, 1.5rem);
+            }
+
+            .plans-container {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .timeline-flow::before {
+                left: 1.5rem;
+            }
+
+            .timeline-icon {
+                width: 3rem;
+                height: 3rem;
+            }
+
+            .timeline-content {
+                margin-left: 1.25rem;
+            }
+
+            .faq-item summary {
+                padding-right: 3.5rem;
+            }
+
+            .breakdown-list {
+                padding: 1.5rem;
+            }
+        }
+
+        /* 小型モバイル対応 */
+        @media (max-width: 480px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .section {
+                padding: 1.25rem;
+            }
+
+            .timeline-flow::before {
+                left: 1.25rem;
+            }
+
+            .timeline-icon {
+                width: 2.5rem;
+                height: 2.5rem;
+            }
+
+            .timeline-content {
+                margin-left: 1rem;
+                padding: 1.25rem;
+            }
+
+            .documents-info {
+                padding: 1.5rem;
+            }
+
+            .breakdown-list {
+                padding: 1rem;
+            }
+
+            .faq-item summary {
+                padding: 1rem 3rem 1rem 1rem;
+            }
+
+            .faq-item .faq-content {
+                padding: 0 1rem 1rem;
+            }
+        }
+
+        /* 超小型デバイス対応 */
+        @media (max-width: 320px) {
+            .container {
+                padding: 0.75rem;
+            }
+            
+            .section {
+                padding: 1rem;
+            }
+        }
+
+        /* 高解像度ディスプレイ対応 */
+        @media (min-width: 1440px) {
+            .container {
+                max-width: 1400px;
+            }
+        }
+
+        /* ダークモード対応 */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --background-color: #0f172a;
+                --surface-color: #1e293b;
+                --text-primary: #f1f5f9;
+                --text-secondary: #cbd5e1;
+                --text-muted: #64748b;
+                --border-color: #334155;
+                --border-light: #475569;
+            }
+        }
+
+        /* 縮小モーション対応 */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* 高コントラスト対応 */
+        @media (prefers-contrast: high) {
+            :root {
+                --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+                --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+                --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+            }
+
+            .section,
+            .plan-card,
+            .timeline-content,
+            .faq-item {
+                border-width: 2px;
+            }
+        }
+
+        /* 追加の特別なセクション */
+        .hero-section {
+            background: linear-gradient(135deg, var(--surface-color), #fafbfc);
+            border: 2px solid var(--border-light);
+            text-align: center;
+        }
+
+        .cta-section {
+            margin-top: clamp(4rem, 8vw, 6rem) !important;
+            text-align: center;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, var(--accent-color), var(--secondary-color), var(--primary-color));
+            border-radius: var(--border-radius-xl);
+            z-index: -1;
+            opacity: 0.8;
+        }
+
+        /* アニメーションの改良 */
+        .cta-button:hover {
+            transform: translateY(-3px) scale(1.02);
+        }
+
+        .plan-card:hover {
+            transform: translateY(-8px) scale(1.02);
+        }
+
+        /* 価格比較カードスタイル */
+        .price-comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+            gap: clamp(1.25rem, 3vw, 2rem);
+            margin: clamp(2rem, 5vw, 3rem) 0;
+        }
+
+        .comparison-card {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-lg);
+            padding: clamp(1.5rem, 4vw, 2rem);
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition-normal);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .comparison-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--secondary-color);
+        }
+
+        .comparison-card.maintenance::before {
+            background: var(--accent-color);
+        }
+
+        .comparison-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .card-header h3 {
+            margin: 0 0 0.5rem 0;
+            font-size: clamp(1.125rem, 3vw, 1.375rem);
+            color: var(--primary-color);
+        }
+
+        .card-description {
+            margin: 0 0 1.5rem 0;
+            color: var(--text-secondary);
+            font-size: clamp(0.875rem, 2vw, 0.95rem);
+        }
+
+        .price-comparison {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .price-row {
+            display: flex;
+            align-items: center;
+            gap: clamp(0.75rem, 3vw, 1.5rem);
+        }
+
+        .price-side {
+            flex: 1;
+            text-align: center;
+            padding: clamp(1rem, 3vw, 1.25rem);
+            border-radius: var(--border-radius-sm);
+            transition: all var(--transition-fast);
+        }
+
+        .corporate-side {
+            background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+            border: 1px solid var(--border-color);
+        }
+
+        .reang-side {
+            background: rgba(245, 158, 11, 0.1);
+            border: 2px solid var(--accent-color);
+        }
+
+        .price-side .label {
+            display: block;
+            font-size: clamp(0.75rem, 2vw, 0.875rem);
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .corporate-side .label {
+            color: var(--text-secondary);
+        }
+
+        .reang-side .label {
+            color: var(--primary-color);
+        }
+
+        .price-range {
+            display: block;
+            font-weight: 800;
+            font-size: clamp(1rem, 3vw, 1.25rem);
+            line-height: 1.2;
+        }
+
+        .corporate-side .price-range {
+            color: var(--text-primary);
+        }
+
+        .reang-side .price-range {
+            color: var(--accent-color);
+        }
+
+        .vs-center {
+            background: var(--primary-color);
+            color: white;
+            padding: clamp(0.5rem, 2vw, 0.75rem);
+            border-radius: 50%;
+            font-size: clamp(0.75rem, 2vw, 0.875rem);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            box-shadow: var(--shadow-md);
+            min-width: clamp(2.5rem, 6vw, 3rem);
+            min-height: clamp(2.5rem, 6vw, 3rem);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .savings-row {
+            text-align: center;
+            margin-top: 0.5rem;
+        }
+
+        .savings {
+            display: inline-block;
+            background: var(--secondary-color);
+            color: white;
+            padding: clamp(0.375rem, 1.5vw, 0.5rem) clamp(0.75rem, 3vw, 1rem);
+            border-radius: var(--border-radius-xl);
+            font-size: clamp(0.75rem, 2vw, 0.875rem);
+            font-weight: 700;
+            letter-spacing: 0.025em;
+            box-shadow: var(--shadow-sm);
+            position: relative;
+        }
+
+        .savings::before {
+            content: '💰';
+            margin-right: 0.25rem;
+        }
+
+        .section-divider {
+            text-align: center;
+            margin: clamp(3rem, 6vw, 5rem) 0 clamp(2rem, 4vw, 3rem) 0;
+            position: relative;
+        }
+
+        .section-divider::after {
+            content: '';
+            position: absolute;
+            bottom: -1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--secondary-color);
+            border-radius: 2px;
+        }
+
+        .section-divider h3 {
+            color: var(--primary-color);
+            font-size: clamp(1.25rem, 3vw, 1.5rem);
+            margin: 0;
+        }
+
+        /* プランカードの改良 */
+        .plan-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--secondary-color);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: var(--border-radius);
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.025em;
+        }
+
+        .recommended-badge {
+            background: var(--accent-color);
+        }
+
+        .plan-features {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0 0 0;
+        }
+
+        .plan-features li {
+            padding: 0.5rem 0;
+            position: relative;
+            padding-left: 1.5rem;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .plan-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+            font-weight: 700;
+        }
+
+        /* 開発例のスタイル */
+        .development-example {
+            background: linear-gradient(135deg, rgba(8, 145, 178, 0.08), rgba(245, 158, 11, 0.08));
+            border: 1px solid rgba(8, 145, 178, 0.2);
+            border-radius: var(--border-radius);
+            padding: 1.25rem;
+            margin: 1rem 0 1.5rem 0;
+            position: relative;
+        }
+
+        .development-example h4 {
+            margin: 0 0 0.75rem 0;
+            font-size: clamp(1rem, 2.5vw, 1.125rem);
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .example-description {
+            margin: 0;
+            font-size: clamp(0.875rem, 2vw, 0.95rem);
+            color: var(--text-secondary);
+            line-height: 1.5;
+            font-style: italic;
+        }
+
+        .suitable-for {
+            background: rgba(30, 58, 138, 0.05);
+            border-left: 4px solid var(--primary-color);
+            padding: 0.875rem 1rem;
+            margin: 1.25rem 0 0 0;
+            border-radius: 0 var(--border-radius-sm) var(--border-radius-sm) 0;
+            font-size: clamp(0.8rem, 2vw, 0.875rem);
+            line-height: 1.4;
+        }
+
+        .suitable-for strong {
+            color: var(--primary-color);
+            font-weight: 600;
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        .suitable-for span {
+            color: var(--text-secondary);
+        }
+
+        /* プランカードのpriceスタイルを調整 */
+        .plan-card .price span {
+            font-size: 0.5em;
+            font-weight: 500;
+            color: var(--text-secondary);
+            display: inline;
+            margin-top: 0;
+            margin-left: 0.25rem;
+        }
+
+        /* 月額プラン（保守運用・顧問DX）のスタイル */
+        .maintenance-plans-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+            gap: clamp(1.5rem, 4vw, 2rem);
+            margin: clamp(2rem, 5vw, 3rem) 0;
+        }
+
+        .maintenance-plan-card {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-xl);
+            padding: clamp(1.5rem, 4vw, 2.5rem);
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition-normal);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .maintenance-plan-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+        }
+
+        .maintenance-plan-card.basic::before {
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+        }
+
+        .maintenance-plan-card.standard::before {
+            background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
+            height: 6px;
+        }
+
+        .maintenance-plan-card.premium::before {
+            background: linear-gradient(90deg, var(--accent-color), #f97316);
+            height: 6px;
+        }
+
+        .maintenance-plan-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--secondary-color);
+        }
+
+        .maintenance-plan-card.standard {
+            border-color: var(--secondary-color);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .maintenance-plan-card.premium {
+            border-color: var(--accent-color);
+        }
+
+        .maintenance-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--primary-color);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: var(--border-radius);
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.025em;
+        }
+
+        .maintenance-badge.recommended {
+            background: var(--secondary-color);
+            font-weight: 700;
+        }
+
+        .maintenance-plan-card h3 {
+            margin: 0 0 1rem 0;
+            font-size: clamp(1.25rem, 3vw, 1.5rem);
+            color: var(--primary-color);
+        }
+
+        .monthly-price {
+            font-size: clamp(1.75rem, 4vw, 2.25rem);
+            font-weight: 800;
+            color: var(--primary-color);
+            margin: 1rem 0 1.5rem 0;
+            line-height: 1.2;
+        }
+
+        .monthly-price span {
+            font-size: 0.6em;
+            font-weight: 500;
+            color: var(--text-secondary);
+            margin-left: 0.25rem;
+        }
+
+        .maintenance-example {
+            background: linear-gradient(135deg, rgba(8, 145, 178, 0.08), rgba(245, 158, 11, 0.08));
+            border: 1px solid rgba(8, 145, 178, 0.2);
+            border-radius: var(--border-radius);
+            padding: 1.25rem;
+            margin: 1rem 0 1.5rem 0;
+            position: relative;
+        }
+
+        .maintenance-example h4 {
+            margin: 0 0 0.75rem 0;
+            font-size: clamp(1rem, 2.5vw, 1.125rem);
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .maintenance-plan-card.standard .maintenance-example {
+            background: linear-gradient(135deg, rgba(8, 145, 178, 0.12), rgba(245, 158, 11, 0.12));
+            border-color: var(--secondary-color);
+        }
+
+        .maintenance-plan-card.premium .maintenance-example {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(249, 115, 22, 0.1));
+            border-color: var(--accent-color);
+        }
+
+        /* プランボタンのスタイル */
+        .plan-cta {
+            margin-top: 1.5rem;
+            text-align: center;
+        }
+
+        .plan-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            background: var(--primary-color);
+            color: white;
+            font-size: clamp(0.875rem, 2vw, 1rem);
+            font-weight: 600;
+            text-decoration: none;
+            padding: clamp(0.75rem, 2vw, 1rem) clamp(1.5rem, 4vw, 2rem);
+            border-radius: var(--border-radius-lg);
+            transition: all var(--transition-normal);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border: none;
+            cursor: pointer;
+            box-shadow: var(--shadow-md);
+            width: 100%;
+            max-width: 200px;
+        }
+
+        .plan-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left var(--transition-slow);
+        }
+
+        .plan-button:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .plan-button:hover::before {
+            left: 100%;
+        }
+
+        .plan-button:active {
+            transform: translateY(0);
+        }
+
+        /* プランごとのボタン色分け */
+        .plan-button.light {
+            background: var(--primary-color);
+        }
+
+        .plan-button.standard {
+            background: var(--secondary-color);
+        }
+
+        .plan-button.premium {
+            background: var(--accent-color);
+        }
+
+        .plan-button.dx-consulting {
+            background: var(--accent-color);
+        }
+
+        .plan-button.light:hover {
+            background: #1e40af;
+        }
+
+        .plan-button.standard:hover {
+            background: #0e7490;
+        }
+
+        .plan-button.premium:hover,
+        .plan-button.dx-consulting:hover {
+            background: #d97706;
+        }
+
+        .plan-button svg {
+            width: clamp(14px, 3vw, 16px);
+            height: clamp(14px, 3vw, 16px);
+            flex-shrink: 0;
+        }
+
+        /* モバイル対応の開発例 */
+        @media (max-width: 768px) {
+            .development-example {
+                padding: 1rem;
+                margin: 0.75rem 0 1.25rem 0;
+            }
+
+            .development-example h4 {
+                font-size: 0.95rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .suitable-for {
+                padding: 0.75rem;
+                margin-top: 1rem;
+            }
+
+            .plan-card {
+                padding: 1.5rem;
+            }
+
+            /* 月額プランのモバイル対応 */
+            .maintenance-plans-container {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .maintenance-plan-card {
+                padding: 1.5rem;
+            }
+
+            .maintenance-example {
+                padding: 1rem;
+                margin: 0.75rem 0 1.25rem 0;
+            }
+
+            .maintenance-example h4 {
+                font-size: 0.95rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .monthly-price {
+                font-size: 1.75rem;
+            }
+        }
+
+        /* モバイル対応の価格比較 */
+        @media (max-width: 640px) {
+            .price-row {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .vs-center {
+                margin: 0.5rem 0;
+                transform: rotate(0deg);
+            }
+
+            .vs-center::before {
+                content: '👇 ';
+                margin-right: 0.25rem;
+            }
+
+            .price-side {
+                padding: 1.25rem 1rem;
+            }
+
+            .savings-row {
+                margin-top: 1rem;
+            }
+
+            .development-example {
+                padding: 0.875rem;
+            }
+
+            .maintenance-example {
+                padding: 0.875rem;
+            }
+
+            .maintenance-plan-card {
+                padding: 1.25rem;
+            }
+
+            .plan-cta {
+                margin-top: 1.25rem;
+            }
+
+            .plan-button {
+                padding: 0.875rem 1.5rem;
+                font-size: 0.875rem;
+                max-width: 180px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .price-comparison-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .comparison-card {
+                padding: 1.5rem;
+            }
+        }
+
+        /* アクセシビリティの向上 */
+        .cta-button:focus,
+        .faq-item summary:focus {
+            outline: 3px solid var(--accent-color);
+            outline-offset: 2px;
+        }
+
+        /* スムーズスクロール */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* ローディング状態 */
+        .section {
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .section:nth-child(1) { animation-delay: 0.1s; }
+        .section:nth-child(2) { animation-delay: 0.2s; }
+        .section:nth-child(3) { animation-delay: 0.3s; }
+        .section:nth-child(4) { animation-delay: 0.4s; }
+        .section:nth-child(5) { animation-delay: 0.5s; }
