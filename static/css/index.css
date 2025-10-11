@@ -594,6 +594,15 @@ s
     }
     
     .feature-card-content {
+            .feature-card-content {
+                display: flex;
+                flex-direction: column;
+            }
+            .feature-icon,
+            .feature-card-text-content,
+            .cta-button.secondary {
+                order: unset;
+            }
         display: flex;
         flex-direction: row;
         gap: var(--space-5);
@@ -621,12 +630,12 @@ s
     
     .feature-card-text-content p {
         margin: 0;
-        text-align: left;
+        text-align: center;
         width: 100%;
     }
     
     .feature-icon {
-        width: 150px;
+        width: 300px;
         height: 150px;
         margin-bottom: 0;
         flex-shrink: 0;
@@ -705,6 +714,53 @@ s
     .badge-link:nth-child(7), /* Contact */
     .badge-link:nth-child(9) { /* Q&A */
         order: 2;
+    }
+
+    .feature-card {
+        padding: var(--space-6);
+        flex-direction: column;
+        text-align: center;
+        align-items: stretch;
+        gap: var(--space-4);
+    }
+
+    .feature-card-content {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-5);
+        align-items: center;
+        text-align: center;
+    }
+
+    .feature-card-title {
+        margin-bottom: var(--space-4);
+        text-align: left;
+        font-size: var(--text-xl);
+        font-weight: var(--font-weight-bold);
+        color: var(--gray-800);
+        font-family: var(--font-family-japanese);
+    }
+
+    .feature-card-text-content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-3);
+        justify-content: center;
+        align-items: center;
+    }
+
+    .feature-card-text-content p {
+        margin: 0;
+        text-align: center;
+        width: 100%;
+    }
+
+    .feature-icon {
+        width: 100%;
+        height: 150px;
+        margin-bottom: 0;
+        flex-shrink: 0;
     }
 }
 
