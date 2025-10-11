@@ -1006,18 +1006,6 @@
             }
         }
 
-        /* ダークモード対応 */
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --background-color: #0f172a;
-                --surface-color: #1e293b;
-                --text-primary: #f1f5f9;
-                --text-secondary: #cbd5e1;
-                --text-muted: #64748b;
-                --border-color: #334155;
-                --border-light: #475569;
-            }
-        }
 
         /* 縮小モーション対応 */
         @media (prefers-reduced-motion: reduce) {
