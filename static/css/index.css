@@ -37,6 +37,7 @@ Reang Homepage Styles (index.css)
 
 .hero-video-bg {
     top: 0;
+    filter: blur(4px);
     /* 上半分を担当 */
 }
 
@@ -635,7 +636,7 @@ s
     }
     
     .feature-icon {
-        width: 300px;
+        width: 50%;
         height: 150px;
         margin-bottom: 0;
         flex-shrink: 0;
