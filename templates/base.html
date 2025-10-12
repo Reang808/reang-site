@@ -115,10 +115,9 @@
     <link href="https://unpkg.com/phosphor-icons@1.4.2/src/css/phosphor.css" rel="stylesheet">
     
     <!-- CSS読込（本番・開発） -->
-   <link rel="stylesheet" href="{% static 'css/modern-style.css' %}" />
-  
-
-    {% block page_css %}{% endblock %}
+   <<!-- CSS読込（本番・開発） -->
+{% block page_css %}{% endblock %}
+<link rel="stylesheet" href="{% static 'css/modern-style.css' %}" />
     {% block extra_head %}{% endblock %}
 </head>
 <body>
