@@ -79,7 +79,7 @@ h3 {
 
 p {
   margin-bottom: 1em;
-  color: black;
+  color: black !important;
 }
 
 a {
@@ -256,10 +256,10 @@ a:hover {
 =================================================================== */
 .contact-profile {
     background-color: var(--primary-color);
-    color: var(--white-color);
+    color: black !important;
 }
 .contact-profile h3, .contact-profile p {
-    color: var(--white-color);
+    color: black !important;
 }
 .contact-profile h3 {
     border-left: 5px solid var(--secondary-color);
