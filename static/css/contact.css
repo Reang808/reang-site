@@ -1,6 +1,7 @@
-/*================================================
-  基本設定
-================================================*/
+/* ===================================================================
+   基本設定・変数
+=================================================================== */
+
 :root {
   --primary-color: #2c3e50; /* メインの濃いネイビー */
   --secondary-color: #3498db; /* アクセントのブルー */
@@ -9,82 +10,111 @@
   --light-gray: #f8f9fa;      /* 薄い背景色 */
   --border-color: #dddddd;   /* 境界線の色 */
   --white-color: #ffffff;
-  --font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+  --font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN',
+    'Hiragino Sans', Meiryo, sans-serif;
 }
 
 body {
   font-family: var(--font-family);
   color: var(--text-color);
-  line-height: 1.7;
-  background-color: var(--white-color);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--light-gray);
+  line-height: 1.8;
 }
+
+/* ===================================================================
+   コンテナ・セクションの共通スタイル
+=================================================================== */
 
 .contact-container {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 20px;
 }
 
 section {
-  padding: 80px 0;
-}
-
-section:nth-child(odd) {
-  background-color: var(--light-gray);
+  background-color: var(--white-color);
+  margin-bottom: 40px;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
 
 h1, h2, h3 {
   color: var(--primary-color);
-  font-weight: 600;
-  line-height: 1.4;
+  margin-top: 0;
 }
 
 h1 {
-  font-size: 2.2rem;
-  margin-bottom: 20px;
+    font-size: 2.5rem;
+    line-height: 1.4;
+    margin-bottom: 20px;
 }
 
 h2 {
-  font-size: 2rem;
-  text-align: center;
-  margin-bottom: 50px;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+    padding-bottom: 10px;
 }
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: var(--secondary-color);
+}
+
 
 h3 {
   font-size: 1.5rem;
+  border-left: 5px solid var(--secondary-color);
+  padding-left: 15px;
   margin-bottom: 20px;
-  border-bottom: 2px solid var(--secondary-color);
-  padding-bottom: 10px;
 }
 
 p {
   margin-bottom: 1em;
+  color: black !important;
 }
 
-/*================================================
-  ボタン共通スタイル
-================================================*/
+a {
+  color: var(--secondary-color);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: var(--primary-color);
+}
+
+/* ===================================================================
+   ボタンの共通スタイル
+=================================================================== */
 .btn {
   display: inline-block;
-  padding: 12px 30px;
+  padding: 12px 28px;
   font-size: 1rem;
   font-weight: bold;
   text-align: center;
   text-decoration: none;
+  border: none;
   border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+  transition: all 0.3s ease;
   background-color: var(--secondary-color);
   color: var(--white-color);
-  border: none;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  opacity: 0.9;
 }
 
 .line-btn {
@@ -95,152 +125,121 @@ p {
   background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
 }
 
-/*================================================
-  ヒーローセクション (.contact-hero)
-================================================*/
+/* ===================================================================
+   ヒーローセクション (.contact-hero)
+=================================================================== */
 .contact-hero {
-  background-color: var(--light-gray);
-  padding: 60px 0;
+  background: var(--white-color);
 }
 
 .hero-content {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   gap: 40px;
 }
 
 .hero-text {
-  flex: 1;
-}
-
-.hero-paragraph {
-  font-size: 1.1rem;
-}
-
-.hero-invite {
-  margin: 20px 0;
-}
-
-.hero-buttons {
-  margin-top: 30px;
-  display: flex;
-  gap: 20px;
+  flex: 1.2;
 }
 
 .hero-media {
-  flex-basis: 350px;
+  flex: 0.8;
   text-align: center;
 }
 
 .hero-image {
   max-width: 100%;
   height: auto;
-  border-radius: 50%;
-  object-fit: cover;
-  width: 300px;
-  height: 300px;
-  border: 5px solid var(--white-color);
-  box-shadow: 0 8px 25px rgba(44, 62, 80, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
 }
 
-/*================================================
-  お問い合わせ方法 (.contact-methods)
-================================================*/
+.hero-buttons {
+  margin-top: 30px;
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+/* ===================================================================
+   お問い合わせ方法セクション (.contact-methods)
+=================================================================== */
 .contact-options {
   display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  gap: 40px;
-  margin-top: 50px;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
 }
 
 .contact-option {
-  background-color: var(--white-color);
-  border-radius: 12px;
-  padding: 40px;
+  padding: 30px;
   border: 1px solid var(--border-color);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-  text-align: center;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
 }
 
-.contact-option ul {
-  list-style-type: none;
+.contact-option .btn {
+  margin-top: auto; /* ボタンをカード下部に固定 */
+}
+
+.meeting-info {
+  list-style: none;
   padding: 0;
-  text-align: left;
-  display: inline-block;
-  margin: 20px 0;
-}
-
-.contact-option ul li {
-  margin-bottom: 10px;
-  padding-left: 1.5em;
-  position: relative;
-}
-
-.contact-option ul li::before {
-  content: '✓';
-  position: absolute;
-  left: 0;
-  color: var(--secondary-color);
-  font-weight: bold;
-}
-
-.contact-note {
-  font-size: 0.9rem;
-  color: #6c757d;
-  margin-top: 30px;
-}
-
-/* LINEセクション */
-.line-section {
-    margin: 30px 0;
-}
-.line-qr {
-  max-width: 150px;
   margin-bottom: 20px;
 }
 
-/* 電話セクション */
-.phone-section {
-    margin-top: 30px;
-}
-.phone {
-  font-size: 1.8rem;
-  font-weight: bold;
-  color: var(--primary-color);
-  margin-bottom: 5px;
-}
-.phone-info {
-  font-size: 0.9rem;
-  color: #6c757d;
+.meeting-info li {
+  padding-left: 10px;
+  margin-bottom: 10px;
 }
 
-/*================================================
-  SNSセクション (.contact-social)
-================================================*/
-.social-description {
+.meeting-note, .line-note, .insta-note {
+  font-size: 0.9rem;
+  color: #777;
+}
+
+.line-section, .phone-section {
   text-align: center;
-  max-width: 700px;
-  margin: 0 auto 40px;
+  margin: 20px 0;
+}
+
+.line-qr {
+  max-width: 150px;
+  margin-bottom: 15px;
+}
+
+.line-id, .phone {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* ===================================================================
+   Instagramセクション (.contact-social)
+=================================================================== */
+
+.contact-social p {
+    text-align: center;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .insta-gallery {
-  text-align: center;
+    text-align: center;
 }
 
 .insta-preview {
   display: flex;
   justify-content: center;
   gap: 15px;
-  margin-bottom: 40px;
+  margin: 30px 0;
 }
 
 .insta-preview img {
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
   object-fit: cover;
   border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s;
 }
 
@@ -248,19 +247,28 @@ p {
     transform: scale(1.05);
 }
 
-/*================================================
-  プロフィールセクション (.contact-profile)
-================================================*/
+.insta-note {
+    margin-top: 20px;
+}
+
+/* ===================================================================
+   プロフィールセクション (.contact-profile)
+=================================================================== */
+.contact-profile {
+    background-color: var(--primary-color);
+    color: black !important;
+}
+.contact-profile h3, .contact-profile p {
+    color: black !important;
+}
+.contact-profile h3 {
+    border-left: 5px solid var(--secondary-color);
+}
+
 .profile-content {
   display: flex;
   align-items: center;
-  gap: 40px;
-  max-width: 800px;
-  margin: 0 auto;
-  background: var(--white-color);
-  padding: 40px;
-  border-radius: 12px;
-  border: 1px solid var(--border-color);
+  gap: 30px;
 }
 
 .profile-img {
@@ -268,87 +276,59 @@ p {
   height: 150px;
   border-radius: 50%;
   object-fit: cover;
+  border: 4px solid var(--white-color);
 }
 
-.profile-text h3 {
-  border: none;
-  margin-bottom: 15px;
+.profile-text {
+  flex: 1;
 }
 
-/*================================================
-  CTAセクション (.contact-cta)
-================================================*/
+/* ===================================================================
+   CTAセクション (.contact-cta)
+=================================================================== */
 .contact-cta {
-  text-align: center;
+    text-align: center;
 }
 
 .cta-buttons {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 20px;
-  margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
 }
 
-/*================================================
-  レスポンシブ対応 (768px以下)
-================================================*/
+/* ===================================================================
+   レスポンシブ対応 (768px以下のスクリーン)
+=================================================================== */
 @media (max-width: 768px) {
-  h1 {
-    font-size: 1.8rem;
-  }
-  h2 {
-    font-size: 1.6rem;
-  }
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.7rem; }
+  h3 { font-size: 1.3rem; }
 
   section {
-    padding: 60px 0;
+    padding: 30px 20px;
   }
 
-  /* ヒーローセクション */
-  .hero-content {
+  .hero-content, .profile-content {
     flex-direction: column;
     text-align: center;
   }
 
   .hero-text {
-    order: 2;
+    order: 2; /* テキストを画像の下に */
   }
-  
+
   .hero-media {
     order: 1;
-    margin-bottom: 30px;
   }
 
-  .hero-image {
-    width: 200px;
-    height: 200px;
-  }
-
-  .hero-buttons {
+  .hero-buttons, .cta-buttons {
     justify-content: center;
   }
 
-  /* SNS */
   .insta-preview {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  /* プロフィール */
-  .profile-content {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  /* CTA */
-  .cta-buttons {
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .cta-buttons .btn {
-    width: 80%;
-    max-width: 300px;
+      flex-direction: column;
+      align-items: center;
   }
 }
