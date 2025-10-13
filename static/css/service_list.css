@@ -7,8 +7,8 @@
   --font-family-sans-serif: "Amazon Ember", "Helvetica Neue", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
   
   /* ブランドカラー */
-  --dl-color-primary-300: #0284c7;
-  --dl-color-primary-500: #4aa4e3;
+  --dl-color-primary-300: #0284c7ff;
+  --dl-color-primary-500: rgb(74, 163, 227);
   --dl-color-primary-700: #c3e5fa;
   --dl-color-gray-700: #999999;
   --dl-color-gray-900: #c3c5c9;
@@ -17,11 +17,11 @@
   
   /* アクセントカラー */
   --dl-color-gold: #FFD700;
-  --dl-color-gold-dark: #FFA500;
+  --dl-color-gold-dark: #f59e0b;
   
   /* キャンペーン用カラー */     
-  --campaign-primary: #ff6b35;
-  --campaign-secondary: #f39c12;
+  --campaign-primary: #f59e0b;
+  --campaign-secondary: #f59e0b;
   --campaign-bg: #fff3cd;
   
   /* フィーチャーリスト用カラー */

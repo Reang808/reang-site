@@ -195,7 +195,7 @@ s
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 0;
+    border-radius: 5px;
     padding: var(--space-8);
     transition: all var(--transition-base);
     box-shadow: var(--shadow-xl);
@@ -297,11 +297,11 @@ s
     display: inline-flex;
     align-items: center;
     gap: var(--space-1);
-    padding: var(--space-2) var(--space-4);
-    background: linear-gradient(135deg, var(--primary-500) 0%, var(--primary-600) 100%);
+    padding: var(--space-4) var(--space-8);
+    background: var(--primary-600);
     color: var(--white);
     text-decoration: none;
-    border-radius: 0;
+    border-radius: 5px;
     font-weight: var(--font-weight-medium);
     font-size: var(--text-xs);
     transition: all var(--transition-base);
@@ -491,10 +491,11 @@ s
 }
 
 .faq-answer p {
+    margin-top: 10px;
     font-size: var(--text-base);
     color: var(--gray-700);
     line-height: 1.7;
-    margin: 0;
+    
     font-family: var(--font-family-japanese);
 }
 
