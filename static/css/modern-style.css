@@ -116,7 +116,7 @@ body {
     font-family: var(--font-family-japanese);
     line-height: 1.6;
     color: var(--gray-800);
-    background-color: var(--white);
+    background: linear-gradient(135deg, var(--gray-50) 25%, var(--white) 25%, var(--gray-50) 50%, var(--white) 50%);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     margin: 0;

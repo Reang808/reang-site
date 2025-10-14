@@ -16,14 +16,14 @@
 
 {% block content %}
 <section class="hero-section">
-    <video class="hero-video-bg" autoplay muted loop playsinline>
+    {% comment %} <video class="hero-video-bg" autoplay muted loop playsinline>
         <source src="{% static 'videos/computerwork.mp4' %}" type="video/mp4">
         Your browser does not support the video tag.
     </video>
     <video class="hero-video-bg2" autoplay muted loop playsinline>
         <source src="{% static 'videos/coverr-coding-sequences-9906-1080p.mp4' %}" type="video/mp4">
         Your browser does not support the video tag.
-    </video>
+    </video> {% endcomment %}
     
     <div class="hero-video-overlay"></div>
     
@@ -95,7 +95,7 @@
                 <h3 class="feature-card-title">料金 -Price-</h3>
                 <div class="feature-card-content">
                     <div class="feature-icon">
-                        <img src="{% static 'images/reang.jpg' %}" alt="料金プラン" class="feature-img">
+                        <img src="{% static 'images/pricing.jpg' %}" alt="料金プラン" class="feature-img">
                     </div>
                     <div class="feature-card-text-content">
                         <p>個人開発の強みを活かし、<br>ご要望に合わせた柔軟な対応と<br>大手にはできない料金設定を実現します。</p>

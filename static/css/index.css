@@ -20,7 +20,7 @@ Reang Homepage Styles (index.css)
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    background: linear-gradient(135deg, var(--primary-900) 0%, var(--primary-700) 100%);
+    background: linear-gradient(135deg, var(--white) 50%, var(--gray-100) 50%);
 }
 
 /* 動画背景 - 縦分割レイアウト */
@@ -47,7 +47,7 @@ Reang Homepage Styles (index.css)
 }
 
 /* 動画オーバーレイ - 縦分割対応 */
-.hero-video-overlay {
+/* .hero-video-overlay {
     position: absolute;
     top: 0;
     left: 0;
@@ -55,12 +55,12 @@ Reang Homepage Styles (index.css)
     height: 100%;
     background: linear-gradient(
         180deg,
-        rgba(0, 32, 121, 0) 0%,
-        rgba(59, 85, 142, 0) 50%,
-        rgba(255, 255, 255, 0.7) 100%
+        rgba(0, 32, 121, 0) 10%,
+        rgba(59, 85, 142, 0) 90%,
+        rgba(255, 255, 255, 0.7) 0%
     );
     z-index: 2;
-}
+} */
 
 /* 縦分割ライン効果（オプション） */
 .hero-video-overlay::after {
@@ -126,7 +126,7 @@ Reang Homepage Styles (index.css)
 
 /* バッジリンクのスタイル */
 .badge-link {
-    color: inherit;
+    color: black;
     text-decoration: none;
     transition: all var(--transition-base);
     padding: var(--space-1) var(--space-2);
@@ -164,7 +164,7 @@ Reang Homepage Styles (index.css)
 }
 
 .title-highlight {
-    background: linear-gradient(135deg, #f5f3d4 10%, #c2eadeb1 90%);
+    background: linear-gradient(135deg, rgb(74, 163, 227), #0284c7ff 90%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -352,15 +352,16 @@ s
 
 /* ===== コンタクトセクション ===== */
 .contact-section {
-    padding: var(--space-32) var(--space-6);
-    background: linear-gradient(135deg, var(--gray-50) 0%, var(--white) 100%);
+    padding: 200px 200px;
+    /* padding: var(--space-32) var(--space-6); */
+    background: linear-gradient(135deg, var(--gray-100) 50%, var(--white) 50%);
     position: relative;
 }
 
 /* ===== FAQセクション ===== */
 .faq-section {
     padding: var(--space-32) var(--space-6) var(--space-24);
-    background: linear-gradient(135deg, var(--white) 0%, var(--gray-50) 100%);
+    background: linear-gradient(135deg, var(--white) 50%, var(--gray-100) 50%);
     position: relative;
     margin-top: var(--space-8);
 }
